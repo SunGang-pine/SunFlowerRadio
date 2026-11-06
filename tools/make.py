@@ -13,7 +13,7 @@ import argparse
 import datetime as dt
 import time
 
-from .config import LANG_META, ROOT, get_settings, setup_stdout, station_languages
+from .config import EDGE_VOICE_CHOICES, LANG_META, ROOT, get_settings, setup_stdout, station_languages
 from .deepseek import DeepSeekClient
 from .news import FEEDS, FEED_BY_ID, collect_candidates, manual_candidates
 from .script import write_episode
@@ -109,12 +109,13 @@ def cmd_episode(args) -> int:
 
 
 def cmd_voices(args) -> int:
-    voices = list_voices()
-    if not voices:
-        print("no SAPI voices found")
-        return 1
-    for name in voices:
-        print(name)
+    print("Edge neural voices (default):")
+    for lang, choices in EDGE_VOICE_CHOICES.items():
+        for voice in choices:
+            print(f"  {lang}  {voice['id']:<30} {voice['label']}")
+    print("\nWindows SAPI fallback:")
+    for name in list_voices():
+        print("  " + name)
     return 0
 
 
@@ -130,7 +131,7 @@ def build_parser() -> argparse.ArgumentParser:
     def common(sp):
         sp.add_argument("--date", help="YYYY-MM-DD (default: today)")
         sp.add_argument("--lang", default=None, choices=sorted(LANG_META), help="episode language")
-        sp.add_argument("--voice", help="Windows SAPI voice name")
+        sp.add_argument("--voice", help="Edge neural voice id (e.g. zh-CN-XiaoxiaoNeural) or SAPI voice name")
         sp.add_argument("--rate", type=int, default=None, help="SAPI rate -10..10")
         sp.add_argument("--force", action="store_true", help="rebuild existing audio")
 

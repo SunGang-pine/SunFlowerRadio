@@ -221,119 +221,119 @@
  "format": "monoradio/news-1",
  "date": "2026-11-05",
  "lang": "ja",
- "seconds": 89.845,
+ "seconds": 96.8,
  "lines_timed": [
   {
    "start": 0.6,
-   "end": 6.756,
+   "end": 7.104,
    "show": "おはようございます、SunFlowerRadioです。11月5日木曜日の朝です。",
    "part": 0
   },
   {
-   "start": 7.036,
-   "end": 9.495,
+   "start": 7.384,
+   "end": 10.288,
    "show": "今日は5本のニュースをお届けします。",
    "part": 0
   },
   {
-   "start": 10.495,
-   "end": 14.149,
+   "start": 11.288,
+   "end": 15.296,
    "show": "まずは、Google DeepMindのGenie 4です。",
    "part": 1
   },
   {
-   "start": 14.429,
-   "end": 18.902,
+   "start": 15.576,
+   "end": 20.496,
    "show": "操作できる仮想世界を、音や会話まで生成。",
    "part": 1
   },
   {
-   "start": 19.182,
-   "end": 22.717,
+   "start": 20.776,
+   "end": 24.664,
    "show": "天気や登場人物も、その場で変えられる。",
    "part": 1
   },
   {
-   "start": 23.717,
-   "end": 26.619,
+   "start": 25.664,
+   "end": 28.904,
    "show": "続いては、OpenAIのPandoです。",
    "part": 2
   },
   {
-   "start": 26.899,
-   "end": 31.576,
+   "start": 29.184,
+   "end": 34.224,
    "show": "多数のAIエージェントが並列で開発できるGit基盤。",
    "part": 2
   },
   {
-   "start": 31.856,
-   "end": 36.44,
+   "start": 34.504,
+   "end": 39.424,
    "show": "pushの待ち時間の中央値が約80%短縮。",
    "part": 2
   },
   {
-   "start": 37.44,
-   "end": 41.624,
+   "start": 40.424,
+   "end": 44.984,
    "show": "ここからは国内の話、SHINING 3Dのスキャナー。",
    "part": 3
   },
   {
-   "start": 41.904,
-   "end": 46.614,
+   "start": 45.264,
+   "end": 50.496,
    "show": "FreeScan Combo+ Wireless、重さ550g。",
    "part": 3
   },
   {
-   "start": 46.894,
-   "end": 50.495,
+   "start": 50.776,
+   "end": 54.664,
    "show": "ケーブルなしで持ち歩いて測れるのが魅力。",
    "part": 3
   },
   {
-   "start": 51.495,
-   "end": 55.392,
+   "start": 55.664,
+   "end": 59.744,
    "show": "国内からもう一本、スペースデータのRobotBrain。",
    "part": 4
   },
   {
-   "start": 55.672,
-   "end": 60.616,
+   "start": 60.024,
+   "end": 65.328,
    "show": "日本語の指示で災害捜索ロボットの行動を計画。",
    "part": 4
   },
   {
-   "start": 60.896,
-   "end": 64.537,
+   "start": 65.608,
+   "end": 69.52,
    "show": "公開された例は、架空のシミュレーション。",
    "part": 4
   },
   {
-   "start": 65.537,
-   "end": 68.471,
+   "start": 70.52,
+   "end": 73.784,
    "show": "最後は、光造形機の話です。",
    "part": 5
   },
   {
-   "start": 68.751,
-   "end": 73.079,
+   "start": 74.064,
+   "end": 78.816,
    "show": "SK本舗がFormlabs Form Studio 1の予約開始。",
    "part": 5
   },
   {
-   "start": 73.359,
-   "end": 77.744,
+   "start": 79.096,
+   "end": 83.92,
    "show": "税込160,710円から、入荷時期は未定。",
    "part": 5
   },
   {
-   "start": 78.744,
-   "end": 82.835,
+   "start": 84.92,
+   "end": 89.48,
    "show": "今日の注目は、日本語で頼める災害捜索ロボット。",
    "part": 6
   },
   {
-   "start": 83.115,
-   "end": 87.845,
+   "start": 89.76,
+   "end": 94.8,
    "show": "以上、SunFlowerRadioでした。また明日。",
    "part": 6
   }
@@ -343,45 +343,46 @@
    "kind": "opening",
    "index": null,
    "start": 0.6,
-   "end": 10.495
+   "end": 11.288
   },
   {
    "kind": "news",
    "index": 0,
-   "start": 10.495,
-   "end": 23.717
+   "start": 11.288,
+   "end": 25.664
   },
   {
    "kind": "news",
    "index": 1,
-   "start": 23.717,
-   "end": 37.44
+   "start": 25.664,
+   "end": 40.424
   },
   {
    "kind": "news",
    "index": 2,
-   "start": 37.44,
-   "end": 51.495
+   "start": 40.424,
+   "end": 55.664
   },
   {
    "kind": "news",
    "index": 3,
-   "start": 51.495,
-   "end": 65.537
+   "start": 55.664,
+   "end": 70.52
   },
   {
    "kind": "news",
    "index": 4,
-   "start": 65.537,
-   "end": 78.744
+   "start": 70.52,
+   "end": 84.92
   },
   {
    "kind": "closing",
    "index": null,
-   "start": 78.744,
-   "end": 89.845
+   "start": 84.92,
+   "end": 96.8
   }
  ],
- "made_at": "2026-11-06T10:39:22",
- "voice": "Microsoft Haruka Desktop"
+ "made_at": "2026-11-06T20:43:48",
+ "voice": "ja-JP-NanamiNeural",
+ "tts": "edge"
 }

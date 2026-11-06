@@ -24,7 +24,8 @@
   "note": "AIで生成したキャラクターです"
  },
  "credits": [
-  "声：Microsoft Haruka（日本語）/ Microsoft Zira（英語）/ Microsoft Huihui（中文）（Windows 音声合成）",
+  "声：Microsoft Edge 神经语音（Nanami / Ava / Xiaoxiao）",
+  "离线备用：Microsoft Haruka / Zira / Huihui",
   "台本：DeepSeek",
   "キャラクター：AI生成",
   "ロゴ：SunFlowerRadio"
@@ -40,7 +41,8 @@
    "tagline": "Morning news on AI and 3D",
    "description": "The news worth knowing in AI, 3D printing and electronics, written by DeepSeek and voiced locally every morning in 90 seconds.",
    "credits": [
-    "Voice: Microsoft Zira (Windows TTS)",
+    "Voice: Microsoft Edge Neural TTS (Ava)",
+    "Offline fallback: Windows SAPI (Zira)",
     "Script: DeepSeek",
     "Character: AI-generated",
     "Logo: SunFlowerRadio"
@@ -51,7 +53,8 @@
    "tagline": "AI・3D 每日新闻",
    "description": "AI、3D 打印与电子制作的每日新闻，由 DeepSeek 写稿、本地语音播报，每天 90 秒。",
    "credits": [
-    "声音：Microsoft Huihui（Windows 语音合成）",
+    "声音：Microsoft Edge 神经语音（晓晓）",
+    "离线备用：Windows SAPI（Huihui）",
     "台本：DeepSeek",
     "角色：AI 生成",
     "标志：SunFlowerRadio"

@@ -5,7 +5,7 @@
 > **2026-11-06 已生成日本語 / English / 中文三语版本。**
 >
 > 一个每天早上播报 AI、3D 打印与电子制作新闻的「网页电台」。
-> **DeepSeek 写台本 · Windows 语音合成配音 · 字幕/幻灯片/口型自动对齐。**
+> **DeepSeek 写台本 · Microsoft Edge 神经语音配音 · 字幕/幻灯片/口型自动对齐。**
 
 ![播放器](docs/preview-player-zh.png)
 
@@ -15,7 +15,7 @@ SunFlowerRadio 基于 [myradio](https://github.com/monoradio102/myradio) 的静�
 
 - **新闻**：从真实 RSS（TechCrunch、The Verge、Ars Technica、OpenAI、Hackaday、IEEE Spectrum）抓取，保留原文链接与 OGP 卡片。
 - **台本**：DeepSeek 根据素材写**日文 / 英文 / 中文**台本，严格输出播放器需要的 JSON；校验失败会自动修正一次。
-- **配音**：调用 Windows 内置语音（Haruka / Zira / Huihui），逐句合成，自动计算 `lines_timed` 与 `segments`。
+- **配音**：默认调用 Microsoft Edge 神经语音（中文晓晓 / 日文 Nanami / 英文 Ava），逐句合成，自动计算 `lines_timed` 与 `segments`；离线或网络失败时自动回退到 Windows SAPI。
 - **制作台**：本地网页 UI（`/studio/`），填日期、语言、条数就能出片；API Key 只留在本机。
 - **校验**：`python -m tools.check` 检查台本、时间轴、音频是否一致。
 
@@ -29,6 +29,7 @@ SunFlowerRadio 基于 [myradio](https://github.com/monoradio102/myradio) 的静�
 
 - Windows 10/11
 - Python 3.10+（当前机器已验证 3.14）
+- `edge-tts`（神经语音，在线；`pip install -r requirements.txt`）
 - ffmpeg（用于把 WAV 编码成 MP3、读取时长）
 - 可选：Pillow（生成分享卡片时需要，当前环境已安装）
 
@@ -37,6 +38,13 @@ SunFlowerRadio 基于 [myradio](https://github.com/monoradio102/myradio) 的静�
 ```powershell
 python --version
 ffmpeg -version
+python -c "import edge_tts; print(edge_tts.__version__)"
+```
+
+没有安装依赖时：
+
+```powershell
+python -m pip install -r requirements.txt
 ```
 
 ### 2. 启动
@@ -88,6 +96,16 @@ DEEPSEEK_BASE_URL=https://api.deepseek.com
 3. 选择是否生成语音、音色、语速。
 4. 点「开始生成」。右侧会实时显示 DeepSeek 写作、配音、时间轴计算的日志。
 5. 完成后会出现在「节目库」，点「打开」直接在播放器里看这一期。
+
+### 音色
+
+制作台里的「音色」会随语言切换：
+
+- 中文：晓晓（女 · 温暖）、晓伊（女 · 活泼）、云希（男 · 阳光）、云健（男 · 激情）、云扬（男 · 专业）
+- 日语：Nanami（女）、Keita（男）
+- English：Ava、Emma、Andrew、Brian
+
+默认使用 Edge 神经语音；如果网络不可用，会自动回退到本机 SAPI 音色，并在日志里说明。
 
 生成过程大约 15–60 秒（取决于新闻源与 DeepSeek 响应）。
 
@@ -160,7 +178,7 @@ tools/
   deepseek.py              DeepSeek 客户端（OpenAI 兼容）
   news.py                  RSS / Atom、文章正文、OGP
   script.py                DeepSeek 台本生成、校验、组装
-  voice.py                 Windows SAPI → WAV → 时间轴 → MP3
+  voice.py                 Edge 神经语音 / SAPI → WAV → 时间轴 → MP3
   make.py                  命令行入口
   check.py                 自检
   sapi.ps1                 System.Speech 封装
@@ -169,6 +187,7 @@ tools/
   share.py                 上游的分享卡片
 
 .env.example               密钥模板
+requirements.txt           Python 依赖（edge-tts / requests / Pillow）
 .env.local                 你的本机密钥（gitignore，不会提交）
 start.ps1 / start.cmd      一键启动
 share/                     每期的分享卡片（tools/share.py 生成）
@@ -181,7 +200,7 @@ docs/preview-studio.png    制作台截图
 
 配音不是先合成一整段再去猜每句的时间。`tools/voice.py` 会：
 
-1. 把 `opening`、每条新闻的 `lines`、`closing` 逐句交给 SAPI，生成等长格式的 WAV；
+1. 把 `opening`、每条新闻的 `lines`、`closing` 逐句交给 Edge 神经语音（或 SAPI 备用），生成等长格式的 WAV；
 2. 用同一个采样计数拼接：开头 0.6s、句间 0.28s、段落间 1.0s、结尾 2.0s；
 3. 由这份 PCM 直接算出每句的 `start` / `end` 与每个 `segments`；
 4. 编码成 128 kbps MP3，并回写 `seconds` / `made_at`。
@@ -221,7 +240,7 @@ python tools/share.py --all --font "C:/Windows/Fonts/YuGothM.ttc" --font-zh "C:/
 - 播放器、`character/`、原版 `station.json` 结构来自 [myradio](https://github.com/monoradio102/myradio)（MIT / CC0，角色可自由使用）。
 - 角色为 AI 生成素材；原样保留。
 - SunFlowerRadio 的向日葵 logo 为本项目绘制。
-- 语音：Microsoft Haruka（日语）、Microsoft Zira（英语），来自 Windows 内置 SAPI，不再使用示例里的 COEIROINK / Kokoro 声音。
+- 语音：Microsoft Edge 神经语音（中文晓晓、日文 Nanami、英文 Ava），来自 Edge 在线 TTS；Windows SAPI（Haruka / Zira / Huihui）作为离线备用。DeepSeek 本身只提供文本模型，不提供 TTS 音色。
 - 台本由 DeepSeek 根据公开 RSS 素材生成；每条新闻都保留原文链接。新闻事实以原文为准。
 - 天气：Open-Meteo（CC BY 4.0），播放器会在页脚显示。
 

@@ -170,101 +170,101 @@
   }
  ],
  "highlight": 0,
- "seconds": 89.223,
+ "seconds": 74.72,
  "lines_timed": [
   {
    "start": 0.6,
-   "end": 4.929,
+   "end": 3.768,
    "show": "早上好，欢迎收听 SunFlowerRadio。",
    "part": 0
   },
   {
-   "start": 5.209,
-   "end": 12.168,
+   "start": 4.048,
+   "end": 9.616,
    "show": "2026年11月6日 星期五 · 今日4条新闻",
    "part": 0
   },
   {
-   "start": 13.168,
-   "end": 17.837,
+   "start": 10.616,
+   "end": 14.84,
    "show": "Perplexity 推出工作向 AI 智能体 Teammates",
    "part": 1
   },
   {
-   "start": 18.117,
-   "end": 23.011,
+   "start": 15.12,
+   "end": 18.744,
    "show": "全天候运行，可同时承担多个角色",
    "part": 1
   },
   {
-   "start": 23.291,
-   "end": 27.52,
+   "start": 19.024,
+   "end": 22.576,
    "show": "需订阅每月200美元 Max 计划",
    "part": 1
   },
   {
-   "start": 28.52,
-   "end": 34.473,
+   "start": 23.576,
+   "end": 28.64,
    "show": "Airbnb 计划 2027 上半年推出 AI 旅行智能体",
    "part": 2
   },
   {
-   "start": 34.753,
-   "end": 40.077,
+   "start": 28.92,
+   "end": 32.928,
    "show": "不用纯聊天，组合地图照片和行程",
    "part": 2
   },
   {
-   "start": 40.357,
-   "end": 45.211,
+   "start": 33.208,
+   "end": 37.288,
    "show": "CEO 称八成旅行者享受研究行程",
    "part": 2
   },
   {
-   "start": 46.211,
-   "end": 51.875,
+   "start": 38.288,
+   "end": 43.256,
    "show": "OpenAI 总裁 Brockman 称 2027 年或可 IPO",
    "part": 3
   },
   {
-   "start": 52.155,
-   "end": 55.594,
+   "start": 43.536,
+   "end": 46.44,
    "show": "企业业务收入已占多数",
    "part": 3
   },
   {
-   "start": 55.874,
-   "end": 60.503,
+   "start": 46.72,
+   "end": 50.608,
    "show": "Q3 年化收入环比增长 70%",
    "part": 3
   },
   {
-   "start": 61.503,
-   "end": 67.302,
+   "start": 51.608,
+   "end": 56.528,
    "show": "OpenAI 承诺不与公职人员签 NDA",
    "part": 4
   },
   {
-   "start": 67.582,
-   "end": 72.086,
+   "start": 56.808,
+   "end": 60.648,
    "show": "支付全部电力和基础设施成本",
    "part": 4
   },
   {
-   "start": 72.366,
-   "end": 77.43,
+   "start": 60.928,
+   "end": 65.056,
    "show": "每个计算园区设本地契约",
    "part": 4
   },
   {
-   "start": 78.43,
-   "end": 84.598,
+   "start": 66.056,
+   "end": 70.664,
    "show": "感谢收听 SunFlowerRadio，我们明天见。",
    "part": 5
   },
   {
-   "start": 84.878,
-   "end": 87.223,
+   "start": 70.944,
+   "end": 72.72,
    "show": "明天早上再见。",
    "part": 5
   }
@@ -274,39 +274,40 @@
    "kind": "opening",
    "index": null,
    "start": 0.6,
-   "end": 13.168
+   "end": 10.616
   },
   {
    "kind": "news",
    "index": 0,
-   "start": 13.168,
-   "end": 28.52
+   "start": 10.616,
+   "end": 23.576
   },
   {
    "kind": "news",
    "index": 1,
-   "start": 28.52,
-   "end": 46.211
+   "start": 23.576,
+   "end": 38.288
   },
   {
    "kind": "news",
    "index": 2,
-   "start": 46.211,
-   "end": 61.503
+   "start": 38.288,
+   "end": 51.608
   },
   {
    "kind": "news",
    "index": 3,
-   "start": 61.503,
-   "end": 78.43
+   "start": 51.608,
+   "end": 66.056
   },
   {
    "kind": "closing",
    "index": null,
-   "start": 78.43,
-   "end": 89.223
+   "start": 66.056,
+   "end": 74.72
   }
  ],
- "made_at": "2026-11-06T11:19:42",
- "voice": "Microsoft Huihui Desktop"
+ "made_at": "2026-11-06T20:45:53",
+ "voice": "zh-CN-XiaoxiaoNeural",
+ "tts": "edge"
 }

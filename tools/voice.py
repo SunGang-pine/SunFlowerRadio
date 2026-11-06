@@ -1,14 +1,19 @@
-"""Offline voice generation with the Windows speech engine.
+"""Voice generation with Microsoft Edge neural voices (SAPI fallback).
 
 The player needs one MP3 per episode plus exact ``lines_timed`` / ``segments``.
 We synthesize every line separately, measure the WAVs, then assemble the audio
 and the timeline from the same sample counts.  That keeps subtitles, slides and
 the character's mouth in sync without relying on word timestamps from a cloud
 TTS service.
+
+Edge-TTS gives natural neural voices (Xiaoxiao / Nanami / Ava).  If it is not
+installed or the network is unavailable, the Windows SAPI voices still work.
 """
 from __future__ import annotations
 
+import asyncio
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -18,7 +23,7 @@ import wave
 from pathlib import Path
 from typing import Callable
 
-from .config import AUDIO_DIR, LANG_META, audio_path, episode_path, read_json, update_episode_index, write_json
+from .config import AUDIO_DIR, EDGE_VOICE_IDS, LANG_META, audio_path, episode_path, read_json, update_episode_index, write_json
 
 SAPI_PS1 = Path(__file__).resolve().parent / "sapi.ps1"
 LEAD_IN = 0.60
@@ -80,6 +85,67 @@ def _run_sapi(items: list[dict], out_dir: Path, voice: str, rate: int) -> dict:
             except json.JSONDecodeError:
                 pass
     raise RuntimeError("Windows TTS returned no result")
+
+
+def edge_available() -> bool:
+    try:
+        import edge_tts  # noqa: F401
+        return True
+    except Exception:
+        return False
+
+
+def _edge_rate(rate: int) -> str:
+    return f"{max(-50, min(50, int(rate) * 5)):+d}%"
+
+
+def _is_edge_voice(voice: str | None) -> bool:
+    return bool(voice) and (voice in EDGE_VOICE_IDS or voice.endswith("Neural"))
+
+
+def _run_edge(items: list[dict], out_dir: Path, voice: str, rate: int, log: Callable[[str], None]) -> dict:
+    """Synthesize every line with the Microsoft Edge neural voice."""
+    import edge_tts
+
+    async def one(sem: asyncio.Semaphore, item: dict) -> None:
+        async with sem:
+            mp3 = out_dir / f"{item['id']}.mp3"
+            wav = out_dir / f"{item['id']}.wav"
+            last: Exception | None = None
+            for attempt in range(3):
+                try:
+                    await edge_tts.Communicate(item["text"], voice, rate=_edge_rate(rate)).save(str(mp3))
+                    break
+                except Exception as exc:
+                    last = exc
+                    await asyncio.sleep(1.0 * (attempt + 1))
+            else:
+                raise RuntimeError(f"Edge-TTS failed for {item['id']}: {last}")
+            proc = subprocess.run(
+                [_ffmpeg(), "-y", "-loglevel", "error", "-i", str(mp3), "-ar", str(RATE_HZ),
+                 "-ac", "1", "-sample_fmt", "s16", str(wav)],
+                capture_output=True, timeout=120,
+            )
+            if proc.returncode != 0 or not wav.exists() or wav.stat().st_size <= 44:
+                raise RuntimeError(f"Edge-TTS produced no audio for {item['id']}")
+
+    async def main() -> None:
+        sem = asyncio.Semaphore(4)
+        await asyncio.gather(*(one(sem, item) for item in items))
+
+    saved = {k: os.environ.get(k) for k in ("NO_PROXY", "no_proxy")}
+    os.environ["NO_PROXY"] = "*"
+    os.environ["no_proxy"] = "*"
+    try:
+        asyncio.run(main())
+    finally:
+        for key, value in saved.items():
+            if value is None:
+                os.environ.pop(key, None)
+            else:
+                os.environ[key] = value
+    log(f"edge voice ready: {voice} · rate {_edge_rate(rate)}")
+    return {"voice": voice, "engine": "edge"}
 
 
 def _read_wav(path: Path) -> tuple[bytes, float]:
@@ -153,8 +219,8 @@ def synthesize_episode(
     log: Callable[[str], None] | None = None,
 ) -> dict:
     say = log or (lambda _: None)
-    if not sapi_available():
-        raise RuntimeError("Windows SAPI is not available on this machine")
+    if not sapi_available() and not edge_available():
+        raise RuntimeError("No TTS engine is available (install edge-tts or use Windows SAPI)")
     path = episode_path(date, lang)
     if not path.exists():
         raise FileNotFoundError(f"episode not found: {path}")
@@ -165,7 +231,13 @@ def synthesize_episode(
         return {"date": date, "lang": lang, "audio": str(out), "seconds": ep.get("seconds", 0), "skipped": True}
 
     meta = LANG_META.get(lang, LANG_META["ja"])
-    voice = voice or meta["voice"]
+    if not voice:
+        voice = meta.get("edge_voice") if edge_available() else meta["voice"]
+    use_edge = _is_edge_voice(voice) and edge_available()
+    if _is_edge_voice(voice) and not edge_available():
+        say("edge-tts is not installed; using the Windows SAPI voice")
+        voice = meta["voice"]
+        use_edge = False
     rate = meta["rate"] if rate is None else rate
 
     parts: list[tuple[int, list[dict]]] = []
@@ -195,9 +267,23 @@ def synthesize_episode(
     started = time.time()
     try:
         say(f"synthesizing {len(items)} lines with 「{voice}」…")
-        result = _run_sapi(items, tmp, voice, rate)
-        chosen = result.get("voice") or voice
-        say(f"voice: {chosen} (requested {voice})")
+        engine = "sapi"
+        if use_edge:
+            try:
+                result = _run_edge(items, tmp, voice, rate, say)
+                chosen = result.get("voice") or voice
+                engine = "edge"
+                say(f"voice: {chosen} (Edge neural)")
+            except Exception as exc:
+                say(f"Edge-TTS failed ({type(exc).__name__}: {exc}); falling back to Windows SAPI")
+                result = _run_sapi(items, tmp, meta["voice"], rate)
+                chosen = result.get("voice") or meta["voice"]
+                engine = "sapi"
+                say(f"voice: {chosen} (SAPI fallback)")
+        else:
+            result = _run_sapi(items, tmp, voice, rate)
+            chosen = result.get("voice") or voice
+            say(f"voice: {chosen} (requested {voice})")
 
         durations: dict[str, float] = {}
         for item in items:
@@ -265,6 +351,7 @@ def synthesize_episode(
         ep["seconds"] = round(seconds, 3)
         ep["made_at"] = time.strftime("%Y-%m-%dT%H:%M:%S")
         ep["voice"] = chosen
+        ep["tts"] = engine
         write_json(path, ep)
         update_episode_index(date, lang, ep.get("title", ""), seconds)
         say(f"audio: {out.name} · {seconds:.2f}s · {len(lines_timed)} lines" + (f" (mp3 {probed:.2f}s)" if probed else ""))
@@ -278,6 +365,7 @@ def synthesize_episode(
             "mp3_seconds": round(probed, 3) if probed else None,
             "lines": len(lines_timed),
             "voice": chosen,
+            "engine": engine,
             "elapsed_s": round(time.time() - started, 1),
         }
     finally:

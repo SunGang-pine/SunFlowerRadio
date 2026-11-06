@@ -65,7 +65,7 @@ async function loadStatus() {
   $("#statEpisodes").textContent = s.episodes.length;
   $("#statVoiced").textContent = s.episodes.filter(e => e.audio).length;
   $("#statModel").textContent = s.settings.model || "—";
-  $("#statTts").textContent = s.sapi ? "Windows SAPI" : "不可用";
+  $("#statTts").textContent = s.tts || (s.sapi ? "Windows SAPI" : "不可用");
 
   updateKeyPill();
   renderLanguages();
@@ -124,19 +124,22 @@ function renderVoices() {
   const lang = $("#lang").value || "ja";
   const sel = $("#voiceName");
   const previous = sel.value;
-  const voices = st?.voices?.length ? st.voices : Object.values(st?.default_voices || {});
-  const unique = [...new Set(voices.filter(Boolean))];
-  sel.innerHTML = unique.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join("");
-  const fallback = st?.default_voices?.[lang] || unique[0] || "";
+  const options = (st?.voice_options?.[lang] || []).filter(o => o && o.id);
+  const fallbackList = [...new Set((st?.voices || Object.values(st?.default_voices || {})).filter(Boolean))]
+    .map(v => ({ id: v, label: v }));
+  const list = options.length ? options : fallbackList;
+  const ids = list.map(o => o.id);
+  sel.innerHTML = list.map(o => `<option value="${esc(o.id)}">${esc(o.label || o.id)}</option>`).join("");
+  const fallback = st?.default_voices?.[lang] || list[0]?.id || "";
   const match = (name) => {
     if (!name) return "";
-    if (unique.includes(name)) return name;
+    if (ids.includes(name)) return name;
     const low = name.toLowerCase();
-    return unique.find(v => v.toLowerCase().includes(low)) ||
-      unique.find(v => low.includes(v.toLowerCase())) || "";
+    return ids.find(v => v.toLowerCase().includes(low)) ||
+      ids.find(v => low.includes(v.toLowerCase())) || "";
   };
   const wanted = state.voiceTouched ? (match(previous) || match(fallback)) : (match(fallback) || match(previous));
-  sel.value = wanted || unique[0] || "";
+  sel.value = wanted || list[0]?.id || "";
   const rate = $("#rate");
   const want = String(st?.default_rates?.[lang] ?? 0);
   if (!rate.dataset.touched) {

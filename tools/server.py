@@ -22,6 +22,7 @@ from pathlib import Path
 from typing import Any, Callable
 
 from .config import (
+    EDGE_VOICE_CHOICES,
     LANG_META,
     ROOT,
     ENV_LOCAL,
@@ -38,7 +39,7 @@ from .config import (
 from .deepseek import DeepSeekClient, DeepSeekError
 from .news import FEEDS, FEED_BY_ID, collect_candidates, manual_candidates
 from .script import write_episode
-from .voice import list_voices, sapi_available, synthesize_episode
+from .voice import edge_available, list_voices, sapi_available, synthesize_episode
 
 MAX_BODY = 2 * 1024 * 1024
 STATIC_ROOT = ROOT
@@ -188,8 +189,20 @@ def station_status() -> dict:
         },
         "settings": get_settings().public(),
         "voices": voices(),
+        "voice_options": {
+            lang: list(EDGE_VOICE_CHOICES.get(lang, [])) + [
+                {"id": (LANG_META.get(lang) or {}).get("voice", ""),
+                 "label": f"{(LANG_META.get(lang) or {}).get('voice', '')}（Windows SAPI · 备用）"}
+            ] if (LANG_META.get(lang) or {}).get("voice") else list(EDGE_VOICE_CHOICES.get(lang, []))
+            for lang in langs
+        },
         "sapi": sapi_available(),
-        "default_voices": {lang: (LANG_META.get(lang) or {}).get("voice", "") for lang in langs},
+        "edge": edge_available(),
+        "tts": "Microsoft Edge Neural" if edge_available() else ("Windows SAPI" if sapi_available() else "unavailable"),
+        "default_voices": {
+            lang: (LANG_META.get(lang) or {}).get("edge_voice") if edge_available() else (LANG_META.get(lang) or {}).get("voice", "")
+            for lang in langs
+        },
         "default_rates": {lang: (LANG_META.get(lang) or {}).get("rate", 0) for lang in langs},
         "feeds": [{"id": f["id"], "name": f["name"], "tags": f.get("tags", []), "url": f["url"]} for f in FEEDS],
         "episodes": episodes,
@@ -280,9 +293,11 @@ def job_generate(job: Job, body: dict) -> dict:
         "seconds": 0,
     }
     if bool(body.get("voice", True)):
-        voice_name = str(body.get("voice_name") or LANG_META.get(lang, {}).get("voice", ""))
+        meta = LANG_META.get(lang, {})
+        default_voice = meta.get("edge_voice") if edge_available() else meta.get("voice", "")
+        voice_name = str(body.get("voice_name") or default_voice or "")
         rate = body.get("rate")
-        rate = int(rate) if rate is not None and str(rate) != "" else LANG_META.get(lang, {}).get("rate", 0)
+        rate = int(rate) if rate is not None and str(rate) != "" else meta.get("rate", 0)
         v = synthesize_episode(date.isoformat(), lang, voice=voice_name, rate=rate, force=True, log=job.log)
         result.update({"audio": True, "seconds": v.get("seconds"), "voice": v.get("voice"), "mp3": Path(v["audio"]).name})
     else:
@@ -296,9 +311,11 @@ def job_voice(job: Job, body: dict) -> dict:
     lang = str(body.get("lang") or station_languages()[0])
     if not episode_path(date, lang).exists():
         raise FileNotFoundError(f"没有台本：{episode_path(date, lang).name}")
-    voice_name = str(body.get("voice_name") or LANG_META.get(lang, {}).get("voice", ""))
+    meta = LANG_META.get(lang, {})
+    default_voice = meta.get("edge_voice") if edge_available() else meta.get("voice", "")
+    voice_name = str(body.get("voice_name") or default_voice or "")
     rate = body.get("rate")
-    rate = int(rate) if rate is not None and str(rate) != "" else LANG_META.get(lang, {}).get("rate", 0)
+    rate = int(rate) if rate is not None and str(rate) != "" else meta.get("rate", 0)
     job.log(f"配音：{date}-{lang} · {voice_name} · rate {rate}")
     v = synthesize_episode(date, lang, voice=voice_name, rate=rate, force=bool(body.get("force", True)), log=job.log)
     job.log("完成。")
@@ -542,7 +559,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"  player : http://{args.host}:{args.port}/")
     print(f"  studio : http://{args.host}:{args.port}/studio/")
     print(f"  key    : {settings.key_source} {mask_key(settings.api_key) or '(not configured)'}")
-    print(f"  model  : {settings.model}   TTS: {'Windows SAPI' if sapi_available() else 'unavailable'}")
+    print(f"  model  : {settings.model}   TTS: {'Edge Neural' if edge_available() else 'Windows SAPI'}")
     print("=" * 62, flush=True)
     voices()
     httpd = ThreadingHTTPServer((args.host, args.port), Handler)

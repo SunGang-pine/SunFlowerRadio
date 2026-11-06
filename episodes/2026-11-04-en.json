@@ -229,119 +229,119 @@
  "format": "monoradio/news-1",
  "date": "2026-11-04",
  "lang": "en",
- "seconds": 83.631,
+ "seconds": 90.296,
  "lines_timed": [
   {
    "start": 0.6,
-   "end": 5.764,
+   "end": 5.424,
    "show": "Good morning, and welcome to SunFlowerRadio. It's Wednesday, November 4.",
    "part": 0
   },
   {
-   "start": 6.044,
-   "end": 8.854,
+   "start": 5.704,
+   "end": 8.944,
    "show": "Today we have five stories about AI and 3D.",
    "part": 0
   },
   {
-   "start": 9.854,
-   "end": 13.208,
+   "start": 9.944,
+   "end": 13.808,
    "show": "First up, Google has released Three-Live as open source.",
    "part": 1
   },
   {
-   "start": 13.488,
-   "end": 17.847,
+   "start": 14.088,
+   "end": 19.08,
    "show": "It lets you run AI-created 3D scenes directly on the web and XR devices.",
    "part": 1
   },
   {
-   "start": 18.127,
-   "end": 20.306,
+   "start": 19.36,
+   "end": 21.544,
    "show": "It's still a developer preview for now.",
    "part": 1
   },
   {
-   "start": 21.306,
-   "end": 23.946,
+   "start": 22.544,
+   "end": 25.088,
    "show": "Next, an update to AssetFurnace.",
    "part": 2
   },
   {
-   "start": 24.226,
-   "end": 29.595,
+   "start": 25.368,
+   "end": 31.728,
    "show": "This tool makes 3D characters from images locally, and it's now lighter and more stable.",
    "part": 2
   },
   {
-   "start": 29.875,
-   "end": 32.604,
+   "start": 32.008,
+   "end": 34.888,
    "show": "The progress display is also easier to follow.",
    "part": 2
   },
   {
-   "start": 33.604,
-   "end": 38.158,
+   "start": 35.888,
+   "end": 41.288,
    "show": "Third, FluidNinja LIVE-2, a fluid effects tool for Unreal Engine.",
    "part": 3
   },
   {
-   "start": 38.438,
-   "end": 42.928,
+   "start": 41.568,
+   "end": 47.448,
    "show": "Water, smoke, and fire now interact properly with terrain and objects.",
    "part": 3
   },
   {
-   "start": 43.208,
-   "end": 46.142,
+   "start": 47.728,
+   "end": 50.68,
    "show": "It sounds like a great fit for showcase projects too.",
    "part": 3
   },
   {
-   "start": 47.142,
-   "end": 50.776,
+   "start": 51.68,
+   "end": 55.472,
    "show": "Now, an update to mGear, the rigging toolset for Maya.",
    "part": 4
   },
   {
-   "start": 51.056,
-   "end": 54.82,
+   "start": 55.752,
+   "end": 59.664,
    "show": "There's a new facial rig, and building rigs is about twice as fast.",
    "part": 4
   },
   {
-   "start": 55.1,
-   "end": 58.135,
+   "start": 59.944,
+   "end": 63.304,
    "show": "Getting your characters ready to move just got a lot easier.",
    "part": 4
   },
   {
-   "start": 59.135,
-   "end": 63.224,
+   "start": 64.304,
+   "end": 68.288,
    "show": "And last, SAGE, released by NVIDIA and its collaborators.",
    "part": 5
   },
   {
-   "start": 63.504,
-   "end": 67.103,
+   "start": 68.568,
+   "end": 72.456,
    "show": "AI automatically builds 3D environments for training robots.",
    "part": 5
   },
   {
-   "start": 67.383,
-   "end": 70.573,
+   "start": 72.736,
+   "end": 76.336,
    "show": "And it reviews and fixes the environments it creates on its own.",
    "part": 5
   },
   {
-   "start": 71.573,
-   "end": 77.477,
+   "start": 77.336,
+   "end": 84.392,
    "show": "Today's highlights: Three-Live and SAGE. 3D is expanding into environments AI uses.",
    "part": 6
   },
   {
-   "start": 77.757,
-   "end": 81.631,
+   "start": 84.672,
+   "end": 88.296,
    "show": "That's all for now. See you next time on SunFlowerRadio!",
    "part": 6
   }
@@ -351,45 +351,46 @@
    "kind": "opening",
    "index": null,
    "start": 0.6,
-   "end": 9.854
+   "end": 9.944
   },
   {
    "kind": "news",
    "index": 0,
-   "start": 9.854,
-   "end": 21.306
+   "start": 9.944,
+   "end": 22.544
   },
   {
    "kind": "news",
    "index": 1,
-   "start": 21.306,
-   "end": 33.604
+   "start": 22.544,
+   "end": 35.888
   },
   {
    "kind": "news",
    "index": 2,
-   "start": 33.604,
-   "end": 47.142
+   "start": 35.888,
+   "end": 51.68
   },
   {
    "kind": "news",
    "index": 3,
-   "start": 47.142,
-   "end": 59.135
+   "start": 51.68,
+   "end": 64.304
   },
   {
    "kind": "news",
    "index": 4,
-   "start": 59.135,
-   "end": 71.573
+   "start": 64.304,
+   "end": 77.336
   },
   {
    "kind": "closing",
    "index": null,
-   "start": 71.573,
-   "end": 83.631
+   "start": 77.336,
+   "end": 90.296
   }
  ],
- "made_at": "2026-11-06T10:39:20",
- "voice": "Microsoft Zira Desktop"
+ "made_at": "2026-11-06T20:41:50",
+ "voice": "en-US-AvaNeural",
+ "tts": "edge"
 }

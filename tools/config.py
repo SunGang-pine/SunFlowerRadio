@@ -25,14 +25,15 @@ ENV_LOCAL = ROOT / ".env.local"
 DEFAULT_BASE_URL = "https://api.deepseek.com"
 DEFAULT_MODEL = "deepseek-chat"
 
-# The station's languages.  "voice" is a Windows SAPI name; the studio lets the
-# user pick another installed voice.
+# The station's languages.  "voice" is a Windows SAPI fallback; "edge_voice"
+# is the high-quality Microsoft Edge neural voice used by default.
 LANG_META = {
     "ja": {
         "label": "日本語",
         "english": "Japanese",
         "voice": "Microsoft Haruka",
-        "rate": 2,
+        "edge_voice": "ja-JP-NanamiNeural",
+        "rate": 4,
         "weekdays": ["月", "火", "水", "木", "金", "土", "日"],
         "date_word": lambda d: f"{d.month}月{d.day}日",
     },
@@ -40,6 +41,7 @@ LANG_META = {
         "label": "English",
         "english": "English",
         "voice": "Microsoft Zira Desktop",
+        "edge_voice": "en-US-AvaNeural",
         "rate": 2,
         "weekdays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         "date_word": lambda d: d.strftime("%B ") + str(d.day),
@@ -48,11 +50,34 @@ LANG_META = {
         "label": "中文",
         "english": "Chinese",
         "voice": "Microsoft Huihui Desktop",
-        "rate": 0,
+        "edge_voice": "zh-CN-XiaoxiaoNeural",
+        "rate": 2,
         "weekdays": ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
         "date_word": lambda d: f"{d.month}月{d.day}日",
     },
 }
+
+# Voices offered in the studio.  The SAPI fallbacks are appended by the server.
+EDGE_VOICE_CHOICES = {
+    "ja": [
+        {"id": "ja-JP-NanamiNeural", "label": "Nanami（女声 · 自然）"},
+        {"id": "ja-JP-KeitaNeural", "label": "Keita（男声）"},
+    ],
+    "en": [
+        {"id": "en-US-AvaNeural", "label": "Ava（女声 · 自然）"},
+        {"id": "en-US-AndrewNeural", "label": "Andrew（男声）"},
+        {"id": "en-US-EmmaNeural", "label": "Emma（女声 · 清亮）"},
+        {"id": "en-US-BrianNeural", "label": "Brian（男声 · 轻松）"},
+    ],
+    "zh": [
+        {"id": "zh-CN-XiaoxiaoNeural", "label": "晓晓（女声 · 温暖）"},
+        {"id": "zh-CN-XiaoyiNeural", "label": "晓伊（女声 · 活泼）"},
+        {"id": "zh-CN-YunxiNeural", "label": "云希（男声 · 阳光）"},
+        {"id": "zh-CN-YunjianNeural", "label": "云健（男声 · 激情）"},
+        {"id": "zh-CN-YunyangNeural", "label": "云扬（男声 · 专业）"},
+    ],
+}
+EDGE_VOICE_IDS = {v["id"] for choices in EDGE_VOICE_CHOICES.values() for v in choices}
 
 
 def setup_stdout() -> None:
