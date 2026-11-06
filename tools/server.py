@@ -474,6 +474,8 @@ class Handler(BaseHTTPRequestHandler):
         rel = urllib.parse.unquote(path)
         if rel in ("/studio", "/studio/"):
             rel = "/studio/index.html"
+        if rel in ("/voices", "/voices/"):
+            rel = "/voices/index.html"
         if rel in ("", "/"):
             rel = "/index.html"
         rel = rel.lstrip("/")

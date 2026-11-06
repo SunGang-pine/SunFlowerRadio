@@ -13,6 +13,7 @@ $baseUrl = [string]$station.url
 $keep = 30
 if ($station.audio -and $station.audio.keep_days) { $keep = [int]$station.audio.keep_days }
 $cut = (Get-Date).Date.AddDays(-$keep)
+$py = Get-Command python -ErrorAction SilentlyContinue
 
 $tmp = Join-Path $env:TEMP ("sfr-pages-" + [guid]::NewGuid().ToString("N").Substring(0, 8))
 New-Item -ItemType Directory -Force -Path $tmp | Out-Null
@@ -21,8 +22,15 @@ try {
   foreach ($item in @("index.html", "station.json", "episodes.json", "logo.svg", "LICENSE")) {
     if (Test-Path $item) { Copy-Item $item $tmp }
   }
-  foreach ($dir in @("episodes", "character")) {
+  foreach ($dir in @("episodes", "character", "voices")) {
     if (Test-Path $dir) { Copy-Item $dir $tmp -Recurse }
+  }
+
+  # voice audition clips are generated, not committed
+  if ((Test-Path "voices/index.html") -and $py) {
+    $sampleDir = Join-Path $tmp "voices\samples"
+    & $py.Source -m tools.voice_samples --out $sampleDir | Out-Null
+    if ($LASTEXITCODE -ne 0) { Write-Host "voice samples: skipped (Edge TTS unavailable)" -ForegroundColor DarkYellow }
   }
 
   # recent audio only: audio/<YYYY-MM-DD>-<lang>.mp3
@@ -38,7 +46,6 @@ try {
 
   # share cards with the public URL
   if (-not $SkipShare) {
-    $py = (Get-Command python -ErrorAction SilentlyContinue)
     if ($py) {
       $shareArgs = @("tools/share.py", $tmp, "--all", "--url", $baseUrl)
       if (Test-Path $ShareFont) { $shareArgs += @("--font", $ShareFont) }

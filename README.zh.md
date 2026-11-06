@@ -2,6 +2,7 @@
 
 > **在线收听：<https://SunGang-pine.github.io/SunFlowerRadio/>**
 > **GitHub：<https://github.com/SunGang-pine/SunFlowerRadio>**
+> **音色试听：<https://SunGang-pine.github.io/SunFlowerRadio/voices/>**
 > **2026-11-06 已生成日本語 / English / 中文三语版本。**
 >
 > 一个每天早上播报 AI、3D 打印与电子制作新闻的「网页电台」。
@@ -107,6 +108,14 @@ DEEPSEEK_BASE_URL=https://api.deepseek.com
 
 默认使用 Edge 神经语音；如果网络不可用，会自动回退到本机 SAPI 音色，并在日志里说明。
 
+**试听全部音色**：
+
+- 线上：<https://SunGang-pine.github.io/SunFlowerRadio/voices/>
+- 本地：<http://127.0.0.1:8090/voices/>
+- 制作台右上角「试听音色」也可以打开。
+
+试听页里的音频是 11 个 Edge 音色的固定小样；`voices/samples/` 不提交到 Git，`tools/publish.ps1` 发布时会自动生成/带上。
+
 生成过程大约 15–60 秒（取决于新闻源与 DeepSeek 响应）。
 
 ### 命令行
@@ -191,6 +200,8 @@ requirements.txt           Python 依赖（edge-tts / requests / Pillow）
 .env.local                 你的本机密钥（gitignore，不会提交）
 start.ps1 / start.cmd      一键启动
 share/                     每期的分享卡片（tools/share.py 生成）
+voices/                    音色试听页（index + samples）
+tools/voice_samples.py     生成 11 个音色的试听小样
 docs/preview-player.png    播放器截图（日语）
 docs/preview-player-zh.png 播放器截图（中文）
 docs/preview-studio.png    制作台截图

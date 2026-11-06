@@ -2,6 +2,7 @@
 
 > **SunFlowerRadio** — このリポジトリは「SunFlowerRadio」として運営されています。
 > 公開先: https://SunGang-pine.github.io/SunFlowerRadio/ · リポジトリ: https://github.com/SunGang-pine/SunFlowerRadio
+> 音色試聴: https://SunGang-pine.github.io/SunFlowerRadio/voices/
 > 日本語 / English / 中文 の三言語で放送中。
 > DeepSeek が台本を書き、Microsoft Edge のニューラル音声が読み上げる制作ツールと、中文の使い方は
 > **[README.zh.md](README.zh.md)** を見てください。
