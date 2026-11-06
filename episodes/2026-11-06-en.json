@@ -1,0 +1,312 @@
+{
+ "format": "monoradio/news-1",
+ "date": "2026-11-06",
+ "lang": "en",
+ "title": "Perplexity Teammates, Airbnb's 2027 AI Agent, OpenAI IPO Talk & NDA Shift",
+ "opening": [
+  {
+   "say": "Good morning, this is SunFlowerRadio.",
+   "show": "Good morning, this is SunFlowerRadio."
+  },
+  {
+   "say": "It's Friday, November 6, 2026. Here are four stories.",
+   "show": "Friday, November 6, 2026 — four stories today."
+  }
+ ],
+ "news": [
+  {
+   "label": "Perplexity launches always-on Teammates AI agents for work",
+   "points": [
+    "Perplexity launched Teammates, always-on AI agents for work.",
+    "Teammates can take on multiple roles in a workspace.",
+    "It requires the $200 per month Max plan."
+   ],
+   "details": [
+    "Teammates pull existing projects, skills, and memory from Perplexity tools.",
+    "They integrate with Perplexity Computer, which deploys agents on your device.",
+    "CEO Aravind Srinivas says every org could have hundreds of teammates."
+   ],
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+   "lines": [
+    {
+     "say": "Perplexity has launched work-focused AI agents called Teammates.",
+     "show": "Perplexity launches Teammates AI agents for work."
+    },
+    {
+     "say": "They run 24/7 and can take on multiple roles in a workspace.",
+     "show": "Always-on agents, multiple roles in one workspace."
+    },
+    {
+     "say": "Teammates require the $200 per month Max plan.",
+     "show": "Requires the $200/month Max plan."
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+    "title": "Perplexity launches its own take on AI agents for work",
+    "site": "The Verge",
+    "description": "Perplexity is taking on OpenAI and Anthropic.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25472503/STK271_PERPLEXITY_C.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  },
+  {
+   "label": "Airbnb plans AI travel agent for first half of 2027",
+   "points": [
+    "Airbnb will launch an AI travel agent in the first half of 2027.",
+    "The agent uses a travel-specific interface, not just chat.",
+    "It draws from hundreds of travel interface components."
+   ],
+   "details": [
+    "The agent helps plan trips, compare options, and manage bookings.",
+    "CEO Brian Chesky says 80% of travelers enjoy researching trips.",
+    "Components include maps, photos, comparisons, calendars, and itineraries."
+   ],
+   "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+   "lines": [
+    {
+     "say": "Airbnb says its AI travel agent arrives in the first half of 2027.",
+     "show": "Airbnb AI travel agent: first half of 2027."
+    },
+    {
+     "say": "It uses a custom interface with maps, photos, and itineraries.",
+     "show": "Travel-specific interface: maps, photos, itineraries."
+    },
+    {
+     "say": "CEO Brian Chesky says 80% of travelers enjoy researching trips.",
+     "show": "Chesky: 80% of travelers enjoy trip research."
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+    "title": "Airbnb says it's launching an AI travel agent in the first half of 2027 | TechCrunch",
+    "site": "TechCrunch",
+    "description": "Airbnb says its upcoming AI agent will help travelers plan trips, compare options, manage bookings, and get assistance throughout their stay.",
+    "image": "https://techcrunch.com/wp-content/uploads/2025/05/Airbnb-Summer-feat.jpg?resize=1200,675",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "OpenAI president says company could be IPO ready in 2027",
+   "points": [
+    "Greg Brockman said OpenAI could be IPO ready in 2027.",
+    "Enterprise is now the majority of OpenAI's revenue.",
+    "OpenAI saw 70% quarterly growth in annualized revenue in Q3."
+   ],
+   "details": [
+    "Brockman spoke at a Wall Street Journal tech conference on Wednesday.",
+    "He said Q1 and Q2 were rough, but Q3 picked up.",
+    "Enterprise previously accounted for around 30% of total revenue."
+   ],
+   "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+   "lines": [
+    {
+     "say": "OpenAI president Greg Brockman says the company could be IPO ready in 2027.",
+     "show": "Brockman: OpenAI could be IPO ready in 2027."
+    },
+    {
+     "say": "Enterprise is now the majority of OpenAI's revenue.",
+     "show": "Enterprise now majority of OpenAI revenue."
+    },
+    {
+     "say": "OpenAI saw 70% quarterly growth in annualized revenue in Q3.",
+     "show": "Q3: 70% quarterly growth in annualized revenue."
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+    "title": "OpenAI president Greg Brockman says company could be IPO ready in 2027 | TechCrunch",
+    "site": "TechCrunch",
+    "description": "Speaking at a Wall Street Journal tech conference on Wednesday, the executive touted how the company had been gaining ground in the enterprise market, where rival Anthropic had already successfully made inroads.",
+    "image": "https://techcrunch.com/wp-content/uploads/2019/10/Greg-Brockman-OpenAIDSC02862.jpg?resize=1200,800",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "OpenAI won't use NDAs with public officials on data centers",
+   "points": [
+    "OpenAI won't use NDAs with public officials for data center projects.",
+    "It will pay the full cost of electricity it uses.",
+    "Every compute campus will have a local compact."
+   ],
+   "details": [
+    "The announcement follows midterms where voters opposed data center expansion.",
+    "OpenAI allows only narrow protections for security and trade secrets.",
+    "It will publish expected jobs and report on hiring."
+   ],
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+   "lines": [
+    {
+     "say": "OpenAI says it won't use NDAs with public officials on data center projects.",
+     "show": "No NDAs with public officials for data centers."
+    },
+    {
+     "say": "It will pay the full cost of electricity it uses.",
+     "show": "Will pay full electricity costs."
+    },
+    {
+     "say": "Every compute campus will include a local compact.",
+     "show": "Each compute campus gets a local compact."
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+    "title": "OpenAI is stepping back from NDAs for data center projects",
+    "site": "The Verge",
+    "description": "OpenAI wants to work more closely with local communities.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/STKS528_DATA_CENTERS2_B.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  }
+ ],
+ "closing": [
+  {
+   "say": "That's your briefing. Perplexity, Airbnb, OpenAI IPO talk, and data center commitments.",
+   "show": "Perplexity, Airbnb, OpenAI IPO talk, and data center commitments."
+  },
+  {
+   "say": "Thanks for listening. This is SunFlowerRadio. Have a great Friday.",
+   "show": "Thanks for listening. SunFlowerRadio — have a great Friday."
+  }
+ ],
+ "highlight": 0,
+ "seconds": 74.463,
+ "lines_timed": [
+  {
+   "start": 0.6,
+   "end": 3.214,
+   "show": "Good morning, this is SunFlowerRadio.",
+   "part": 0
+  },
+  {
+   "start": 3.494,
+   "end": 8.639,
+   "show": "Friday, November 6, 2026 — four stories today.",
+   "part": 0
+  },
+  {
+   "start": 9.639,
+   "end": 13.308,
+   "show": "Perplexity launches Teammates AI agents for work.",
+   "part": 1
+  },
+  {
+   "start": 13.588,
+   "end": 17.427,
+   "show": "Always-on agents, multiple roles in one workspace.",
+   "part": 1
+  },
+  {
+   "start": 17.707,
+   "end": 21.156,
+   "show": "Requires the $200/month Max plan.",
+   "part": 1
+  },
+  {
+   "start": 22.156,
+   "end": 26.315,
+   "show": "Airbnb AI travel agent: first half of 2027.",
+   "part": 2
+  },
+  {
+   "start": 26.595,
+   "end": 30.395,
+   "show": "Travel-specific interface: maps, photos, itineraries.",
+   "part": 2
+  },
+  {
+   "start": 30.675,
+   "end": 34.924,
+   "show": "Chesky: 80% of travelers enjoy trip research.",
+   "part": 2
+  },
+  {
+   "start": 35.924,
+   "end": 40.653,
+   "show": "Brockman: OpenAI could be IPO ready in 2027.",
+   "part": 3
+  },
+  {
+   "start": 40.933,
+   "end": 43.782,
+   "show": "Enterprise now majority of OpenAI revenue.",
+   "part": 3
+  },
+  {
+   "start": 44.062,
+   "end": 48.432,
+   "show": "Q3: 70% quarterly growth in annualized revenue.",
+   "part": 3
+  },
+  {
+   "start": 49.432,
+   "end": 53.766,
+   "show": "No NDAs with public officials for data centers.",
+   "part": 4
+  },
+  {
+   "start": 54.046,
+   "end": 56.895,
+   "show": "Will pay full electricity costs.",
+   "part": 4
+  },
+  {
+   "start": 57.175,
+   "end": 60.034,
+   "show": "Each compute campus gets a local compact.",
+   "part": 4
+  },
+  {
+   "start": 61.034,
+   "end": 67.348,
+   "show": "Perplexity, Airbnb, OpenAI IPO talk, and data center commitments.",
+   "part": 5
+  },
+  {
+   "start": 67.628,
+   "end": 72.463,
+   "show": "Thanks for listening. SunFlowerRadio — have a great Friday.",
+   "part": 5
+  }
+ ],
+ "segments": [
+  {
+   "kind": "opening",
+   "index": null,
+   "start": 0.6,
+   "end": 9.639
+  },
+  {
+   "kind": "news",
+   "index": 0,
+   "start": 9.639,
+   "end": 22.156
+  },
+  {
+   "kind": "news",
+   "index": 1,
+   "start": 22.156,
+   "end": 35.924
+  },
+  {
+   "kind": "news",
+   "index": 2,
+   "start": 35.924,
+   "end": 49.432
+  },
+  {
+   "kind": "news",
+   "index": 3,
+   "start": 49.432,
+   "end": 61.034
+  },
+  {
+   "kind": "closing",
+   "index": null,
+   "start": 61.034,
+   "end": 74.463
+  }
+ ],
+ "made_at": "2026-11-06T10:39:23",
+ "voice": "Microsoft Zira Desktop"
+}

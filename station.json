@@ -1,11 +1,11 @@
 {
  "format": "myradio/station-1",
- "name": "ものラジオ",
- "description": "電子工作・3Dプリンター・AI の、きのうの気になるニュースを、毎朝 90 秒で。",
+ "name": "SunFlowerRadio",
+ "description": "AI・3Dプリンター・電子工作の、きのうの気になるニュースを、DeepSeek が書いて、ローカルの声で毎朝 90 秒で。",
  "tagline": "AI・3D 朝のニュース",
  "logo": "logo.svg",
- "url": "https://monoradio102.github.io/myradio/",
- "repo": "https://github.com/monoradio102/myradio",
+ "url": "https://SunGang-pine.github.io/SunFlowerRadio/",
+ "repo": "https://github.com/SunGang-pine/SunFlowerRadio",
  "language": "ja",
  "languages": [
   "ja",
@@ -13,8 +13,8 @@
  ],
  "schedule": {
   "every": "day",
-  "time": "06:10",
-  "timezone": "Asia/Tokyo"
+  "time": "07:00",
+  "timezone": "Asia/Shanghai"
  },
  "episodes": "episodes.json",
  "character": {
@@ -23,7 +23,10 @@
   "note": "AIで生成したキャラクターです"
  },
  "credits": [
-  "声：COEIROINK:リリンちゃん"
+  "声：Microsoft Haruka（日本語）/ Microsoft Zira（英語）（Windows 音声合成）",
+  "台本：DeepSeek",
+  "キャラクター：AI生成",
+  "ロゴ：SunFlowerRadio"
  ],
  "audio": {
   "dir": "audio",
@@ -32,11 +35,14 @@
  "weather": true,
  "i18n": {
   "en": {
-   "name": "Mono Radio",
+   "name": "SunFlowerRadio",
    "tagline": "Morning news on AI and 3D",
-   "description": "The news worth knowing in electronics, 3D printing and AI, every morning in 90 seconds.",
+   "description": "The news worth knowing in AI, 3D printing and electronics, written by DeepSeek and voiced locally every morning in 90 seconds.",
    "credits": [
-    "Voice: Kokoro (af_heart)"
+    "Voice: Microsoft Zira (Windows TTS)",
+    "Script: DeepSeek",
+    "Character: AI-generated",
+    "Logo: SunFlowerRadio"
    ]
   }
  }

@@ -2,8 +2,8 @@
  "title": "Google Releases Three-Live: AI-Generated 3D Scenes That Just Run",
  "opening": [
   {
-   "say": "Good morning, and welcome to Mono Radio. It's Wednesday, November fourth.",
-   "show": "Good morning, and welcome to Mono Radio. It's Wednesday, November 4."
+   "say": "Good morning, and welcome to SunFlowerRadio. It's Wednesday, November fourth.",
+   "show": "Good morning, and welcome to SunFlowerRadio. It's Wednesday, November 4."
   },
   {
    "say": "Today we have five stories about A I and three D.",
@@ -16,8 +16,8 @@
    "show": "Today's highlights: Three-Live and SAGE. 3D is expanding into environments AI uses."
   },
   {
-   "say": "That's all for now. See you next time on Mono Radio!",
-   "show": "That's all for now. See you next time on Mono Radio!"
+   "say": "That's all for now. See you next time on SunFlowerRadio!",
+   "show": "That's all for now. See you next time on SunFlowerRadio!"
   }
  ],
  "news": [
@@ -229,120 +229,120 @@
  "format": "monoradio/news-1",
  "date": "2026-11-04",
  "lang": "en",
- "seconds": 85.64,
+ "seconds": 83.631,
  "lines_timed": [
   {
    "start": 0.6,
-   "end": 5.123,
-   "show": "Good morning, and welcome to Mono Radio. It's Wednesday, November 4.",
+   "end": 5.764,
+   "show": "Good morning, and welcome to SunFlowerRadio. It's Wednesday, November 4.",
    "part": 0
   },
   {
-   "start": 5.373,
-   "end": 8.295,
+   "start": 6.044,
+   "end": 8.854,
    "show": "Today we have five stories about AI and 3D.",
    "part": 0
   },
   {
-   "start": 9.345,
-   "end": 12.588,
+   "start": 9.854,
+   "end": 13.208,
    "show": "First up, Google has released Three-Live as open source.",
    "part": 1
   },
   {
-   "start": 12.838,
-   "end": 18.235,
+   "start": 13.488,
+   "end": 17.847,
    "show": "It lets you run AI-created 3D scenes directly on the web and XR devices.",
    "part": 1
   },
   {
-   "start": 18.485,
-   "end": 20.491,
+   "start": 18.127,
+   "end": 20.306,
    "show": "It's still a developer preview for now.",
    "part": 1
   },
   {
-   "start": 21.541,
-   "end": 23.525,
+   "start": 21.306,
+   "end": 23.946,
    "show": "Next, an update to AssetFurnace.",
    "part": 2
   },
   {
-   "start": 23.775,
-   "end": 30.089,
+   "start": 24.226,
+   "end": 29.595,
    "show": "This tool makes 3D characters from images locally, and it's now lighter and more stable.",
    "part": 2
   },
   {
-   "start": 30.339,
-   "end": 33.113,
+   "start": 29.875,
+   "end": 32.604,
    "show": "The progress display is also easier to follow.",
    "part": 2
   },
   {
-   "start": 34.163,
-   "end": 38.984,
+   "start": 33.604,
+   "end": 38.158,
    "show": "Third, FluidNinja LIVE-2, a fluid effects tool for Unreal Engine.",
    "part": 3
   },
   {
-   "start": 39.234,
-   "end": 44.141,
+   "start": 38.438,
+   "end": 42.928,
    "show": "Water, smoke, and fire now interact properly with terrain and objects.",
    "part": 3
   },
   {
-   "start": 44.391,
-   "end": 47.356,
+   "start": 43.208,
+   "end": 46.142,
    "show": "It sounds like a great fit for showcase projects too.",
    "part": 3
   },
   {
-   "start": 48.406,
-   "end": 51.713,
+   "start": 47.142,
+   "end": 50.776,
    "show": "Now, an update to mGear, the rigging toolset for Maya.",
    "part": 4
   },
   {
-   "start": 51.963,
-   "end": 55.781,
+   "start": 51.056,
+   "end": 54.82,
    "show": "There's a new facial rig, and building rigs is about twice as fast.",
    "part": 4
   },
   {
-   "start": 56.031,
-   "end": 59.338,
+   "start": 55.1,
+   "end": 58.135,
    "show": "Getting your characters ready to move just got a lot easier.",
    "part": 4
   },
   {
-   "start": 60.388,
-   "end": 64.143,
+   "start": 59.135,
+   "end": 63.224,
    "show": "And last, SAGE, released by NVIDIA and its collaborators.",
    "part": 5
   },
   {
-   "start": 64.393,
-   "end": 68.318,
+   "start": 63.504,
+   "end": 67.103,
    "show": "AI automatically builds 3D environments for training robots.",
    "part": 5
   },
   {
-   "start": 68.568,
-   "end": 72.216,
+   "start": 67.383,
+   "end": 70.573,
    "show": "And it reviews and fixes the environments it creates on its own.",
    "part": 5
   },
   {
-   "start": 73.266,
-   "end": 80.285,
+   "start": 71.573,
+   "end": 77.477,
    "show": "Today's highlights: Three-Live and SAGE. 3D is expanding into environments AI uses.",
    "part": 6
   },
   {
-   "start": 80.535,
-   "end": 83.585,
-   "show": "That's all for now. See you next time on Mono Radio!",
+   "start": 77.757,
+   "end": 81.631,
+   "show": "That's all for now. See you next time on SunFlowerRadio!",
    "part": 6
   }
  ],
@@ -351,44 +351,45 @@
    "kind": "opening",
    "index": null,
    "start": 0.6,
-   "end": 9.345
+   "end": 9.854
   },
   {
    "kind": "news",
    "index": 0,
-   "start": 9.345,
-   "end": 21.541
+   "start": 9.854,
+   "end": 21.306
   },
   {
    "kind": "news",
    "index": 1,
-   "start": 21.541,
-   "end": 34.163
+   "start": 21.306,
+   "end": 33.604
   },
   {
    "kind": "news",
    "index": 2,
-   "start": 34.163,
-   "end": 48.406
+   "start": 33.604,
+   "end": 47.142
   },
   {
    "kind": "news",
    "index": 3,
-   "start": 48.406,
-   "end": 60.388
+   "start": 47.142,
+   "end": 59.135
   },
   {
    "kind": "news",
    "index": 4,
-   "start": 60.388,
-   "end": 73.266
+   "start": 59.135,
+   "end": 71.573
   },
   {
    "kind": "closing",
    "index": null,
-   "start": 73.266,
-   "end": 85.635
+   "start": 71.573,
+   "end": 83.631
   }
  ],
- "made_at": "2026-11-05T12:34:26"
+ "made_at": "2026-11-06T10:39:20",
+ "voice": "Microsoft Zira Desktop"
 }

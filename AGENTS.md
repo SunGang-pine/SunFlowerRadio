@@ -1,5 +1,9 @@
 # AGENTS.md — myradio の局を開く・運用する AI へ
 
+> この局の名前は **SunFlowerRadio**。DeepSeek が台本を書き、Windows SAPI が声を作る
+> ローカル制作ツール（`tools/`、`studio/`）が追加されています。中文の手順は
+> [README.zh.md](README.zh.md) を見てください。以下の myradio の決まりはそのまま有効です。
+
 このリポジトリは「局」です。`index.html`（プレーヤー）が、局の中身（`station.json`、`episodes/`、`character/`、音声）を読んで、HTML の番組として再生します。ビルドの仕組みはありません。置いてあるものを読むだけです。
 
 ## 新しい局を開くとき

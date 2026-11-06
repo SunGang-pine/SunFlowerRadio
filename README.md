@@ -1,5 +1,11 @@
 <h1 align="center">myradio</h1>
 
+> **SunFlowerRadio** — このリポジトリは「SunFlowerRadio」として運営されています。
+> 公開先: https://SunGang-pine.github.io/SunFlowerRadio/ · リポジトリ: https://github.com/SunGang-pine/SunFlowerRadio
+> DeepSeek が台本を書き、Windows の音声合成が読み上げる制作ツールと、中文の使い方は
+> **[README.zh.md](README.zh.md)** を見てください。
+> 播放器与发布方式仍遵循下面的 myradio 说明。
+
 <p align="center"><b>キャラクターが毎朝ニュースを読む「放送局」を、<br>GitHub のリポジトリ 1 つで開けます。</b></p>
 
 <p align="center">

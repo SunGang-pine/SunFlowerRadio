@@ -183,15 +183,15 @@ def front(root, station, base, newest):
 <meta name="twitter:card" content="summary_large_image">
 <!-- /share:front -->
 """
-    s = re.sub(r"<!-- share:front -->.*?<!-- /share:front -->\n?", "", open(ix).read(), flags=re.S)
-    open(ix, "w").write(s.replace("</head>", tags + "</head>", 1))
+    s = re.sub(r"<!-- share:front -->.*?<!-- /share:front -->\n?", "", open(ix, encoding="utf-8").read(), flags=re.S)
+    open(ix, "w", encoding="utf-8").write(s.replace("</head>", tags + "</head>", 1))
     print(f"share: index.html shows {newest}")
 
 
 def main():
     args = [a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith("--") and sys.argv[i - 1] not in ("--url", "--font")]
     root = os.path.abspath(args[0] if args else os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
-    station = json.load(open(os.path.join(root, "station.json")))
+    station = json.load(open(os.path.join(root, "station.json"), encoding="utf-8"))
     base = arg("--url", station.get("url") or "")
     if base and not base.endswith("/"): base += "/"
     if not base: print("note: no --url / station.json url: SNS need a full URL for the card image")
@@ -199,23 +199,23 @@ def main():
     pack = station.get("character", {}).get("pack")
     char = None
     if pack and os.path.exists(os.path.join(root, pack)):
-        cj = json.load(open(os.path.join(root, pack)))
+        cj = json.load(open(os.path.join(root, pack), encoding="utf-8"))
         if cj.get("base"): char = Image.open(os.path.join(root, os.path.dirname(pack), cj["base"])).convert("RGBA")
     os.makedirs(os.path.join(root, "share"), exist_ok=True)
     made, newest = 0, None
-    for entry in json.load(open(os.path.join(root, station.get("episodes", "episodes.json")))):   # newest first
+    for entry in json.load(open(os.path.join(root, station.get("episodes", "episodes.json")), encoding="utf-8")):   # newest first
         date = entry["date"]
         langs = [k for k in entry if k != "date" and isinstance(entry[k], dict)] or [None]
         for lang in langs:
             stem = f"{date}-{lang}" if lang else date
             if not ("--all" in sys.argv) and os.path.exists(os.path.join(root, "share", f"{stem}.html")): continue
-            ep = json.load(open(os.path.join(root, "episodes", f"{stem}.json")))
+            ep = json.load(open(os.path.join(root, "episodes", f"{stem}.json"), encoding="utf-8"))
             L = lang or ep.get("lang") or station.get("language", "ja")
             st = lambda k: station.get("i18n", {}).get(L, {}).get(k, station.get(k))
             logo = logo_image(os.path.join(root, station["logo"]) if station.get("logo") else None, 40)
             card(station, st, ep, L, char, logo, fpath).save(os.path.join(root, "share", f"{stem}.jpg"), quality=88, optimize=True)
             target = f"../#{date}/{lang}" if lang else f"../#{date}"
-            open(os.path.join(root, "share", f"{stem}.html"), "w").write(page(st, ep, L, stem, target, base))
+            open(os.path.join(root, "share", f"{stem}.html"), "w", encoding="utf-8").write(page(st, ep, L, stem, target, base))
             made += 1
         if newest is None:
             pick = station.get("language") if station.get("language") in langs else langs[0]
