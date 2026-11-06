@@ -15,6 +15,7 @@ const VOICES = [
   { slug: "ja-calm-lady", lang: "ja", langLabel: "日本語", name: "沉稳女声", style: "女声 · 沉稳", id: "Japanese_CalmLady" },
   { slug: "ja-graceful-maiden", lang: "ja", langLabel: "日本語", name: "优雅女声", style: "女声 · 优雅", id: "Japanese_GracefulMaiden" },
   { slug: "ja-intellectual-senior", lang: "ja", langLabel: "日本語", name: "知性男声", style: "男声 · 知性", id: "Japanese_IntellectualSenior" },
+  { slug: "en-soft-spoken-girl", lang: "en", langLabel: "English", name: "Soft-Spoken Girl", style: "女声 · 温柔", id: "English_Soft-spokenGirl" },
   { slug: "en-expressive-narrator", lang: "en", langLabel: "English", name: "Expressive Narrator", style: "叙述 · 表现力", id: "English_expressive_narrator" },
   { slug: "en-graceful-lady", lang: "en", langLabel: "English", name: "Graceful Lady", style: "女声 · 优雅", id: "English_Graceful_Lady" },
   { slug: "en-trustworthy-man", lang: "en", langLabel: "English", name: "Trustworthy Man", style: "男声 · 可信", id: "English_Trustworth_Man" },

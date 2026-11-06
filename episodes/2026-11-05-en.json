@@ -219,119 +219,119 @@
  "format": "monoradio/news-1",
  "date": "2026-11-05",
  "lang": "en",
- "seconds": 89.6,
+ "seconds": 95.9,
  "lines_timed": [
   {
    "start": 0.6,
-   "end": 5.832,
+   "end": 6.138,
    "show": "Good morning, and welcome to SunFlowerRadio. It's Thursday morning, November 5.",
    "part": 0
   },
   {
-   "start": 6.112,
-   "end": 8.08,
+   "start": 6.418,
+   "end": 9.053,
    "show": "We have five stories for you today.",
    "part": 0
   },
   {
-   "start": 9.08,
-   "end": 12.272,
+   "start": 10.053,
+   "end": 12.805,
    "show": "First up, Genie 4 from Google DeepMind.",
    "part": 1
   },
   {
-   "start": 12.552,
-   "end": 17.208,
+   "start": 13.085,
+   "end": 18.739,
    "show": "It creates controllable virtual worlds, complete with sound and conversation.",
    "part": 1
   },
   {
-   "start": 17.488,
-   "end": 20.704,
+   "start": 19.019,
+   "end": 22.421,
    "show": "You can even change the weather and characters on the spot.",
    "part": 1
   },
   {
-   "start": 21.704,
-   "end": 24.032,
+   "start": 23.421,
+   "end": 26.521,
    "show": "Next, Pando from OpenAI.",
    "part": 2
   },
   {
-   "start": 24.312,
-   "end": 29.448,
+   "start": 26.801,
+   "end": 32.072,
    "show": "It's a Git platform built for many AI agents developing in parallel.",
    "part": 2
   },
   {
-   "start": 29.728,
-   "end": 33.64,
+   "start": 32.352,
+   "end": 37.425,
    "show": "The median push wait time reportedly dropped by about 80 percent.",
    "part": 2
   },
   {
-   "start": 34.64,
-   "end": 38.312,
+   "start": 38.425,
+   "end": 42.454,
    "show": "Now to Japan, where SHINING 3D has a new scanner.",
    "part": 3
   },
   {
-   "start": 38.592,
-   "end": 43.824,
+   "start": 42.734,
+   "end": 48.237,
    "show": "It's the FreeScan Combo+ Wireless, weighing just 550g.",
    "part": 3
   },
   {
-   "start": 44.104,
-   "end": 48.64,
+   "start": 48.517,
+   "end": 53.242,
    "show": "Carrying it around and scanning with no cable is a real plus.",
    "part": 3
   },
   {
-   "start": 49.64,
-   "end": 53.048,
+   "start": 54.242,
+   "end": 57.806,
    "show": "One more from Japan: RobotBrain from Space Data.",
    "part": 4
   },
   {
-   "start": 53.328,
-   "end": 58.488,
+   "start": 58.086,
+   "end": 62.696,
    "show": "Give instructions in Japanese, and it plans actions for disaster search robots.",
    "part": 4
   },
   {
-   "start": 58.768,
-   "end": 61.744,
+   "start": 62.976,
+   "end": 66.075,
    "show": "The example shown was a fictional simulation, though.",
    "part": 4
   },
   {
-   "start": 62.744,
-   "end": 66.296,
+   "start": 67.075,
+   "end": 71.22,
    "show": "And finally, a story about resin 3D printers.",
    "part": 5
   },
   {
-   "start": 66.576,
-   "end": 70.872,
+   "start": 71.5,
+   "end": 75.796,
    "show": "SK Honpo has opened preorders for the Formlabs Form Studio 1.",
    "part": 5
   },
   {
-   "start": 71.152,
-   "end": 77.656,
+   "start": 76.076,
+   "end": 83.204,
    "show": "It starts at 160,710 yen with tax; the arrival date isn't set yet.",
    "part": 5
   },
   {
-   "start": 78.656,
-   "end": 82.88,
+   "start": 84.204,
+   "end": 88.814,
    "show": "Our pick of the day: a disaster search robot you command in Japanese.",
    "part": 6
   },
   {
-   "start": 83.16,
-   "end": 87.6,
+   "start": 89.094,
+   "end": 93.9,
    "show": "That's all from SunFlowerRadio. See you tomorrow!",
    "part": 6
   }
@@ -341,46 +341,46 @@
    "kind": "opening",
    "index": null,
    "start": 0.6,
-   "end": 9.08
+   "end": 10.053
   },
   {
    "kind": "news",
    "index": 0,
-   "start": 9.08,
-   "end": 21.704
+   "start": 10.053,
+   "end": 23.421
   },
   {
    "kind": "news",
    "index": 1,
-   "start": 21.704,
-   "end": 34.64
+   "start": 23.421,
+   "end": 38.425
   },
   {
    "kind": "news",
    "index": 2,
-   "start": 34.64,
-   "end": 49.64
+   "start": 38.425,
+   "end": 54.242
   },
   {
    "kind": "news",
    "index": 3,
-   "start": 49.64,
-   "end": 62.744
+   "start": 54.242,
+   "end": 67.075
   },
   {
    "kind": "news",
    "index": 4,
-   "start": 62.744,
-   "end": 78.656
+   "start": 67.075,
+   "end": 84.204
   },
   {
    "kind": "closing",
    "index": null,
-   "start": 78.656,
-   "end": 89.6
+   "start": 84.204,
+   "end": 95.9
   }
  ],
- "made_at": "2026-11-06T23:12:54",
- "voice": "en-US-AvaNeural",
- "tts": "edge"
+ "made_at": "2026-11-06T23:38:24",
+ "voice": "mmx:speech-2.8-hd:English_Soft-spokenGirl",
+ "tts": "minimax"
 }
