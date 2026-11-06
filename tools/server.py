@@ -135,6 +135,22 @@ def voices(force: bool = False) -> list[str]:
     return VOICES_CACHE
 
 
+def default_voice_for(lang: str) -> str:
+    meta = LANG_META.get(lang) or {}
+    preferred = meta.get("preferred_voice")
+    if preferred and (not preferred.startswith("mmx:") or minimax_configured()):
+        return preferred
+    return meta.get("edge_voice") if edge_available() else meta.get("voice", "")
+
+
+def default_rate_for(lang: str) -> int:
+    meta = LANG_META.get(lang) or {}
+    preferred = meta.get("preferred_voice")
+    if preferred and (not preferred.startswith("mmx:") or minimax_configured()):
+        return int(meta.get("preferred_rate", meta.get("rate", 0)))
+    return int(meta.get("rate", 0))
+
+
 def lang_label(lang: str) -> str:
     return LANG_META.get(lang, {}).get("label", lang)
 
@@ -203,12 +219,9 @@ def station_status() -> dict:
         "sapi": sapi_available(),
         "edge": edge_available(),
         "minimax": minimax_configured(),
-        "tts": "Microsoft Edge Neural" + (" + MiniMax" if minimax_configured() else "") if edge_available() else ("Windows SAPI" if sapi_available() else "unavailable"),
-        "default_voices": {
-            lang: (LANG_META.get(lang) or {}).get("edge_voice") if edge_available() else (LANG_META.get(lang) or {}).get("voice", "")
-            for lang in langs
-        },
-        "default_rates": {lang: (LANG_META.get(lang) or {}).get("rate", 0) for lang in langs},
+        "tts": "Edge + MiniMax" if (edge_available() and minimax_configured()) else ("Microsoft Edge Neural" if edge_available() else ("Windows SAPI" if sapi_available() else "unavailable")),
+        "default_voices": {lang: default_voice_for(lang) for lang in langs},
+        "default_rates": {lang: default_rate_for(lang) for lang in langs},
         "feeds": [{"id": f["id"], "name": f["name"], "tags": f.get("tags", []), "url": f["url"]} for f in FEEDS],
         "episodes": episodes,
         "server_time": dt.datetime.now().isoformat(timespec="seconds"),
@@ -299,10 +312,10 @@ def job_generate(job: Job, body: dict) -> dict:
     }
     if bool(body.get("voice", True)):
         meta = LANG_META.get(lang, {})
-        default_voice = meta.get("edge_voice") if edge_available() else meta.get("voice", "")
+        default_voice = default_voice_for(lang)
         voice_name = str(body.get("voice_name") or default_voice or "")
         rate = body.get("rate")
-        rate = int(rate) if rate is not None and str(rate) != "" else meta.get("rate", 0)
+        rate = int(rate) if rate is not None and str(rate) != "" else default_rate_for(lang)
         v = synthesize_episode(date.isoformat(), lang, voice=voice_name, rate=rate, force=True, log=job.log)
         result.update({"audio": True, "seconds": v.get("seconds"), "voice": v.get("voice"), "mp3": Path(v["audio"]).name})
     else:
@@ -317,10 +330,10 @@ def job_voice(job: Job, body: dict) -> dict:
     if not episode_path(date, lang).exists():
         raise FileNotFoundError(f"没有台本：{episode_path(date, lang).name}")
     meta = LANG_META.get(lang, {})
-    default_voice = meta.get("edge_voice") if edge_available() else meta.get("voice", "")
+    default_voice = default_voice_for(lang)
     voice_name = str(body.get("voice_name") or default_voice or "")
     rate = body.get("rate")
-    rate = int(rate) if rate is not None and str(rate) != "" else meta.get("rate", 0)
+    rate = int(rate) if rate is not None and str(rate) != "" else default_rate_for(lang)
     job.log(f"配音：{date}-{lang} · {voice_name} · rate {rate}")
     v = synthesize_episode(date, lang, voice=voice_name, rate=rate, force=bool(body.get("force", True)), log=job.log)
     job.log("完成。")

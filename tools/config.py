@@ -35,6 +35,8 @@ LANG_META = {
         "english": "Japanese",
         "voice": "Microsoft Haruka",
         "edge_voice": "ja-JP-NanamiNeural",
+        "preferred_voice": "mmx:speech-2.8-hd:Japanese_KindLady",
+        "preferred_rate": 2,
         "rate": 4,
         "weekdays": ["月", "火", "水", "木", "金", "土", "日"],
         "date_word": lambda d: f"{d.month}月{d.day}日",
@@ -44,6 +46,7 @@ LANG_META = {
         "english": "English",
         "voice": "Microsoft Zira Desktop",
         "edge_voice": "en-US-AvaNeural",
+        "preferred_voice": "en-US-AvaNeural",
         "rate": 2,
         "weekdays": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         "date_word": lambda d: d.strftime("%B ") + str(d.day),
@@ -53,6 +56,8 @@ LANG_META = {
         "english": "Chinese",
         "voice": "Microsoft Huihui Desktop",
         "edge_voice": "zh-CN-XiaoxiaoNeural",
+        "preferred_voice": "mmx:speech-2.8-hd:Chinese (Mandarin)_News_Anchor",
+        "preferred_rate": 2,
         "rate": 2,
         "weekdays": ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
         "date_word": lambda d: f"{d.month}月{d.day}日",
@@ -235,6 +240,15 @@ def minimax_model() -> str:
 def minimax_group_id() -> str | None:
     env = {**read_env_file(ROOT / ".env"), **read_env_file(ENV_LOCAL)}
     return (os.environ.get("MINIMAX_GROUP_ID") or env.get("MINIMAX_GROUP_ID") or "").strip() or None
+
+
+def minimax_rpm() -> int:
+    """Requests per minute; free/trial keys are often limited to 10."""
+    env = {**read_env_file(ROOT / ".env"), **read_env_file(ENV_LOCAL)}
+    try:
+        return max(1, int(os.environ.get("MINIMAX_RPM") or env.get("MINIMAX_RPM") or 10))
+    except ValueError:
+        return 10
 
 
 def minimax_configured() -> bool:

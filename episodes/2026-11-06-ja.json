@@ -170,101 +170,101 @@
   }
  ],
  "highlight": 2,
- "seconds": 89.84,
+ "seconds": 86.55,
  "lines_timed": [
   {
    "start": 0.6,
-   "end": 4.512,
+   "end": 3.421,
    "show": "おはようございます。SunFlowerRadioです。",
    "part": 0
   },
   {
-   "start": 4.792,
-   "end": 11.128,
+   "start": 3.701,
+   "end": 10.992,
    "show": "2026年11月6日（金） 今日は4本のニュースをお届けします。",
    "part": 0
   },
   {
-   "start": 12.128,
-   "end": 17.288,
+   "start": 11.992,
+   "end": 16.485,
    "show": "パープレキシティが仕事向けAIエージェント「Teammates」を発表",
    "part": 1
   },
   {
-   "start": 17.568,
-   "end": 23.4,
+   "start": 16.765,
+   "end": 21.885,
    "show": "24時間稼働し、複数の役割を同時に担当",
    "part": 1
   },
   {
-   "start": 23.68,
-   "end": 27.736,
+   "start": 22.165,
+   "end": 26.043,
    "show": "利用には月額200ドルのMaxプランが必要",
    "part": 1
   },
   {
-   "start": 28.736,
-   "end": 34.616,
+   "start": 27.043,
+   "end": 33.092,
    "show": "エアビーがAI旅行エージェントを2027年前半に投入",
    "part": 2
   },
   {
-   "start": 34.896,
-   "end": 40.032,
+   "start": 33.372,
+   "end": 38.062,
    "show": "旅行計画、比較、予約管理、滞在中の支援を担当",
    "part": 2
   },
   {
-   "start": 40.312,
-   "end": 45.016,
+   "start": 38.342,
+   "end": 43.033,
    "show": "地図や写真など旅行専用の画面を組み合わせる",
    "part": 2
   },
   {
-   "start": 46.016,
-   "end": 52.592,
+   "start": 44.033,
+   "end": 50.581,
    "show": "オープンエーアイのブロックマン社長が2027年の上場準備に自信",
    "part": 3
   },
   {
-   "start": 52.872,
-   "end": 58.728,
+   "start": 50.861,
+   "end": 57.026,
    "show": "年間売上は四半期で70パーセント成長",
    "part": 3
   },
   {
-   "start": 59.008,
-   "end": 63.064,
+   "start": 57.306,
+   "end": 61.45,
    "show": "法人向けが売上の過半を占める",
    "part": 3
   },
   {
-   "start": 64.064,
-   "end": 69.44,
+   "start": 62.45,
+   "end": 68.035,
    "show": "オープンエーアイが公務員とのNDAを廃止",
    "part": 4
   },
   {
-   "start": 69.72,
-   "end": 74.184,
+   "start": 68.315,
+   "end": 72.727,
    "show": "電気代とインフラの全額を負担",
    "part": 4
   },
   {
-   "start": 74.464,
-   "end": 78.64,
+   "start": 73.007,
+   "end": 77.035,
    "show": "計算拠点ごとに地域との協定を結ぶ",
    "part": 4
   },
   {
-   "start": 79.64,
-   "end": 83.912,
+   "start": 78.035,
+   "end": 82.029,
    "show": "今日はAIエージェントとオープンエーアイの動きが目立ちました。",
    "part": 5
   },
   {
-   "start": 84.192,
-   "end": 87.84,
+   "start": 82.309,
+   "end": 84.55,
    "show": "SunFlowerRadioでした。また明日。",
    "part": 5
   }
@@ -274,40 +274,40 @@
    "kind": "opening",
    "index": null,
    "start": 0.6,
-   "end": 12.128
+   "end": 11.992
   },
   {
    "kind": "news",
    "index": 0,
-   "start": 12.128,
-   "end": 28.736
+   "start": 11.992,
+   "end": 27.043
   },
   {
    "kind": "news",
    "index": 1,
-   "start": 28.736,
-   "end": 46.016
+   "start": 27.043,
+   "end": 44.033
   },
   {
    "kind": "news",
    "index": 2,
-   "start": 46.016,
-   "end": 64.064
+   "start": 44.033,
+   "end": 62.45
   },
   {
    "kind": "news",
    "index": 3,
-   "start": 64.064,
-   "end": 79.64
+   "start": 62.45,
+   "end": 78.035
   },
   {
    "kind": "closing",
    "index": null,
-   "start": 79.64,
-   "end": 89.84
+   "start": 78.035,
+   "end": 86.55
   }
  ],
- "made_at": "2026-11-06T20:44:05",
- "voice": "ja-JP-NanamiNeural",
- "tts": "edge"
+ "made_at": "2026-11-06T23:18:03",
+ "voice": "mmx:speech-2.8-hd:Japanese_KindLady",
+ "tts": "minimax"
 }

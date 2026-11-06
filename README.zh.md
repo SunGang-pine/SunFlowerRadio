@@ -16,7 +16,7 @@ SunFlowerRadio 基于 [myradio](https://github.com/monoradio102/myradio) 的静�
 
 - **新闻**：从真实 RSS（TechCrunch、The Verge、Ars Technica、OpenAI、Hackaday、IEEE Spectrum）抓取，保留原文链接与 OGP 卡片。
 - **台本**：DeepSeek 根据素材写**日文 / 英文 / 中文**台本，严格输出播放器需要的 JSON；校验失败会自动修正一次。
-- **配音**：默认调用 Microsoft Edge 神经语音（中文晓晓 / 日文 Nanami / 英文 Ava），逐句合成，自动计算 `lines_timed` 与 `segments`；离线或网络失败时自动回退到 Windows SAPI。
+- **配音**：中文/日文默认用 MiniMax 神经语音（新闻女声 / 温柔女声），英文默认用 Microsoft Edge Ava；逐句合成，自动计算 `lines_timed` 与 `segments`；网络/额度失败时回退到 Edge 或 Windows SAPI。
 - **制作台**：本地网页 UI（`/studio/`），填日期、语言、条数就能出片；API Key 只留在本机。
 - **校验**：`python -m tools.check` 检查台本、时间轴、音频是否一致。
 
@@ -106,7 +106,13 @@ DEEPSEEK_BASE_URL=https://api.deepseek.com
 - 日语：Nanami（女）、Keita（男）
 - English：Ava、Emma、Andrew、Brian
 
-默认使用 Edge 神经语音；如果网络不可用，会自动回退到本机 SAPI 音色，并在日志里说明。
+默认使用：
+
+- 中文：**MiniMax 新闻女声**（`Chinese (Mandarin)_News_Anchor`）
+- 日语：**MiniMax 温柔女声**（`Japanese_KindLady`）
+- English：**Microsoft Edge Ava**（免费，英文新闻感好）
+
+如果网络或额度不可用，会自动回退到本机 SAPI 音色，并在日志里说明。
 
 **试听全部音色**：
 

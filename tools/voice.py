@@ -12,7 +12,6 @@ installed or the network is unavailable, the Windows SAPI voices still work.
 from __future__ import annotations
 
 import asyncio
-import concurrent.futures
 import json
 import os
 import shutil
@@ -34,6 +33,7 @@ from .config import (
     find_minimax_key,
     minimax_base_url,
     minimax_group_id,
+    minimax_rpm,
     minimax_voice_parts,
     read_json,
     update_episode_index,
@@ -190,9 +190,24 @@ def _run_minimax(
     boost = {"zh": "Chinese", "ja": "Japanese", "en": "English"}.get(lang, "auto")
     speed = round(max(0.5, min(2.0, 1.0 + int(rate) * 0.05)), 2)
     usage = 0
+    rpm = minimax_rpm()
+    interval = 60.0 / rpm
+    last_call = 0.0
     lock = threading.Lock()
 
-    def one(item: dict) -> None:
+    class RateLimited(Exception):
+        pass
+
+    def wait_turn() -> None:
+        nonlocal last_call
+        with lock:
+            now = time.monotonic()
+            wait = max(0.0, interval - (now - last_call))
+            if wait:
+                time.sleep(wait)
+            last_call = time.monotonic()
+
+    def one(index: int, item: dict) -> None:
         nonlocal usage
         mp3 = out_dir / f"{item['id']}.mp3"
         wav = out_dir / f"{item['id']}.wav"
@@ -206,27 +221,32 @@ def _run_minimax(
             "audio_setting": {"sample_rate": RATE_HZ, "bitrate": 128000, "format": "mp3", "channel": 1},
         }
         last: Exception | None = None
-        for attempt in range(3):
+        for attempt in range(6):
+            wait_turn()
             try:
                 session = http_session()
                 r = session.post(url, headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
                                  json=body, timeout=180)
-                if r.status_code in (429, 500, 502, 503, 504):
-                    raise RuntimeError(f"MiniMax HTTP {r.status_code}: {r.text[:300]}")
+                if r.status_code == 429:
+                    raise RateLimited("HTTP 429")
+                if r.status_code in (500, 502, 503, 504):
+                    raise RuntimeError(f"MiniMax HTTP {r.status_code}")
                 if r.status_code >= 400:
                     raise RuntimeError(f"MiniMax HTTP {r.status_code}: {r.text[:400]}")
                 data = r.json()
                 base_resp = data.get("base_resp") or {}
-                if base_resp.get("status_code") not in (0, None):
-                    raise RuntimeError(f"MiniMax error {base_resp.get('status_code')}: {base_resp.get('status_msg')}")
+                code = base_resp.get("status_code")
+                if code == 1002:
+                    raise RateLimited(str(base_resp.get("status_msg") or "rate limit"))
+                if code not in (0, None):
+                    raise RuntimeError(f"MiniMax error {code}: {base_resp.get('status_msg')}")
                 payload = data.get("data") or {}
                 audio_hex = payload.get("audio")
                 if not audio_hex:
                     raise RuntimeError("MiniMax returned no audio")
                 mp3.write_bytes(bytes.fromhex(audio_hex))
                 info = data.get("extra_info") or {}
-                with lock:
-                    usage += int(info.get("usage_characters") or 0)
+                usage += int(info.get("usage_characters") or 0)
                 proc = subprocess.run(
                     [_ffmpeg(), "-y", "-loglevel", "error", "-i", str(mp3), "-ar", str(RATE_HZ),
                      "-ac", "1", "-sample_fmt", "s16", str(wav)],
@@ -234,18 +254,22 @@ def _run_minimax(
                 )
                 if proc.returncode != 0 or not wav.exists() or wav.stat().st_size <= 44:
                     raise RuntimeError(f"MiniMax audio conversion failed for {item['id']}")
+                log(f"MiniMax {index}/{len(items)} ok")
                 return
+            except RateLimited as exc:
+                last = exc
+                backoff = 15 + attempt * 10
+                log(f"MiniMax rate limit at {index}/{len(items)}; wait {backoff}s")
+                time.sleep(backoff)
             except Exception as exc:
                 last = exc
-                if attempt < 2:
-                    time.sleep(1.5 * (attempt + 1))
+                if attempt < 4:
+                    time.sleep(2.0 * (attempt + 1))
         raise RuntimeError(f"MiniMax failed for {item['id']}: {last}")
 
-    log(f"MiniMax: {model} · {voice_id} · {source} · speed {speed}")
-    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
-        futures = [pool.submit(one, item) for item in items]
-        for fut in concurrent.futures.as_completed(futures):
-            fut.result()
+    log(f"MiniMax: {model} · {voice_id} · {source} · speed {speed} · {rpm} RPM")
+    for i, item in enumerate(items, 1):
+        one(i, item)
     log(f"MiniMax ready · {usage} characters billed")
     return {"voice": voice, "engine": "minimax", "usage_characters": usage}
 
@@ -336,7 +360,11 @@ def synthesize_episode(
 
     meta = LANG_META.get(lang, LANG_META["ja"])
     if not voice:
-        voice = meta.get("edge_voice") if edge_available() else meta["voice"]
+        preferred = meta.get("preferred_voice")
+        if preferred and (not preferred.startswith("mmx:") or minimax_available()):
+            voice = preferred
+        else:
+            voice = meta.get("edge_voice") if edge_available() else meta["voice"]
     use_minimax = minimax_voice_parts(voice) is not None
     if use_minimax and not minimax_available():
         raise RuntimeError("MINIMAX_API_KEY 未配置；把 key 写进 .env.local 后重试")
@@ -345,7 +373,9 @@ def synthesize_episode(
         say("edge-tts is not installed; using the Windows SAPI voice")
         voice = meta["voice"]
         use_edge = False
-    rate = meta["rate"] if rate is None else rate
+    if rate is None:
+        preferred = meta.get("preferred_voice")
+        rate = meta.get("preferred_rate", meta["rate"]) if preferred and voice == preferred else meta["rate"]
 
     parts: list[tuple[int, list[dict]]] = []
     parts.append((0, list(ep.get("opening") or [])))

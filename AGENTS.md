@@ -1,6 +1,6 @@
 # AGENTS.md — myradio の局を開く・運用する AI へ
 
-> この局の名前は **SunFlowerRadio**。DeepSeek が台本を書き、Microsoft Edge の
+> この局の名前は **SunFlowerRadio**。DeepSeek が台本を書き、MiniMax / Microsoft Edge の
 > ニューラル音声（SAPI はオフライン時の代替）が声を作るローカル制作ツール
 > （`tools/`、`studio/`）が追加されています。中文の手順は
 > [README.zh.md](README.zh.md) を見てください。以下の myradio の決まりはそのまま有効です。
