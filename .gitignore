@@ -6,4 +6,5 @@ __pycache__/
 tools/.cache/
 episodes/*.tmp
 voices/samples/
+voices/minimax/samples/
 voices/compare/*.mp3

@@ -112,6 +112,7 @@ DEEPSEEK_BASE_URL=https://api.deepseek.com
 
 - 线上：<https://SunGang-pine.github.io/SunFlowerRadio/voices/>
 - 本地：<http://127.0.0.1:8090/voices/>
+- MiniMax 12 音色：<https://SunGang-pine.github.io/SunFlowerRadio/voices/minimax/>（本地 `/voices/minimax/`）
 - Edge vs MiniMax A/B：<https://SunGang-pine.github.io/SunFlowerRadio/voices/compare/>（本地 `/voices/compare/`）
 - 制作台右上角「试听音色」也可以打开。
 
@@ -224,8 +225,9 @@ requirements.txt           Python 依赖（edge-tts / requests / Pillow）
 .env.local                 你的本机密钥（gitignore，不会提交）
 start.ps1 / start.cmd      一键启动
 share/                     每期的分享卡片（tools/share.py 生成）
-voices/                    音色试听页（index + samples）
-tools/voice_samples.py     生成 11 个音色的试听小样
+voices/                    音色试听页（Edge / MiniMax / A-B）
+tools/voice_samples.py     生成 Edge 音色试听小样
+tools/minimax_samples.py   生成 MiniMax 12 音色试听小样
 docs/preview-player.png    播放器截图（日语）
 docs/preview-player-zh.png 播放器截图（中文）
 docs/preview-studio.png    制作台截图

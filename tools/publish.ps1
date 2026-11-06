@@ -31,6 +31,9 @@ try {
     $sampleDir = Join-Path $tmp "voices\samples"
     & $py.Source -m tools.voice_samples --out $sampleDir | Out-Null
     if ($LASTEXITCODE -ne 0) { Write-Host "voice samples: skipped (Edge TTS unavailable)" -ForegroundColor DarkYellow }
+    $mmxDir = Join-Path $tmp "voices\minimax\samples"
+    & $py.Source -m tools.minimax_samples --out $mmxDir | Out-Null
+    if ($LASTEXITCODE -ne 0) { Write-Host "MiniMax samples: skipped (no key or API unavailable)" -ForegroundColor DarkYellow }
   }
 
   # recent audio only: audio/<YYYY-MM-DD>-<lang>.mp3

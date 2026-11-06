@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MiniMax 音色 · SunFlowerRadio</title>
+<link rel="icon" href="../../logo.svg">
+<link rel="stylesheet" href="../voices.css">
+<style>
+  .brand em{background:#b98cff;color:#120d1a}
+  .eyebrow span{background:#b98cff;box-shadow:0 0 0 5px rgba(185,140,255,.14)}
+  .filters button.on{background:#b98cff;border-color:#b98cff}
+  .voice[data-lang="zh"]::before,.voice[data-lang="ja"]::before,.voice[data-lang="en"]::before{background:#b98cff}
+  .voice:hover{border-color:rgba(185,140,255,.55)}
+  .mmtag{display:inline-block;font:700 9px var(--mono);letter-spacing:1.2px;color:#b98cff;border:1px solid rgba(185,140,255,.4);border-radius:4px;padding:2px 6px;margin-left:6px}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<header class="top">
+  <a class="brand" href="../../"><i class="mark" aria-hidden="true"></i><b>SunFlowerRadio</b><em>MINIMAX</em></a>
+  <div class="nav">
+    <a class="ghost" href="../">Edge 音色</a>
+    <a class="ghost" href="../compare/">Edge vs MiniMax</a>
+    <a class="ghost" href="../../">回电台 <span>↗</span></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow"><span></span> MINIMAX SPEECH-2.8-HD</div>
+    <h1>MiniMax 的 12 个声音，<br>一次听个够。</h1>
+    <p>全部来自 <code>speech-2.8-hd</code>，中文 4 个、日文 4 个、英文 4 个。每张卡片是 6–9 秒的固定小样，语速 1.05；点击播放就行。喜欢哪个，回制作台选同一个音色。</p>
+    <div class="filters" id="filters">
+      <button class="on" data-lang="all">全部 <small>12</small></button>
+      <button data-lang="zh">中文 <small>4</small></button>
+      <button data-lang="ja">日本語 <small>4</small></button>
+      <button data-lang="en">English <small>4</small></button>
+    </div>
+  </section>
+
+  <div class="grid" id="grid"></div>
+
+  <section class="note">
+    <b>说明</b>
+    <p>MiniMax 按字符计费，试听小样也会产生少量费用；正式节目用多少算多少。制作台里选中 MiniMax 音色后，配音会走 <code>speech-2.8-hd</code>，Edge 仍保留为免费备用。</p>
+  </section>
+</main>
+
+<footer>
+  <span>SunFlowerRadio · MiniMax Voice Library</span>
+  <span><a href="https://www.minimax.io/audio/voices" target="_blank" rel="noopener">官方音色库</a> · <a href="https://hailuoai.com/audio/voices" target="_blank" rel="noopener">海螺音色库</a></span>
+</footer>
+
+<script src="voices.js"></script>
+</body>
+</html>
