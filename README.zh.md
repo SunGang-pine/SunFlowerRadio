@@ -285,7 +285,7 @@ python tools/share.py --all --font "C:/Windows/Fonts/YuGothM.ttc" --font-zh "C:/
 - SunFlowerRadio 的向日葵 logo 为本项目绘制。
 - 语音：Microsoft Edge 神经语音（中文晓晓、日文 Nanami、英文 Ava），来自 Edge 在线 TTS；Windows SAPI（Haruka / Zira / Huihui）作为离线备用。DeepSeek 本身只提供文本模型，不提供 TTS 音色。
 - 台本由 DeepSeek 根据公开 RSS 素材生成；每条新闻都保留原文链接。新闻事实以原文为准。
-- 天气：Open-Meteo（CC BY 4.0），播放器会在页脚显示。
+- 天气：Open-Meteo（CC BY 4.0），播放器会在页脚显示；默认城市是杭州（`station.json` 的 `weather_city`），观众仍可切换。
 
 ## 注意
 

@@ -1111,7 +1111,7 @@ const WX_CITY = [   // [id, lat, lon, ja, en, the time zone it stands for (the f
   ["osaka", 34.69, 135.5, "大阪", "Osaka"], ["hiroshima", 34.39, 132.46, "広島", "Hiroshima"], ["takamatsu", 34.34, 134.05, "高松", "Takamatsu"],
   ["fukuoka", 33.59, 130.4, "福岡", "Fukuoka"], ["kagoshima", 31.6, 130.56, "鹿児島", "Kagoshima"], ["naha", 26.21, 127.68, "那覇", "Naha"],
   null,   // the rest of the world
-  ["seoul", 37.57, 126.98, "ソウル", "Seoul", "Asia/Seoul"], ["shanghai", 31.23, 121.47, "上海", "Shanghai", "Asia/Shanghai"],
+  ["seoul", 37.57, 126.98, "ソウル", "Seoul", "Asia/Seoul"], ["hangzhou", 30.27, 120.15, "杭州", "Hangzhou", "Asia/Shanghai"], ["shanghai", 31.23, 121.47, "上海", "Shanghai", "Asia/Shanghai"],
   ["taipei", 25.03, 121.57, "台北", "Taipei", "Asia/Taipei"], ["hongkong", 22.32, 114.17, "香港", "Hong Kong", "Asia/Hong_Kong"],
   ["singapore", 1.29, 103.85, "シンガポール", "Singapore", "Asia/Singapore"], ["bangkok", 13.75, 100.5, "バンコク", "Bangkok", "Asia/Bangkok"],
   ["delhi", 28.61, 77.21, "デリー", "Delhi", "Asia/Kolkata"], ["sydney", -33.87, 151.21, "シドニー", "Sydney", "Australia/Sydney"],
@@ -1124,7 +1124,7 @@ const WX_CITY = [   // [id, lat, lon, ja, en, the time zone it stands for (the f
 const CITY_ZH = {
   sapporo: "札幌", sendai: "仙台", niigata: "新潟", tokyo: "东京", nagoya: "名古屋", kanazawa: "金泽",
   osaka: "大阪", hiroshima: "广岛", takamatsu: "高松", fukuoka: "福冈", kagoshima: "鹿儿岛", naha: "那霸",
-  seoul: "首尔", shanghai: "上海", taipei: "台北", hongkong: "香港", singapore: "新加坡", bangkok: "曼谷",
+  seoul: "首尔", hangzhou: "杭州", shanghai: "上海", taipei: "台北", hongkong: "香港", singapore: "新加坡", bangkok: "曼谷",
   delhi: "德里", sydney: "悉尼", london: "伦敦", paris: "巴黎", berlin: "柏林", newyork: "纽约",
   chicago: "芝加哥", denver: "丹佛", losangeles: "洛杉矶", toronto: "多伦多", saopaulo: "圣保罗",
 };
@@ -1156,6 +1156,9 @@ function wxPlace() {
   const c = WX_CITY.find(c => c && c[0] === mine?.id);
   if (c) return wxCity(c);
   if (mine?.lat != null) return { lat: mine.lat, lon: mine.lon, mine: true };
+  const defaultId = STATION.weather_city || STATION.weather?.default_city;
+  const dc = WX_CITY.find(c => c && c[0] === defaultId);
+  if (dc) return wxCity(dc);
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone, g = WX_CITY.find(c => c?.[5] === tz);
   return g ? wxCity(g) : null;
 }
