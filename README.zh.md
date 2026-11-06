@@ -112,9 +112,33 @@ DEEPSEEK_BASE_URL=https://api.deepseek.com
 
 - 线上：<https://SunGang-pine.github.io/SunFlowerRadio/voices/>
 - 本地：<http://127.0.0.1:8090/voices/>
+- Edge vs MiniMax A/B：<https://SunGang-pine.github.io/SunFlowerRadio/voices/compare/>（本地 `/voices/compare/`）
 - 制作台右上角「试听音色」也可以打开。
 
 试听页里的音频是 11 个 Edge 音色的固定小样；`voices/samples/` 不提交到 Git，`tools/publish.ps1` 发布时会自动生成/带上。
+
+### 可选：MiniMax 音色
+
+MiniMax Speech-2.8 / Speech-02 的中文和日文播报更自然，已经接好了 adapter（默认 `speech-2.8-hd`）：
+
+1. 打开 <https://platform.minimax.io/> → Console → API Keys，创建一个 key；
+2. 写入 `.env.local`：
+
+```ini
+MINIMAX_API_KEY=你的key
+MINIMAX_BASE_URL=https://api.minimax.io
+# 如果 key 是在国内平台（platform.minimaxi.com）创建的，改成：
+# MINIMAX_BASE_URL=https://api.minimaxi.com
+```
+
+> 注意：国内平台的 key 在 `api.minimax.io` 上会返回 `2049 invalid api key`，换成 `api.minimaxi.com` 即可。
+
+3. 重启 `start.cmd`，制作台的「音色」里会出现 MiniMax 音色：
+   - 中文：新闻女声、新闻男声、电台主持、温暖女声
+   - 日语：温柔女声、沉稳女声、优雅女声、知性男声
+   - English：Expressive Narrator、Graceful Lady、Trustworthy Man、Insightful Speaker
+
+MiniMax 是按字符计费的；不配置 key 时，Edge 神经语音仍然是默认，完全不受影响。
 
 生成过程大约 15–60 秒（取决于新闻源与 DeepSeek 响应）。
 

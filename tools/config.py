@@ -24,6 +24,8 @@ ENV_LOCAL = ROOT / ".env.local"
 # point the studio at a compatible gateway later.
 DEFAULT_BASE_URL = "https://api.deepseek.com"
 DEFAULT_MODEL = "deepseek-chat"
+DEFAULT_MINIMAX_BASE_URL = "https://api.minimax.io"
+DEFAULT_MINIMAX_MODEL = "speech-2.8-hd"
 
 # The station's languages.  "voice" is a Windows SAPI fallback; "edge_voice"
 # is the high-quality Microsoft Edge neural voice used by default.
@@ -78,6 +80,53 @@ EDGE_VOICE_CHOICES = {
     ],
 }
 EDGE_VOICE_IDS = {v["id"] for choices in EDGE_VOICE_CHOICES.values() for v in choices}
+
+# MiniMax Speech-02 / 2.8 voices.  The studio value is
+# "mmx:<model>:<voice_id>" so the engine, model and voice travel together.
+MINIMAX_VOICES = {
+    "zh": [
+        {"id": "mmx:speech-2.8-hd:Chinese (Mandarin)_News_Anchor",
+         "label": "MiniMax 新闻女声（推荐）"},
+        {"id": "mmx:speech-2.8-hd:Chinese (Mandarin)_Male_Announcer",
+         "label": "MiniMax 新闻男声"},
+        {"id": "mmx:speech-2.8-hd:Chinese (Mandarin)_Radio_Host",
+         "label": "MiniMax 电台主持"},
+        {"id": "mmx:speech-2.8-hd:Chinese (Mandarin)_Warm_Girl",
+         "label": "MiniMax 温暖女声"},
+    ],
+    "ja": [
+        {"id": "mmx:speech-2.8-hd:Japanese_KindLady",
+         "label": "MiniMax 温柔女声"},
+        {"id": "mmx:speech-2.8-hd:Japanese_CalmLady",
+         "label": "MiniMax 沉稳女声"},
+        {"id": "mmx:speech-2.8-hd:Japanese_GracefulMaiden",
+         "label": "MiniMax 优雅女声"},
+        {"id": "mmx:speech-2.8-hd:Japanese_IntellectualSenior",
+         "label": "MiniMax 知性男声"},
+    ],
+    "en": [
+        {"id": "mmx:speech-2.8-hd:English_expressive_narrator",
+         "label": "MiniMax Expressive Narrator"},
+        {"id": "mmx:speech-2.8-hd:English_Graceful_Lady",
+         "label": "MiniMax Graceful Lady"},
+        {"id": "mmx:speech-2.8-hd:English_Trustworth_Man",
+         "label": "MiniMax Trustworthy Man"},
+        {"id": "mmx:speech-2.8-hd:English_Insightful_Speaker",
+         "label": "MiniMax Insightful Speaker"},
+    ],
+}
+MINIMAX_VOICE_IDS = {v["id"] for choices in MINIMAX_VOICES.values() for v in choices}
+
+
+def minimax_voice_parts(voice: str | None) -> tuple[str, str] | None:
+    """Parse 'mmx:<model>:<voice_id>' into (model, voice_id)."""
+    if not voice or not voice.startswith("mmx:"):
+        return None
+    parts = voice.split(":", 2)
+    if len(parts) != 3 or not parts[2].strip():
+        return None
+    model = parts[1].strip() or DEFAULT_MINIMAX_MODEL
+    return model, parts[2].strip()
 
 
 def setup_stdout() -> None:
@@ -139,6 +188,45 @@ def find_api_key() -> tuple[str | None, str]:
     if key:
         return key, "DSH .env"
     return None, "not configured"
+
+
+def find_minimax_key() -> tuple[str | None, str]:
+    """MiniMax key: env, .env.local, .env, then DSH credentials."""
+    key = (os.environ.get("MINIMAX_API_KEY") or os.environ.get("MINIMAX_KEY") or "").strip()
+    if key:
+        return key, "environment"
+    for path in (ENV_LOCAL, ROOT / ".env"):
+        key = (read_env_file(path).get("MINIMAX_API_KEY") or read_env_file(path).get("MINIMAX_KEY") or "").strip()
+        if key:
+            return key, str(path.relative_to(ROOT))
+    path = Path.home() / ".dsh" / ".credentials.yaml"
+    try:
+        text = path.read_text(encoding="utf-8-sig")
+        m = re.search(r"^\s*MINIMAX_API_KEY:\s*([^\s#]+)\s*$", text, re.M)
+        if m:
+            return m.group(1).strip(), "DSH credentials"
+    except OSError:
+        pass
+    return None, "not configured"
+
+
+def minimax_base_url() -> str:
+    env = {**read_env_file(ROOT / ".env"), **read_env_file(ENV_LOCAL)}
+    return (os.environ.get("MINIMAX_BASE_URL") or env.get("MINIMAX_BASE_URL") or DEFAULT_MINIMAX_BASE_URL).rstrip("/")
+
+
+def minimax_model() -> str:
+    env = {**read_env_file(ROOT / ".env"), **read_env_file(ENV_LOCAL)}
+    return os.environ.get("MINIMAX_MODEL") or env.get("MINIMAX_MODEL") or DEFAULT_MINIMAX_MODEL
+
+
+def minimax_group_id() -> str | None:
+    env = {**read_env_file(ROOT / ".env"), **read_env_file(ENV_LOCAL)}
+    return (os.environ.get("MINIMAX_GROUP_ID") or env.get("MINIMAX_GROUP_ID") or "").strip() or None
+
+
+def minimax_configured() -> bool:
+    return bool(find_minimax_key()[0])
 
 
 def mask_key(key: str | None) -> str:

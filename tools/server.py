@@ -24,6 +24,7 @@ from typing import Any, Callable
 from .config import (
     EDGE_VOICE_CHOICES,
     LANG_META,
+    MINIMAX_VOICES,
     ROOT,
     ENV_LOCAL,
     Settings,
@@ -31,6 +32,7 @@ from .config import (
     episode_index_entries,
     episode_path,
     get_settings,
+    minimax_configured,
     read_json,
     setup_stdout,
     station_languages,
@@ -190,15 +192,18 @@ def station_status() -> dict:
         "settings": get_settings().public(),
         "voices": voices(),
         "voice_options": {
-            lang: list(EDGE_VOICE_CHOICES.get(lang, [])) + [
+            lang: list(EDGE_VOICE_CHOICES.get(lang, []))
+            + (list(MINIMAX_VOICES.get(lang, [])) if minimax_configured() else [])
+            + ([
                 {"id": (LANG_META.get(lang) or {}).get("voice", ""),
                  "label": f"{(LANG_META.get(lang) or {}).get('voice', '')}（Windows SAPI · 备用）"}
-            ] if (LANG_META.get(lang) or {}).get("voice") else list(EDGE_VOICE_CHOICES.get(lang, []))
+            ] if (LANG_META.get(lang) or {}).get("voice") else [])
             for lang in langs
         },
         "sapi": sapi_available(),
         "edge": edge_available(),
-        "tts": "Microsoft Edge Neural" if edge_available() else ("Windows SAPI" if sapi_available() else "unavailable"),
+        "minimax": minimax_configured(),
+        "tts": "Microsoft Edge Neural" + (" + MiniMax" if minimax_configured() else "") if edge_available() else ("Windows SAPI" if sapi_available() else "unavailable"),
         "default_voices": {
             lang: (LANG_META.get(lang) or {}).get("edge_voice") if edge_available() else (LANG_META.get(lang) or {}).get("voice", "")
             for lang in langs
@@ -487,6 +492,8 @@ class Handler(BaseHTTPRequestHandler):
             full.relative_to(STATIC_ROOT.resolve())
         except ValueError:
             return self.error_json(403, "forbidden")
+        if full.is_dir():
+            full = full / "index.html"
         if not full.is_file():
             return self.error_json(404, "not found")
         ctype = mimetypes.guess_type(full.name)[0] or "application/octet-stream"

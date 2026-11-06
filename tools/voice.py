@@ -12,18 +12,34 @@ installed or the network is unavailable, the Windows SAPI voices still work.
 from __future__ import annotations
 
 import asyncio
+import concurrent.futures
 import json
 import os
 import shutil
 import subprocess
 import sys
+import threading
 import time
 import uuid
 import wave
 from pathlib import Path
 from typing import Callable
 
-from .config import AUDIO_DIR, EDGE_VOICE_IDS, LANG_META, audio_path, episode_path, read_json, update_episode_index, write_json
+from .config import (
+    AUDIO_DIR,
+    EDGE_VOICE_IDS,
+    LANG_META,
+    audio_path,
+    episode_path,
+    find_minimax_key,
+    minimax_base_url,
+    minimax_group_id,
+    minimax_voice_parts,
+    read_json,
+    update_episode_index,
+    write_json,
+)
+from .deepseek import http_session
 
 SAPI_PS1 = Path(__file__).resolve().parent / "sapi.ps1"
 LEAD_IN = 0.60
@@ -95,6 +111,10 @@ def edge_available() -> bool:
         return False
 
 
+def minimax_available() -> bool:
+    return bool(find_minimax_key()[0])
+
+
 def _edge_rate(rate: int) -> str:
     return f"{max(-50, min(50, int(rate) * 5)):+d}%"
 
@@ -146,6 +166,88 @@ def _run_edge(items: list[dict], out_dir: Path, voice: str, rate: int, log: Call
                 os.environ[key] = value
     log(f"edge voice ready: {voice} · rate {_edge_rate(rate)}")
     return {"voice": voice, "engine": "edge"}
+
+
+def _run_minimax(
+    items: list[dict],
+    out_dir: Path,
+    voice: str,
+    rate: int,
+    lang: str,
+    log: Callable[[str], None],
+) -> dict:
+    """Synthesize every line with the MiniMax Speech-02/2.8 API."""
+    parts = minimax_voice_parts(voice)
+    if not parts:
+        raise ValueError(f"invalid MiniMax voice: {voice}")
+    model, voice_id = parts
+    key, source = find_minimax_key()
+    if not key:
+        raise RuntimeError("MINIMAX_API_KEY is not configured")
+    base = minimax_base_url()
+    group = minimax_group_id()
+    url = base + "/v1/t2a_v2" + (f"?GroupId={group}" if group else "")
+    boost = {"zh": "Chinese", "ja": "Japanese", "en": "English"}.get(lang, "auto")
+    speed = round(max(0.5, min(2.0, 1.0 + int(rate) * 0.05)), 2)
+    usage = 0
+    lock = threading.Lock()
+
+    def one(item: dict) -> None:
+        nonlocal usage
+        mp3 = out_dir / f"{item['id']}.mp3"
+        wav = out_dir / f"{item['id']}.wav"
+        body = {
+            "model": model,
+            "text": item["text"],
+            "stream": False,
+            "language_boost": boost,
+            "output_format": "hex",
+            "voice_setting": {"voice_id": voice_id, "speed": speed, "vol": 1, "pitch": 0},
+            "audio_setting": {"sample_rate": RATE_HZ, "bitrate": 128000, "format": "mp3", "channel": 1},
+        }
+        last: Exception | None = None
+        for attempt in range(3):
+            try:
+                session = http_session()
+                r = session.post(url, headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
+                                 json=body, timeout=180)
+                if r.status_code in (429, 500, 502, 503, 504):
+                    raise RuntimeError(f"MiniMax HTTP {r.status_code}: {r.text[:300]}")
+                if r.status_code >= 400:
+                    raise RuntimeError(f"MiniMax HTTP {r.status_code}: {r.text[:400]}")
+                data = r.json()
+                base_resp = data.get("base_resp") or {}
+                if base_resp.get("status_code") not in (0, None):
+                    raise RuntimeError(f"MiniMax error {base_resp.get('status_code')}: {base_resp.get('status_msg')}")
+                payload = data.get("data") or {}
+                audio_hex = payload.get("audio")
+                if not audio_hex:
+                    raise RuntimeError("MiniMax returned no audio")
+                mp3.write_bytes(bytes.fromhex(audio_hex))
+                info = data.get("extra_info") or {}
+                with lock:
+                    usage += int(info.get("usage_characters") or 0)
+                proc = subprocess.run(
+                    [_ffmpeg(), "-y", "-loglevel", "error", "-i", str(mp3), "-ar", str(RATE_HZ),
+                     "-ac", "1", "-sample_fmt", "s16", str(wav)],
+                    capture_output=True, timeout=120,
+                )
+                if proc.returncode != 0 or not wav.exists() or wav.stat().st_size <= 44:
+                    raise RuntimeError(f"MiniMax audio conversion failed for {item['id']}")
+                return
+            except Exception as exc:
+                last = exc
+                if attempt < 2:
+                    time.sleep(1.5 * (attempt + 1))
+        raise RuntimeError(f"MiniMax failed for {item['id']}: {last}")
+
+    log(f"MiniMax: {model} · {voice_id} · {source} · speed {speed}")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+        futures = [pool.submit(one, item) for item in items]
+        for fut in concurrent.futures.as_completed(futures):
+            fut.result()
+    log(f"MiniMax ready · {usage} characters billed")
+    return {"voice": voice, "engine": "minimax", "usage_characters": usage}
 
 
 def _read_wav(path: Path) -> tuple[bytes, float]:
@@ -216,16 +318,18 @@ def synthesize_episode(
     voice: str | None = None,
     rate: int | None = None,
     force: bool = False,
+    out_path: Path | None = None,
+    update: bool = True,
     log: Callable[[str], None] | None = None,
 ) -> dict:
     say = log or (lambda _: None)
-    if not sapi_available() and not edge_available():
-        raise RuntimeError("No TTS engine is available (install edge-tts or use Windows SAPI)")
+    if not sapi_available() and not edge_available() and not minimax_available():
+        raise RuntimeError("No TTS engine is available (install edge-tts, configure MiniMax, or use Windows SAPI)")
     path = episode_path(date, lang)
     if not path.exists():
         raise FileNotFoundError(f"episode not found: {path}")
     ep = read_json(path)
-    out = audio_path(date, lang)
+    out = Path(out_path) if out_path else audio_path(date, lang)
     if out.exists() and not force:
         say(f"audio already exists: {out.name} (use force to rebuild)")
         return {"date": date, "lang": lang, "audio": str(out), "seconds": ep.get("seconds", 0), "skipped": True}
@@ -233,8 +337,11 @@ def synthesize_episode(
     meta = LANG_META.get(lang, LANG_META["ja"])
     if not voice:
         voice = meta.get("edge_voice") if edge_available() else meta["voice"]
-    use_edge = _is_edge_voice(voice) and edge_available()
-    if _is_edge_voice(voice) and not edge_available():
+    use_minimax = minimax_voice_parts(voice) is not None
+    if use_minimax and not minimax_available():
+        raise RuntimeError("MINIMAX_API_KEY 未配置；把 key 写进 .env.local 后重试")
+    use_edge = (not use_minimax) and _is_edge_voice(voice) and edge_available()
+    if _is_edge_voice(voice) and not edge_available() and not use_minimax:
         say("edge-tts is not installed; using the Windows SAPI voice")
         voice = meta["voice"]
         use_edge = False
@@ -268,7 +375,12 @@ def synthesize_episode(
     try:
         say(f"synthesizing {len(items)} lines with 「{voice}」…")
         engine = "sapi"
-        if use_edge:
+        if use_minimax:
+            result = _run_minimax(items, tmp, voice, rate, lang, say)
+            chosen = result.get("voice") or voice
+            engine = "minimax"
+            say(f"voice: {chosen} (MiniMax)")
+        elif use_edge:
             try:
                 result = _run_edge(items, tmp, voice, rate, say)
                 chosen = result.get("voice") or voice
@@ -352,8 +464,11 @@ def synthesize_episode(
         ep["made_at"] = time.strftime("%Y-%m-%dT%H:%M:%S")
         ep["voice"] = chosen
         ep["tts"] = engine
-        write_json(path, ep)
-        update_episode_index(date, lang, ep.get("title", ""), seconds)
+        if update:
+            write_json(path, ep)
+            update_episode_index(date, lang, ep.get("title", ""), seconds)
+        else:
+            say("comparison audio only: episode JSON/index unchanged")
         say(f"audio: {out.name} · {seconds:.2f}s · {len(lines_timed)} lines" + (f" (mp3 {probed:.2f}s)" if probed else ""))
         if probed and abs(probed - seconds) > 0.2:
             say(f"note: mp3 duration differs by {probed - seconds:+.2f}s (timeline uses the WAV master)")
@@ -366,6 +481,7 @@ def synthesize_episode(
             "lines": len(lines_timed),
             "voice": chosen,
             "engine": engine,
+            "updated": update,
             "elapsed_s": round(time.time() - started, 1),
         }
     finally:
