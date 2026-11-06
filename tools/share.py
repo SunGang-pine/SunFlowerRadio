@@ -24,6 +24,7 @@ from PIL import Image, ImageDraw, ImageFont
 W, H = 1200, 630
 INK, CAM, TEXT, MUTED, YELLOW, TEAL = (12, 14, 20), (22, 26, 38), (242, 243, 247), (141, 147, 168), (255, 208, 40), (63, 224, 220)
 WEEK_JA = "月火水木金土日"
+WEEK_ZH = "一二三四五六日"
 
 
 def arg(name, default=None):
@@ -80,6 +81,7 @@ def logo_image(path, height):
 def date_text(d, lang):
     t = datetime.date.fromisoformat(d)
     if lang == "ja": return f"{t.year}年{t.month}月{t.day}日（{WEEK_JA[t.weekday()]}）"
+    if lang == "zh": return f"{t.year}年{t.month}月{t.day}日（周{WEEK_ZH[t.weekday()]}）"
     return t.strftime("%a, %b ") + f"{t.day}, {t.year}"
 
 
@@ -137,7 +139,7 @@ def page(st, ep, lang, stem, target, base):
     desc = " / ".join(f"{j + 1:02d} {n['label']}" for j, n in enumerate(ep["news"]))
     url = lambda p: base + p if base else p
     e = lambda s: html.escape(s, quote=True)
-    locale = {"ja": "ja_JP", "en": "en_US"}.get(lang, lang)
+    locale = {"ja": "ja_JP", "en": "en_US", "zh": "zh_CN"}.get(lang, lang)
     return f"""<!doctype html>
 <html lang="{e(lang)}">
 <head>
@@ -168,7 +170,7 @@ def front(root, station, base, newest):
     if not newest or not os.path.exists(ix): return
     e = lambda s: html.escape(s or "", quote=True)
     lang = station.get("language", "ja")
-    locale = {"ja": "ja_JP", "en": "en_US"}.get(lang, lang)
+    locale = {"ja": "ja_JP", "en": "en_US", "zh": "zh_CN"}.get(lang, lang)
     tags = f"""<!-- share:front -->
 <meta name="description" content="{e(station.get('description'))}">
 <meta property="og:type" content="website">
@@ -189,13 +191,14 @@ def front(root, station, base, newest):
 
 
 def main():
-    args = [a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith("--") and sys.argv[i - 1] not in ("--url", "--font")]
+    args = [a for i, a in enumerate(sys.argv[1:], 1) if not a.startswith("--") and sys.argv[i - 1] not in ("--url", "--font", "--font-zh")]
     root = os.path.abspath(args[0] if args else os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
     station = json.load(open(os.path.join(root, "station.json"), encoding="utf-8"))
     base = arg("--url", station.get("url") or "")
     if base and not base.endswith("/"): base += "/"
     if not base: print("note: no --url / station.json url: SNS need a full URL for the card image")
     fpath = arg("--font", os.environ.get("SHARE_FONT", os.path.join(root, "fonts", "NotoSansJP.ttf")))
+    fpath_zh = arg("--font-zh", os.environ.get("SHARE_FONT_ZH", os.path.join(root, "fonts", "NotoSansSC.ttf")))
     pack = station.get("character", {}).get("pack")
     char = None
     if pack and os.path.exists(os.path.join(root, pack)):
@@ -213,7 +216,8 @@ def main():
             L = lang or ep.get("lang") or station.get("language", "ja")
             st = lambda k: station.get("i18n", {}).get(L, {}).get(k, station.get(k))
             logo = logo_image(os.path.join(root, station["logo"]) if station.get("logo") else None, 40)
-            card(station, st, ep, L, char, logo, fpath).save(os.path.join(root, "share", f"{stem}.jpg"), quality=88, optimize=True)
+            use_font = fpath_zh if L == "zh" and os.path.exists(fpath_zh) else fpath
+            card(station, st, ep, L, char, logo, use_font).save(os.path.join(root, "share", f"{stem}.jpg"), quality=88, optimize=True)
             target = f"../#{date}/{lang}" if lang else f"../#{date}"
             open(os.path.join(root, "share", f"{stem}.html"), "w", encoding="utf-8").write(page(st, ep, L, stem, target, base))
             made += 1

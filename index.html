@@ -125,7 +125,7 @@ main{max-width:1280px;margin:0 auto;padding:16px}
 #panel .date{font-size:44px;font-weight:700;margin-bottom:44px}
 #panel .sub{font-size:40px;font-weight:700;color:var(--teal);margin:-10px 0 18px;letter-spacing:2px}
 #panel ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
-#panel ol li{font-size:34px;padding-left:76px}
+#panel ol li{font-size:31px;padding-left:76px;max-width:640px}
 #panel ol li::before{content:attr(data-n);font:700 30px var(--mono);color:var(--yellow);left:0;top:3px}
 #panel button.head{all:unset;cursor:pointer;transition:color .2s}
 #panel button.head:focus-visible{outline:2px solid var(--yellow);outline-offset:4px;border-radius:6px}
@@ -490,15 +490,22 @@ const UI = {
         notFound: c => `Link not found (${c})`, source: "Source", script: "Read the script", past: "Past episodes",
         expired: "This episode's audio is no longer available (the script is below)", loading: "Loading…", empty: "No episodes yet",
         muted: "Sound off · click to turn on", sep: " · ", colon: ": " },
+  zh: { share: "分享", copied: "已复制", resumeAt: t => `从 ${t} 继续播放`, from0: "从头播放", heard: "已听完", partway: t => `听到 ${t}`, rate: "播放速度", wxHere: "当前位置", wxCredit: "天气：Open-Meteo（CC BY 4.0）", wxNoGeo: "无法获取位置", wxPrompt: "点右上角选择地点，查看天气", wxChoose: "选择地点", wxUseHere: "使用当前位置", wxJapan: "日本", wxWorld: "世界", wxHi: "最高", wxLo: "最低", wxRain: "降水", copyHint: "点击复制", native: "分享…", copyLink: "复制链接", copyEmbed: "复制嵌入代码", openPage: "打开页面", news: "新闻", none: "暂无详细", jump: "跳到这条", bye: "明天见！", related: "相关文章", open: "打开文章 ↗",
+        notFound: c => `链接打不开（${c}）`, source: "来源", script: "阅读台本", past: "往期节目",
+        expired: "这期的音频已下线（下方仍可阅读台本）", loading: "加载中…", empty: "还没有节目",
+        muted: "已静音 · 点击开启声音", sep: " · ", colon: "：" },
 };
 let LANG = "ja";
 const tr = k => (UI[LANG] || UI.en)[k];
-const NAMES = { ja: "日本語", en: "English" };
+const NAMES = { ja: "日本語", en: "English", zh: "中文" };
 const dateFmt = d => LANG === "ja" || !UI[LANG] ? dateJp(d)
+  : LANG === "zh" ? dateZh(d)
   : new Date(d + "T00:00:00").toLocaleDateString(LANG, { weekday: "short", month: "short", day: "numeric", year: "numeric" });
 const langsOf = e => e ? Object.keys(e).filter(k => k !== "date" && e[k]?.title) : [];   // [] for the older list
 const info = e => e?.[LANG] || e?.[langsOf(e)[0]] || e;   // {title, seconds} of an entry in the current language
 const dateJp = d => { const t = new Date(d + "T00:00:00"); return `${t.getFullYear()}年${t.getMonth() + 1}月${t.getDate()}日（${WEEK[t.getDay()]}）`; };
+const WEEK_ZH = "日一二三四五六";
+const dateZh = d => { const t = new Date(d + "T00:00:00"); return `${t.getFullYear()}年${t.getMonth() + 1}月${t.getDate()}日（周${WEEK_ZH[t.getDay()]}）`; };
 const mmss = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 const PLAY = '<path d="M0 0v12l10-6z"/>', PAUSE = '<path d="M0 0h3.5v12H0zM6.5 0H10v12H6.5z"/>';
 const audio = $("audio");
@@ -1114,7 +1121,14 @@ const WX_CITY = [   // [id, lat, lon, ja, en, the time zone it stands for (the f
   ["losangeles", 34.05, -118.24, "ロサンゼルス", "Los Angeles", "America/Los_Angeles"], ["toronto", 43.65, -79.38, "トロント", "Toronto", "America/Toronto"],
   ["saopaulo", -23.55, -46.63, "サンパウロ", "São Paulo", "America/Sao_Paulo"],
 ];
-const wxCity = c => ({ id: c[0], lat: c[1], lon: c[2], name: { ja: c[3], en: c[4] } });
+const CITY_ZH = {
+  sapporo: "札幌", sendai: "仙台", niigata: "新潟", tokyo: "东京", nagoya: "名古屋", kanazawa: "金泽",
+  osaka: "大阪", hiroshima: "广岛", takamatsu: "高松", fukuoka: "福冈", kagoshima: "鹿儿岛", naha: "那霸",
+  seoul: "首尔", shanghai: "上海", taipei: "台北", hongkong: "香港", singapore: "新加坡", bangkok: "曼谷",
+  delhi: "德里", sydney: "悉尼", london: "伦敦", paris: "巴黎", berlin: "柏林", newyork: "纽约",
+  chicago: "芝加哥", denver: "丹佛", losangeles: "洛杉矶", toronto: "多伦多", saopaulo: "圣保罗",
+};
+const wxCity = c => ({ id: c[0], lat: c[1], lon: c[2], name: { ja: c[3], en: c[4], zh: CITY_ZH[c[0]] || c[4] } });
 const WX_ICON = {
   sun: '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/>',
   moon: '<path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/>',
@@ -1128,7 +1142,8 @@ const WX_ICON = {
 // WMO weather codes -> an icon and words
 function wxKind(code, day = 1) {
   const W = { ja: ["快晴", "晴れ", "晴れ時々くもり", "くもり", "霧", "霧雨", "雨", "雪", "にわか雨", "にわか雪", "雷雨"],
-              en: ["Clear", "Mostly clear", "Partly cloudy", "Cloudy", "Fog", "Drizzle", "Rain", "Snow", "Showers", "Snow showers", "Thunderstorm"] }[LANG] || [];
+              en: ["Clear", "Mostly clear", "Partly cloudy", "Cloudy", "Fog", "Drizzle", "Rain", "Snow", "Showers", "Snow showers", "Thunderstorm"],
+              zh: ["晴", "晴间多云", "多云", "阴", "雾", "毛毛雨", "雨", "雪", "阵雨", "阵雪", "雷雨"] }[LANG] || [];
   const k = code === 0 ? [day ? "sun" : "moon", 0] : code === 1 ? [day ? "sun" : "moon", 1] : code === 2 ? ["part", 2] : code === 3 ? ["cloud", 3]
     : code <= 48 ? ["fog", 4] : code <= 57 ? ["rain", 5] : code <= 67 ? ["rain", 6] : code <= 77 ? ["snow", 7]
     : code <= 82 ? ["rain", 8] : code <= 86 ? ["snow", 9] : ["storm", 10];
@@ -1178,7 +1193,7 @@ function wxRender() {
 // the place list: "your area" first (only then does the browser ask for the location), then the cities
 const PIN = '<svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>';
 function wxList() {
-  const p = WX.place, opt = c => `<button role="option" data-wx="${c[0]}" aria-selected="${p?.id === c[0]}">${esc(LANG === "ja" ? c[3] : c[4])}</button>`;
+  const p = WX.place, opt = c => `<button role="option" data-wx="${c[0]}" aria-selected="${p?.id === c[0]}">${esc(LANG === "ja" ? c[3] : LANG === "zh" ? (CITY_ZH[c[0]] || c[4]) : c[4])}</button>`;
   const cut = WX_CITY.indexOf(null);
   $("wxlist").innerHTML = `<button role="option" class="here" data-wx="here" aria-selected="${!!p?.mine}">${PIN}${tr("wxUseHere")}</button>`
     + `<div class="gh">${tr("wxJapan")}</div>` + WX_CITY.slice(0, cut).map(opt).join("")
@@ -1232,7 +1247,10 @@ async function init() {
   // #<date>/<lang> in the address, else the last language chosen here, else the browser's
   const [want, wantLang] = location.hash.slice(1).split("/");
   let saved = null; try { saved = localStorage.getItem("lang"); } catch {}
-  const pref = wantLang || saved || ((navigator.language || "").toLowerCase().startsWith("ja") ? "ja" : "en");
+  const nav = (navigator.language || "").toLowerCase();
+  const fallback = nav.startsWith("ja") ? "ja"
+    : nav.startsWith("zh") && (STATION.languages || []).includes("zh") ? "zh" : "en";
+  const pref = wantLang || saved || fallback;
   load(eps.some(e => e.date === want) ? want : eps[0].date, pref);
 }
 init();

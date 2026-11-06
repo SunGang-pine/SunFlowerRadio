@@ -2,18 +2,19 @@
 
 > **在线收听：<https://SunGang-pine.github.io/SunFlowerRadio/>**
 > **GitHub：<https://github.com/SunGang-pine/SunFlowerRadio>**
+> **2026-11-06 已生成日本語 / English / 中文三语版本。**
 >
 > 一个每天早上播报 AI、3D 打印与电子制作新闻的「网页电台」。
 > **DeepSeek 写台本 · Windows 语音合成配音 · 字幕/幻灯片/口型自动对齐。**
 
-![播放器](docs/preview-player.png)
+![播放器](docs/preview-player-zh.png)
 
 SunFlowerRadio 基于 [myradio](https://github.com/monoradio102/myradio) 的静态电台播放器。播放器本身不需要服务器：`index.html` 读取 `station.json`、`episodes/`、`audio/` 和 `character/`，就是一台完整的电台。
 
 这个仓库在原来的播放器之上，补齐了「每天真正能出片」的制作链路：
 
 - **新闻**：从真实 RSS（TechCrunch、The Verge、Ars Technica、OpenAI、Hackaday、IEEE Spectrum）抓取，保留原文链接与 OGP 卡片。
-- **台本**：DeepSeek 根据素材写日文 / 英文台本，严格输出播放器需要的 JSON；校验失败会自动修正一次。
+- **台本**：DeepSeek 根据素材写**日文 / 英文 / 中文**台本，严格输出播放器需要的 JSON；校验失败会自动修正一次。
 - **配音**：调用 Windows 内置语音（Haruka / Zira / Huihui），逐句合成，自动计算 `lines_timed` 与 `segments`。
 - **制作台**：本地网页 UI（`/studio/`），填日期、语言、条数就能出片；API Key 只留在本机。
 - **校验**：`python -m tools.check` 检查台本、时间轴、音频是否一致。
@@ -80,7 +81,7 @@ DEEPSEEK_BASE_URL=https://api.deepseek.com
 
 ### 制作台
 
-1. 选播出日期（默认今天）、语言（日本語 / English）、新闻条数（3/4/5）。
+1. 选播出日期（默认今天）、语言（日本語 / English / 中文）、新闻条数（3/4/5）。
 2. 选素材：
    - **RSS 新闻**：勾选新闻源；每个源最多取 2 条，避免全是同一家。
    - **手动素材**：粘贴文章 URL（每行一个），可再加背景材料。
@@ -112,7 +113,7 @@ python -m tools.make write --lang ja --feeds techcrunch-ai,hackaday-3d
 python -m tools.make write --lang ja --source-url "https://example.com/a" --source-url "https://example.com/b"
 ```
 
-中国语（`zh`）也可以生成与配音，但当前 `station.json` 只启用了 `ja` / `en`；要启用中文，把 `zh` 加入 `languages`，并在播放器 `UI` 里补中文文案。
+中文（`zh`）已经启用：`station.json` 的 `languages` 包含 `ja` / `en` / `zh`，播放器界面、日期、天气和分享卡都有中文。2026-11-06 这一期日/英/中三语都已生成；更早的两期只有日/英，切到中文时会自动回退到该期可用的语言。
 
 ### 输出
 
@@ -139,7 +140,7 @@ python -m tools.check
 - `segments` 是否首尾相接、最后一段是否等于 `seconds`
 - 音频是否存在，MP3 时长与 `seconds` 是否一致
 
-当前 6 期全部通过。
+当前 7 期全部通过。
 
 ## 目录
 
@@ -171,7 +172,8 @@ tools/
 .env.local                 你的本机密钥（gitignore，不会提交）
 start.ps1 / start.cmd      一键启动
 share/                     每期的分享卡片（tools/share.py 生成）
-docs/preview-player.png    播放器截图
+docs/preview-player.png    播放器截图（日语）
+docs/preview-player-zh.png 播放器截图（中文）
 docs/preview-studio.png    制作台截图
 ```
 
@@ -204,15 +206,15 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools\publish.ps1
 3. 重新生成 `share/` 分享卡片（使用 `station.json.url`）；
 4. 重建并强制推送 `gh-pages` 分支。
 
-`tools/publish.ps1 -NoPush` 可以只在本地构建、不推送；`-ShareFont` 可以指定日文字体。上游的 `tools/publish.sh` 在 Git Bash 下仍然可用。
+`tools/publish.ps1 -NoPush` 可以只在本地构建、不推送；`-ShareFont` 指定日文字体，`-ShareFontZh` 指定中文字体。上游的 `tools/publish.sh` 在 Git Bash 下仍然可用。
 
-`tools/share.py` 可以生成每期的分享卡片（需要 Pillow + 日文字体）。Windows 上可以这样生成：
+`tools/share.py` 可以生成每期的分享卡片（需要 Pillow + 日文字体/中文字体）。Windows 上可以这样生成：
 
 ```powershell
-python tools/share.py --all --font "C:/Windows/Fonts/YuGothM.ttc" --url "http://127.0.0.1:8090/"
+python tools/share.py --all --font "C:/Windows/Fonts/YuGothM.ttc" --font-zh "C:/Windows/Fonts/NotoSansSC-VF.ttf" --url "https://SunGang-pine.github.io/SunFlowerRadio/"
 ```
 
-当前 `share/` 里已生成 6 期卡片；播放器的「分享」按钮会在卡片存在时出现。`station.json` 的 `url` 已经是正式地址；如果换域名，先改 `url` 再重新生成。
+当前 `share/` 里已生成 7 期卡片（含中文）；播放器的「分享」按钮会在卡片存在时出现。`station.json` 的 `url` 已经是正式地址；如果换域名，先改 `url` 再重新生成。
 
 ## 设计与素材
 

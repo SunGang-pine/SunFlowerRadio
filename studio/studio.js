@@ -410,10 +410,15 @@ $("#keyClose").addEventListener("click", () => $("#keyDialog").close());
 /* ---------------------------------------------------------------- boot */
 (async function init() {
   $("#date").value = localToday();
-  const hash = new URLSearchParams(location.search);
-  if (hash.get("lang")) $("#lang").value = hash.get("lang");
   try {
     await loadStatus();
+    const q = new URLSearchParams(location.search).get("lang");
+    const sel = $("#lang");
+    if (q && [...sel.options].some(o => o.value === q)) {
+      sel.value = q;
+      state.voiceTouched = false;
+      renderVoices();
+    }
     setCount(4);
     setMode("rss");
   } catch (err) {

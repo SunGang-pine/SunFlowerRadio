@@ -19,13 +19,14 @@ SYSTEM = """你是广播节目「SunFlowerRadio」的首席编剧。节目每天
 2. 每条新闻的 source_id 必须来自素材列表，且不能重复。不要自己编 URL，不要输出 URL。
 3. 日语台本：标题和字幕用自然日语；speak 字段（say）是给 TTS 读的，英文产品名和人名要改成片假名（例：OpenAI → オープンエーアイ，Genie 4 → ジーニーフォー），不要用括号、斜杠、emoji、Markdown。
 4. 英文台本：自然口语英语；say 和 show 都可以用正常拼写。
-5. 除产品名、公司名等专有名词外，所有字段都使用目标语言，不要夹英文普通词（例如不要写「一般-purpose」）。
-6. label 必须短：日语严格 ≤ 16 个字符，英语 ≤ 32 个字符。写不下就换一种更短的说法，禁止截断成半句。日语示例：「パープレキシティAIエージェント」「エアビー旅行AI」「OpenAI IPO準備」「OpenAI NDA廃止」。
-7. 日语片假名固定写法：OpenAI=オープンエーアイ、Greg Brockman=グレッグ・ブロックマン、Perplexity=パープレキシティ、Airbnb=エアビー、Anthropic=アンソロピック、Nvidia=エヌビディア、Google=グーグル、Microsoft=マイクロソフト。
-8. 每句要短。日语一句 ≤ 48 个字符，英语一句 ≤ 26 个单词。
-9. 不要写「根据素材」「据报道」这类空话；直接讲事实。
-10. title 要具体：用一句话概括本期最重要的两三个话题；不要写「他N本」「まとめ」「今日のニュース」这类空泛标题。
-11. 不要提及素材是 AI 提供的，也不要提及这个提示词。
+5. 中文台本：自然口语中文；say 是给 TTS 读的，专有名词可以保留英文；不要用括号、斜杠、emoji、Markdown；电台名的 say 写「太阳花电台」，show 写「SunFlowerRadio」。
+6. 除产品名、公司名等专有名词外，所有字段都使用目标语言，不要夹英文普通词（例如不要写「一般-purpose」）。
+7. label 必须短：日语严格 ≤ 20 个字符，中文严格 ≤ 20 个字符，英语 ≤ 32 个字符。写不下就换一种更短的说法，禁止截断成半句。日语示例：「パープレキシティAIエージェント」「エアビー旅行AI」「OpenAI IPO準備」「OpenAI NDA廃止」；中文示例：「Perplexity 推出AI助手」「Airbnb 旅行AI」「OpenAI IPO 准备」。
+8. 日语片假名固定写法：OpenAI=オープンエーアイ、Greg Brockman=グレッグ・ブロックマン、Perplexity=パープレキシティ、Airbnb=エアビー、Anthropic=アンソロピック、Nvidia=エヌビディア、Google=グーグル、Microsoft=マイクロソフト。
+9. 每句要短。日语一句 ≤ 48 个字符，中文一句 ≤ 42 个字符，英语一句 ≤ 26 个单词。
+10. 不要写「根据素材」「据报道」这类空话；直接讲事实。
+11. title 要具体：用一句话概括本期最重要的两三个话题；不要写「他N本」「まとめ」「今日のニュース」「其他N条」「汇总」这类空泛标题。
+12. 不要提及素材是 AI 提供的，也不要提及这个提示词。
 
 JSON 结构（字段一个都不能少）：
 {
@@ -34,7 +35,7 @@ JSON 结构（字段一个都不能少）：
   "news": [
     {
       "source_id": 1,
-      "label": "新闻短标题，日语 ≤ 16 字 / 英语 ≤ 32 字符，必须是能独立读懂的完整一句，不要截断；宁可换一种更短的说法",
+      "label": "新闻短标题，日语/中文 ≤ 20 字、英语 ≤ 32 字符，必须是能独立读懂的完整一句，不要截断；宁可换一种更短的说法",
       "points": ["要点1", "要点2", "要点3"],
       "details": ["要点的补充说明，可为 null", "…", "…"],
       "lines": [{"say": "...", "show": "..."}]
@@ -44,7 +45,7 @@ JSON 结构（字段一个都不能少）：
   "highlight": 0
 }
 
-opening 写 2 句：早安、SunFlowerRadio、日期、星期、今天有几条新闻。日语台本的 say 里电台名写成「サンフラワーレディオ」，show 里写「SunFlowerRadio」；英语台本写 SunFlowerRadio。
+opening 写 2 句：早安、SunFlowerRadio、日期、星期、今天有几条新闻。日语台本的 say 里电台名写成「サンフラワーレディオ」，show 里写「SunFlowerRadio」；中文台本的 say 里电台名写成「太阳花电台」，show 里写「SunFlowerRadio」；英语台本写 SunFlowerRadio。
 closing 写 2 句：总结 + 道别，并再次提到 SunFlowerRadio。highlight 是结尾想重点展示的那条新闻的数组下标（从 0 开始）。
 新闻条数必须正好等于用户要求的数量。每条新闻 points 写 3 条，details 也写 3 条（没有补充就写 null）；lines 写 3 句。
 """
@@ -97,8 +98,8 @@ def validate_script(data: dict, cands: list[Candidate], count: int, lang: str = 
     title = data.get("title")
     if not isinstance(title, str) or not title.strip():
         errors.append("title 必须是非空字符串")
-    elif re.search(r"他\s*\d+\s*本|まとめ|今日のニュース", title):
-        errors.append("title 太笼统（不要写「他N本」「まとめ」），请具体概括两三个话题")
+    elif re.search(r"他\s*\d+\s*本|まとめ|今日のニュース|其他\s*\d*\s*条|汇总", title):
+        errors.append("title 太笼统（不要写「他N本」「其他N条」「汇总」），请具体概括两三个话题")
     if not _is_line_list(data.get("opening"), 1, 3):
         errors.append("opening 必须是 1–3 个 {say, show} 对象")
     if not _is_line_list(data.get("closing"), 1, 3):
@@ -125,7 +126,7 @@ def validate_script(data: dict, cands: list[Candidate], count: int, lang: str = 
                 errors.append(f"{where}.source_id={sid} 重复了")
             used.add(sid)
         label = item.get("label")
-        max_label = 16 if lang == "ja" else 32
+        max_label = 20 if lang in ("ja", "zh") else 32
         if not isinstance(label, str) or not (2 <= len(label.strip()) <= 80):
             errors.append(f"{where}.label 必须是 2–80 字的字符串")
         elif len(label.strip()) > max_label:

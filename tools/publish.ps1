@@ -1,6 +1,7 @@
 param(
   [string]$Message = "",
   [string]$ShareFont = "C:/Windows/Fonts/YuGothM.ttc",
+  [string]$ShareFontZh = "C:/Windows/Fonts/NotoSansSC-VF.ttf",
   [switch]$NoPush,
   [switch]$SkipShare
 )
@@ -41,6 +42,7 @@ try {
     if ($py) {
       $shareArgs = @("tools/share.py", $tmp, "--all", "--url", $baseUrl)
       if (Test-Path $ShareFont) { $shareArgs += @("--font", $ShareFont) }
+      if (Test-Path $ShareFontZh) { $shareArgs += @("--font-zh", $ShareFontZh) }
       & $py.Source @shareArgs
     } else {
       Write-Host "share cards: skipped (python not found)" -ForegroundColor DarkYellow
