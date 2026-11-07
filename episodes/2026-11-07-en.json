@@ -1,0 +1,373 @@
+{
+ "format": "monoradio/news-1",
+ "date": "2026-11-07",
+ "lang": "en",
+ "title": "OpenAI's $11B Raise, Meta Muse Spaces, and a Kindle Running Linux",
+ "opening": [
+  {
+   "say": "Good morning, this is SunFlowerRadio.",
+   "show": "Good morning, this is SunFlowerRadio."
+  },
+  {
+   "say": "It's Saturday, November 7th, 2026, and we have five stories for you.",
+   "show": "It's Saturday, November 7th, 2026, and we have five stories for you."
+  }
+ ],
+ "news": [
+  {
+   "label": "OpenAI raises $11B at $1.25T valuation",
+   "points": [
+    "OpenAI has reportedly raised an additional $11 billion.",
+    "The funding values the AI lab at $1.25 trillion.",
+    "The round is not closed yet and could total about $20 billion."
+   ],
+   "details": [
+    "Bloomberg reported the funding on Friday, citing sources familiar with the matter.",
+    "The round is expected to close in the coming weeks.",
+    "In late September, Bloomberg reported OpenAI was looking to raise $30 billion."
+   ],
+   "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+   "lines": [
+    {
+     "say": "OpenAI has reportedly raised an additional eleven billion dollars.",
+     "show": "OpenAI has reportedly raised an additional $11 billion."
+    },
+    {
+     "say": "The new funding values the AI lab at one point two five trillion dollars.",
+     "show": "The new funding values the AI lab at $1.25 trillion."
+    },
+    {
+     "say": "The round is expected to close in the coming weeks and could total about twenty billion dollars.",
+     "show": "The round is expected to close in the coming weeks and could total about $20 billion."
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+    "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation | TechCrunch",
+    "site": "TechCrunch",
+    "description": "OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks.",
+    "image": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-green.jpg?w=1024",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "Midterms may bring tougher AI scrutiny",
+   "points": [
+    "Democrats won historic victories in this week's U.S. midterms.",
+    "Voters decided on 41 data center-related ballot measures.",
+    "In all but one, the majority voted for more restrictions."
+   ],
+   "details": [
+    "Newly elected Democratic governors and congressmembers likely support additional regulation.",
+    "Data centers were a major talking point even when not directly on the ballot.",
+    "TechCrunch's Equity podcast discussed what the election means for the tech industry."
+   ],
+   "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+   "lines": [
+    {
+     "say": "Democrats won historic victories in this week's U.S. midterms.",
+     "show": "Democrats won historic victories in this week's U.S. midterms."
+    },
+    {
+     "say": "Voters decided on forty-one data center-related ballot measures.",
+     "show": "Voters decided on 41 data center-related ballot measures."
+    },
+    {
+     "say": "In all but one, the majority voted to impose more restrictions on data center development.",
+     "show": "In all but one, the majority voted to impose more restrictions on data center development."
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+    "title": "After the midterms, is the AI industry in for a rough two years? | TechCrunch",
+    "site": "TechCrunch",
+    "description": "Watch as Equity breaks down how election week is already reshaping the AI data center debate, plus Canva’s layoffs, a $115B chip deal, and microdramas.",
+    "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2236543888.jpg?resize=1200,800",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "Meta Muse adds custom spaces",
+   "points": [
+    "Meta now lets users build app-like experiences within Muse.",
+    "The feature is called spaces.",
+    "You can create things like a shopping hub or music tracker."
+   ],
+   "details": [
+    "You create a space by describing it to the AI assistant.",
+    "Connecting outside apps lets Muse pull information and update your space in the background.",
+    "Meta is rolling out spaces to all Muse users."
+   ],
+   "url": "https://www.theverge.com/tech/1028871/meta-muse-ai-spaces",
+   "lines": [
+    {
+     "say": "Meta now lets users build customized app-like experiences within Muse.",
+     "show": "Meta now lets users build customized app-like experiences within Muse."
+    },
+    {
+     "say": "The new feature is called spaces.",
+     "show": "The new feature is called spaces."
+    },
+    {
+     "say": "You can create things like a shopping hub, school dashboard, or music tracker directly within Muse.",
+     "show": "You can create things like a shopping hub, school dashboard, or music tracker directly within Muse."
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/tech/1028871/meta-muse-ai-spaces",
+    "title": "Meta’s Muse AI can create custom ‘spaces’ for the version of the app you need right now",
+    "site": "The Verge",
+    "description": "An app within an app.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/11/meta-muse-spaces.png?quality=90&strip=all&crop=8.0752843063528%2C7.2758349524933%2C91.924715693647%2C59.9199899822&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  },
+  {
+   "label": "Embedded 3D printing with liquids",
+   "points": [
+    "A broken Prusa printer was turned into an embedded 3D printing setup.",
+    "The hot-end was replaced with a syringe system.",
+    "The method prints materials into a supportive medium."
+   ],
+   "details": [
+    "The project used an open source Allstruder syringe pump and a Caribou Duet 3 motherboard.",
+    "A test print used cream cheese as the printing material.",
+    "A final print used silicone, specifically Sylgard 184, with hair gel as the support medium."
+   ],
+   "url": "https://hackaday.com/2026/10/09/embedded-3d-printing-with-liquids-on-a-bricked-prusa-fdm-printer/",
+   "lines": [
+    {
+     "say": "A broken Prusa FDM printer was turned into an embedded 3D printing setup.",
+     "show": "A broken Prusa FDM printer was turned into an embedded 3D printing setup."
+    },
+    {
+     "say": "The hot-end was replaced with a syringe system.",
+     "show": "The hot-end was replaced with a syringe system."
+    },
+    {
+     "say": "The method prints materials into a supportive medium at a selectable depth and volume.",
+     "show": "The method prints materials into a supportive medium at a selectable depth and volume."
+    }
+   ],
+   "link": {
+    "url": "https://hackaday.com/2026/10/09/embedded-3d-printing-with-liquids-on-a-bricked-prusa-fdm-printer/",
+    "title": "Embedded 3D Printing With Liquids On A Bricked Prusa FDM Printer",
+    "site": "Hackaday",
+    "description": "Recently [Riley] got his paws on an old Prusa i3 FDM printer that had clearly seen better days, with a hot-end that had suffered an explosive blow-out. For the project he had in mind this was of co…",
+    "image": "https://hackaday.com/wp-content/uploads/2026/10/embedded_3d_printing_prusa_silicone_hair_gel_featured_rileys_lab_youtube.jpg",
+    "icon": "https://hackaday.com/wp-content/themes/hackaday-2/img/logo.svg?v=3"
+   }
+  },
+  {
+   "label": "Alpine Linux on a Kindle Paperwhite 3",
+   "points": [
+    "A distro brings Alpine Linux to the Kindle Paperwhite 3.",
+    "The Kindle must be jailbroken and uses an old Amazon kernel.",
+    "It includes games, a browser, an ePub reader, and a local chatbot."
+   ],
+   "details": [
+    "The chatbot runs SmolLM2 over llama.cpp on the Kindle's own processor.",
+    "It runs at 1.7 words per second, but everything stays on the device.",
+    "It is easy to return the Kindle to stock."
+   ],
+   "url": "https://hackaday.com/2026/11/06/its-alpine-linux-on-a-kindle-paperwhite-3/",
+   "lines": [
+    {
+     "say": "A new distro brings Alpine Linux to the Kindle Paperwhite 3.",
+     "show": "A new distro brings Alpine Linux to the Kindle Paperwhite 3."
+    },
+    {
+     "say": "The Kindle must be jailbroken and is limited to an old Amazon kernel.",
+     "show": "The Kindle must be jailbroken and is limited to an old Amazon kernel."
+    },
+    {
+     "say": "It includes games, a browser, an ePub reader, and a local chatbot running SmolLM2 on the device.",
+     "show": "It includes games, a browser, an ePub reader, and a local chatbot running SmolLM2 on the device."
+    }
+   ],
+   "link": {
+    "url": "https://hackaday.com/2026/11/06/its-alpine-linux-on-a-kindle-paperwhite-3/",
+    "title": "It’s Alpine Linux, On A Kindle Paperwhite 3",
+    "site": "Hackaday",
+    "description": "As computing power becomes cheaper and microprocessors become more capable, a steady trend over recent decades has been to see more everyday devices hiding Linux under the hood somewhere. Sadly in …",
+    "image": "https://hackaday.com/wp-content/uploads/2026/11/kindle-alpine-featured.jpg",
+    "icon": "https://hackaday.com/wp-content/themes/hackaday-2/img/logo.svg?v=3"
+   }
+  }
+ ],
+ "closing": [
+  {
+   "say": "That's your five stories for today, from funding to data centers to DIY hardware.",
+   "show": "That's your five stories for today, from funding to data centers to DIY hardware."
+  },
+  {
+   "say": "Thanks for listening, and goodbye from SunFlowerRadio.",
+   "show": "Thanks for listening, and goodbye from SunFlowerRadio."
+  }
+ ],
+ "highlight": 2,
+ "seconds": 102.239,
+ "lines_timed": [
+  {
+   "start": 0.6,
+   "end": 3.653,
+   "show": "Good morning, this is SunFlowerRadio.",
+   "part": 0
+  },
+  {
+   "start": 3.933,
+   "end": 9.437,
+   "show": "It's Saturday, November 7th, 2026, and we have five stories for you.",
+   "part": 0
+  },
+  {
+   "start": 10.437,
+   "end": 15.162,
+   "show": "OpenAI has reportedly raised an additional $11 billion.",
+   "part": 1
+  },
+  {
+   "start": 15.442,
+   "end": 20.364,
+   "show": "The new funding values the AI lab at $1.25 trillion.",
+   "part": 1
+  },
+  {
+   "start": 20.644,
+   "end": 26.531,
+   "show": "The round is expected to close in the coming weeks and could total about $20 billion.",
+   "part": 1
+  },
+  {
+   "start": 27.531,
+   "end": 31.327,
+   "show": "Democrats won historic victories in this week's U.S. midterms.",
+   "part": 2
+  },
+  {
+   "start": 31.607,
+   "end": 35.949,
+   "show": "Voters decided on 41 data center-related ballot measures.",
+   "part": 2
+  },
+  {
+   "start": 36.229,
+   "end": 42.313,
+   "show": "In all but one, the majority voted to impose more restrictions on data center development.",
+   "part": 2
+  },
+  {
+   "start": 43.313,
+   "end": 47.922,
+   "show": "Meta now lets users build customized app-like experiences within Muse.",
+   "part": 3
+  },
+  {
+   "start": 48.202,
+   "end": 50.756,
+   "show": "The new feature is called spaces.",
+   "part": 3
+  },
+  {
+   "start": 51.036,
+   "end": 57.979,
+   "show": "You can create things like a shopping hub, school dashboard, or music tracker directly within Muse.",
+   "part": 3
+  },
+  {
+   "start": 58.979,
+   "end": 64.598,
+   "show": "A broken Prusa FDM printer was turned into an embedded 3D printing setup.",
+   "part": 4
+  },
+  {
+   "start": 64.878,
+   "end": 67.514,
+   "show": "The hot-end was replaced with a syringe system.",
+   "part": 4
+  },
+  {
+   "start": 67.794,
+   "end": 72.252,
+   "show": "The method prints materials into a supportive medium at a selectable depth and volume.",
+   "part": 4
+  },
+  {
+   "start": 73.252,
+   "end": 77.397,
+   "show": "A new distro brings Alpine Linux to the Kindle Paperwhite 3.",
+   "part": 5
+  },
+  {
+   "start": 77.677,
+   "end": 82.286,
+   "show": "The Kindle must be jailbroken and is limited to an old Amazon kernel.",
+   "part": 5
+  },
+  {
+   "start": 82.566,
+   "end": 89.694,
+   "show": "It includes games, a browser, an ePub reader, and a local chatbot running SmolLM2 on the device.",
+   "part": 5
+  },
+  {
+   "start": 90.694,
+   "end": 96.081,
+   "show": "That's your five stories for today, from funding to data centers to DIY hardware.",
+   "part": 6
+  },
+  {
+   "start": 96.361,
+   "end": 100.239,
+   "show": "Thanks for listening, and goodbye from SunFlowerRadio.",
+   "part": 6
+  }
+ ],
+ "segments": [
+  {
+   "kind": "opening",
+   "index": null,
+   "start": 0.6,
+   "end": 10.437
+  },
+  {
+   "kind": "news",
+   "index": 0,
+   "start": 10.437,
+   "end": 27.531
+  },
+  {
+   "kind": "news",
+   "index": 1,
+   "start": 27.531,
+   "end": 43.313
+  },
+  {
+   "kind": "news",
+   "index": 2,
+   "start": 43.313,
+   "end": 58.979
+  },
+  {
+   "kind": "news",
+   "index": 3,
+   "start": 58.979,
+   "end": 73.252
+  },
+  {
+   "kind": "news",
+   "index": 4,
+   "start": 73.252,
+   "end": 90.694
+  },
+  {
+   "kind": "closing",
+   "index": null,
+   "start": 90.694,
+   "end": 102.239
+  }
+ ],
+ "made_at": "2026-11-07T09:39:21",
+ "voice": "mmx:speech-2.8-hd:English_Soft-spokenGirl",
+ "tts": "minimax"
+}

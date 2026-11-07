@@ -3,7 +3,7 @@
 > **在线收听：<https://SunGang-pine.github.io/SunFlowerRadio/>**
 > **GitHub：<https://github.com/SunGang-pine/SunFlowerRadio>**
 > **音色试听：<https://SunGang-pine.github.io/SunFlowerRadio/voices/>**
-> **2026-11-06 已生成日本語 / English / 中文三语版本。**
+> **2026-11-07 已生成日本語 / English / 中文三语版本。**
 >
 > 一个每天早上播报 AI、3D 打印与电子制作新闻的「网页电台」。
 > **DeepSeek 写台本 · Microsoft Edge 神经语音配音 · 字幕/幻灯片/口型自动对齐。**
@@ -198,7 +198,7 @@ python -m tools.check
 - `segments` 是否首尾相接、最后一段是否等于 `seconds`
 - 音频是否存在，MP3 时长与 `seconds` 是否一致
 
-当前 7 期全部通过。
+当前 10 期全部通过。
 
 ## 目录
 
@@ -276,7 +276,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools\publish.ps1
 python tools/share.py --all --font "C:/Windows/Fonts/YuGothM.ttc" --font-zh "C:/Windows/Fonts/NotoSansSC-VF.ttf" --url "https://SunGang-pine.github.io/SunFlowerRadio/"
 ```
 
-当前 `share/` 里已生成 7 期卡片（含中文）；播放器的「分享」按钮会在卡片存在时出现。`station.json` 的 `url` 已经是正式地址；如果换域名，先改 `url` 再重新生成。
+当前 `share/` 里已生成 10 期卡片（含中文）；播放器的「分享」按钮会在卡片存在时出现。`station.json` 的 `url` 已经是正式地址；如果换域名，先改 `url` 再重新生成。
 
 ## 设计与素材
 

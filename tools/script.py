@@ -21,7 +21,7 @@ SYSTEM = """你是广播节目「SunFlowerRadio」的首席编剧。节目每天
 4. 英文台本：自然口语英语；say 和 show 都可以用正常拼写。
 5. 中文台本：自然口语中文；say 是给 TTS 读的，专有名词可以保留英文；不要用括号、斜杠、emoji、Markdown；电台名的 say 写「太阳花电台」，show 写「SunFlowerRadio」。
 6. 除产品名、公司名等专有名词外，所有字段都使用目标语言，不要夹英文普通词（例如不要写「一般-purpose」）。
-7. label 必须短：日语严格 ≤ 20 个字符，中文严格 ≤ 20 个字符，英语 ≤ 32 个字符。写不下就换一种更短的说法，禁止截断成半句。日语示例：「パープレキシティAIエージェント」「エアビー旅行AI」「OpenAI IPO準備」「OpenAI NDA廃止」；中文示例：「Perplexity 推出AI助手」「Airbnb 旅行AI」「OpenAI IPO 准备」。
+7. label 必须短：日语 / 中文尽量 ≤ 24 个字符（绝对不能超过 26），英语 ≤ 40 个字符（最多 42）。写不下就换一种更短的说法，禁止截断成半句。日语示例：「パープレキシティAIエージェント」「エアビー旅行AI」「OpenAI IPO準備」「OpenAI NDA廃止」；中文示例：「Perplexity 推出AI助手」「Airbnb 旅行AI」「OpenAI IPO 准备」。
 8. 日语片假名固定写法：OpenAI=オープンエーアイ、Greg Brockman=グレッグ・ブロックマン、Perplexity=パープレキシティ、Airbnb=エアビー、Anthropic=アンソロピック、Nvidia=エヌビディア、Google=グーグル、Microsoft=マイクロソフト。
 9. 每句要短。日语一句 ≤ 48 个字符，中文一句 ≤ 42 个字符，英语一句 ≤ 26 个单词。
 10. 不要写「根据素材」「据报道」这类空话；直接讲事实。
@@ -35,7 +35,7 @@ JSON 结构（字段一个都不能少）：
   "news": [
     {
       "source_id": 1,
-      "label": "新闻短标题，日语/中文 ≤ 20 字、英语 ≤ 32 字符，必须是能独立读懂的完整一句，不要截断；宁可换一种更短的说法",
+      "label": "新闻短标题，日语/中文 ≤ 24 字（最多 26）、英语 ≤ 40 字符（最多 42），必须是能独立读懂的完整一句，不要截断；宁可换一种更短的说法",
       "points": ["要点1", "要点2", "要点3"],
       "details": ["要点的补充说明，可为 null", "…", "…"],
       "lines": [{"say": "...", "show": "..."}]
@@ -126,7 +126,7 @@ def validate_script(data: dict, cands: list[Candidate], count: int, lang: str = 
                 errors.append(f"{where}.source_id={sid} 重复了")
             used.add(sid)
         label = item.get("label")
-        max_label = 20 if lang in ("ja", "zh") else 32
+        max_label = 26 if lang in ("ja", "zh") else 42
         if not isinstance(label, str) or not (2 <= len(label.strip()) <= 80):
             errors.append(f"{where}.label 必须是 2–80 字的字符串")
         elif len(label.strip()) > max_label:
@@ -185,8 +185,10 @@ def generate_script(
     say(f"DeepSeek 正在写 {count} 条新闻的台本…（模型 {client.settings.model}）")
     data = client.chat_json(messages, temperature=0.7, max_tokens=6000)
     errors = validate_script(data, cands, count, lang)
-    if errors:
-        say(f"台本需要修正：{len(errors)} 个问题，正在重试…")
+    for attempt in range(2):
+        if not errors:
+            break
+        say(f"台本需要修正：{len(errors)} 个问题，第 {attempt + 1} 次重试…")
         for e in errors[:5]:
             say("  - " + e)
         data = _repair(client, messages, data, errors)
