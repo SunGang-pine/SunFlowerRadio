@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>音色试听 · SunFlowerRadio</title>
+<link rel="icon" href="../logo.svg">
+<link rel="stylesheet" href="voices.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<header class="top">
+  <a class="brand" href="../"><i class="mark" aria-hidden="true"></i><b>SunFlowerRadio</b><em>VOICE LAB</em></a>
+  <div class="nav"><a class="ghost" href="minimax/">MiniMax 音色</a><a class="ghost" href="compare/">Edge vs MiniMax</a><a class="ghost" href="../">回电台 <span>↗</span></a></div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow"><span></span> LISTEN FIRST</div>
+    <h1>先听听声音，<br>再决定今晚谁上班。</h1>
+    <p>这里是 SunFlowerRadio 的全部 Edge 神经语音。点每张卡片里的播放键试听，再到制作台里选同一个音色生成节目。</p>
+    <div class="filters" id="filters">
+      <button class="on" data-lang="all">全部 <small>11</small></button>
+      <button data-lang="zh">中文 <small>5</small></button>
+      <button data-lang="ja">日本語 <small>2</small></button>
+      <button data-lang="en">English <small>4</small></button>
+    </div>
+  </section>
+
+  <div class="grid" id="grid"></div>
+
+  <section class="note">
+    <b>离线备用</b>
+    <p>Windows SAPI（Haruka / Zira / Huihui）仍然保留。Edge 网络不可用时会自动回退，但音质就是老式合成声。想要稳定好声音，请保持联网。</p>
+  </section>
+</main>
+
+<footer>
+  <span>SunFlowerRadio · Voice Lab</span>
+  <span>Edge Neural TTS · <a href="https://github.com/SunGang-pine/SunFlowerRadio" target="_blank" rel="noopener">GitHub</a></span>
+</footer>
+
+<script src="voices.js"></script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+{
+ "format": "monoradio/news-1",
+ "date": "2026-11-07",
+ "lang": "ja",
+ "title": "オープンエーアイ1.25兆ドル評価、エアポッズ3でヘッドトラッキング",
+ "opening": [
+  {
+   "say": "おはようございます。サンフラワーレディオです。",
+   "show": "おはようございます。SunFlowerRadioです。"
+  },
+  {
+   "say": "2026年11月7日土曜日、今日は5本のニュースをお届けします。",
+   "show": "2026年11月7日（土）、今日は5本のニュースをお届けします。"
+  }
+ ],
+ "news": [
+  {
+   "label": "オープンエーアイ1.25兆ドル評価",
+   "points": [
+    "新たな資金調達で110億ドルを調達",
+    "企業価値は1.25兆ドルに",
+    "3月は8520億ドル評価だった"
+   ],
+   "details": [
+    "ブルームバーグによると、調達額はさらに増える可能性がある",
+    "世界で最も価値のある企業の一つとなる",
+    "3月には1220億ドルを調達していた"
+   ],
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+   "lines": [
+    {
+     "say": "オープンエーアイが新たな資金調達で110億ドルを集めました。",
+     "show": "OpenAIが新たな資金調達で110億ドルを集めました。"
+    },
+    {
+     "say": "企業価値は1.25兆ドルに達します。",
+     "show": "企業価値は1.25兆ドルに達します。"
+    },
+    {
+     "say": "3月の評価額は8520億ドルでした。",
+     "show": "3月の評価額は8520億ドルでした。"
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+    "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+    "site": "The Verge",
+    "description": "CEO Sam Altman said recently that OpenAI is prioritizing safety instead of going ‘guns blazing’ toward an IPO.﻿",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/STK155_OPEN_AI_CVirginia_2_A.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  },
+  {
+   "label": "オープンエーアイ調達は未完了",
+   "points": [
+    "調達ラウンドはまだ完了していない",
+    "数週間以内に完了予定",
+    "総額は約200億ドルになる可能性"
+   ],
+   "details": [
+    "ブルームバーグが関係者の話として報じた",
+    "9月下旬には300億ドル調達を目指していた",
+    "アンソロピックのIPO評価額は低くなる可能性"
+   ],
+   "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+   "lines": [
+    {
+     "say": "この調達ラウンドはまだ完了していません。",
+     "show": "この調達ラウンドはまだ完了していません。"
+    },
+    {
+     "say": "数週間以内に完了し、総額は約200億ドルになる見込みです。",
+     "show": "数週間以内に完了し、総額は約200億ドルになる見込みです。"
+    },
+    {
+     "say": "アンソロピックのIPOでは、評価額が低くなる可能性が指摘されています。",
+     "show": "AnthropicのIPOでは、評価額が低くなる可能性が指摘されています。"
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+    "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation | TechCrunch",
+    "site": "TechCrunch",
+    "description": "OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks.",
+    "image": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-green.jpg?w=1024",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "中国がエヌビディアCEOを偵察か",
+   "points": [
+    "中国の情報機関がメガスピード幹部を採用",
+    "エヌビディアのジェンスン・フアンCEOを偵察",
+    "アメリカのAIチップ情報を収集"
+   ],
+   "details": [
+    "ニューヨーク・タイムズが報じた",
+    "メガスピードはエヌビディアの顧客",
+    "下院の3委員会がフアンCEOに閉会説明を要請"
+   ],
+   "url": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+   "lines": [
+    {
+     "say": "中国の情報機関がメガスピードの幹部を採用しました。",
+     "show": "中国の情報機関がMegaspeedの幹部を採用しました。"
+    },
+    {
+     "say": "目的はエヌビディアのジェンスン・フアンCEOの偵察です。",
+     "show": "目的はNvidiaのジェンスン・フアンCEOの偵察です。"
+    },
+    {
+     "say": "アメリカのAIチップ情報を集めていたとされます。",
+     "show": "アメリカのAIチップ情報を集めていたとされます。"
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+    "title": "China reportedly recruited AI exec to spy on Jensen Huang",
+    "site": "The Verge",
+    "description": "Jensen Huang is reportedly “close” with the exec.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/STKP210_JENSEN_HUANG_A.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  },
+  {
+   "label": "中間選挙後にAI業界へ逆風",
+   "points": [
+    "データセンター関連の41の住民投票",
+    "40で規制強化が多数派に",
+    "民主党知事や議員が規制を支持へ"
+   ],
+   "details": [
+    "データセンターが選挙の主要争点になった",
+    "テック企業への監視強化も予想される",
+    "オープンエーアイはデータセンターの再ブランド化を検討"
+   ],
+   "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+   "lines": [
+    {
+     "say": "アメリカ中間選挙でデータセンター関連の住民投票が41件行われました。",
+     "show": "アメリカ中間選挙でデータセンター関連の住民投票が41件行われました。"
+    },
+    {
+     "say": "そのうち40件で規制強化が多数派となりました。",
+     "show": "そのうち40件で規制強化が多数派となりました。"
+    },
+    {
+     "say": "AI業界は今後2年間、厳しい環境に直面するかもしれません。",
+     "show": "AI業界は今後2年間、厳しい環境に直面するかもしれません。"
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+    "title": "After the midterms, is the AI industry in for a rough two years? | TechCrunch",
+    "site": "TechCrunch",
+    "description": "Watch as Equity breaks down how election week is already reshaping the AI data center debate, plus Canva’s layoffs, a $115B chip deal, and microdramas.",
+    "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2236543888.jpg?resize=1200,800",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "エアポッズ3でヘッドトラッキング",
+   "points": [
+    "マウスポッズがリリースされた",
+    "エアポッズ3のモーションセンサーにアクセス",
+    "Linuxでマウス入力として利用可能"
+   ],
+   "details": [
+    "アップルのホストは不要",
+    "エアポッズ3とエアポッズプロ2で動作確認済み",
+    "オープントラックにデータを送れる"
+   ],
+   "url": "https://hackaday.com/2026/11/06/mousepods-reverse-engineers-head-tracking-data-from-stubborn-airpods/",
+   "lines": [
+    {
+     "say": "マウスポッズというPythonツールが公開されました。",
+     "show": "MousePodsというPythonツールが公開されました。"
+    },
+    {
+     "say": "Linux上でエアポッズ3のモーションセンサーにアクセスできます。",
+     "show": "Linux上でAirPods 3のモーションセンサーにアクセスできます。"
+    },
+    {
+     "say": "ヘッドトラッキングデータをマウス入力として使えます。",
+     "show": "ヘッドトラッキングデータをマウス入力として使えます。"
+    }
+   ],
+   "link": {
+    "url": "https://hackaday.com/2026/11/06/mousepods-reverse-engineers-head-tracking-data-from-stubborn-airpods/",
+    "title": "MousePods Reverse Engineers Head Tracking Data From Stubborn AirPods",
+    "site": "Hackaday",
+    "description": "[Matteo Gaudioso] released MousePods, a Python tool which accesses the motion sensors in Apple AirPods on Linux, turning them into mouse input. No Apple host required. Doing this required reverse-e…",
+    "image": "https://hackaday.com/wp-content/uploads/2026/11/MousePods-anim-optimized.gif",
+    "icon": "https://hackaday.com/wp-content/themes/hackaday-2/img/logo.svg?v=3"
+   }
+  }
+ ],
+ "closing": [
+  {
+   "say": "今日はオープンエーアイの巨額調達と、エアポッズ3のハックをお伝えしました。",
+   "show": "今日はOpenAIの巨額調達と、AirPods 3のハックをお伝えしました。"
+  },
+  {
+   "say": "サンフラワーレディオでした。また明日。",
+   "show": "SunFlowerRadioでした。また明日。"
+  }
+ ],
+ "highlight": 4,
+ "seconds": 92.092,
+ "lines_timed": [
+  {
+   "start": 0.6,
+   "end": 3.735,
+   "show": "おはようございます。SunFlowerRadioです。",
+   "part": 0
+  },
+  {
+   "start": 4.015,
+   "end": 9.866,
+   "show": "2026年11月7日（土）、今日は5本のニュースをお届けします。",
+   "part": 0
+  },
+  {
+   "start": 10.866,
+   "end": 15.707,
+   "show": "OpenAIが新たな資金調達で110億ドルを集めました。",
+   "part": 1
+  },
+  {
+   "start": 15.987,
+   "end": 19.157,
+   "show": "企業価値は1.25兆ドルに達します。",
+   "part": 1
+  },
+  {
+   "start": 19.437,
+   "end": 23.268,
+   "show": "3月の評価額は8520億ドルでした。",
+   "part": 1
+  },
+  {
+   "start": 24.268,
+   "end": 27.287,
+   "show": "この調達ラウンドはまだ完了していません。",
+   "part": 2
+  },
+  {
+   "start": 27.567,
+   "end": 32.722,
+   "show": "数週間以内に完了し、総額は約200億ドルになる見込みです。",
+   "part": 2
+  },
+  {
+   "start": 33.002,
+   "end": 38.075,
+   "show": "AnthropicのIPOでは、評価額が低くなる可能性が指摘されています。",
+   "part": 2
+  },
+  {
+   "start": 39.075,
+   "end": 43.185,
+   "show": "中国の情報機関がMegaspeedの幹部を採用しました。",
+   "part": 3
+  },
+  {
+   "start": 43.465,
+   "end": 47.297,
+   "show": "目的はNvidiaのジェンスン・フアンCEOの偵察です。",
+   "part": 3
+  },
+  {
+   "start": 47.577,
+   "end": 50.746,
+   "show": "アメリカのAIチップ情報を集めていたとされます。",
+   "part": 3
+  },
+  {
+   "start": 51.746,
+   "end": 57.864,
+   "show": "アメリカ中間選挙でデータセンター関連の住民投票が41件行われました。",
+   "part": 4
+  },
+  {
+   "start": 58.144,
+   "end": 62.371,
+   "show": "そのうち40件で規制強化が多数派となりました。",
+   "part": 4
+  },
+  {
+   "start": 62.651,
+   "end": 67.724,
+   "show": "AI業界は今後2年間、厳しい環境に直面するかもしれません。",
+   "part": 4
+  },
+  {
+   "start": 68.724,
+   "end": 71.94,
+   "show": "MousePodsというPythonツールが公開されました。",
+   "part": 5
+  },
+  {
+   "start": 72.22,
+   "end": 76.597,
+   "show": "Linux上でAirPods 3のモーションセンサーにアクセスできます。",
+   "part": 5
+  },
+  {
+   "start": 76.877,
+   "end": 80.325,
+   "show": "ヘッドトラッキングデータをマウス入力として使えます。",
+   "part": 5
+  },
+  {
+   "start": 81.325,
+   "end": 87.142,
+   "show": "今日はOpenAIの巨額調達と、AirPods 3のハックをお伝えしました。",
+   "part": 6
+  },
+  {
+   "start": 87.422,
+   "end": 90.092,
+   "show": "SunFlowerRadioでした。また明日。",
+   "part": 6
+  }
+ ],
+ "segments": [
+  {
+   "kind": "opening",
+   "index": null,
+   "start": 0.6,
+   "end": 10.866
+  },
+  {
+   "kind": "news",
+   "index": 0,
+   "start": 10.866,
+   "end": 24.268
+  },
+  {
+   "kind": "news",
+   "index": 1,
+   "start": 24.268,
+   "end": 39.075
+  },
+  {
+   "kind": "news",
+   "index": 2,
+   "start": 39.075,
+   "end": 51.746
+  },
+  {
+   "kind": "news",
+   "index": 3,
+   "start": 51.746,
+   "end": 68.724
+  },
+  {
+   "kind": "news",
+   "index": 4,
+   "start": 68.724,
+   "end": 81.325
+  },
+  {
+   "kind": "closing",
+   "index": null,
+   "start": 81.325,
+   "end": 92.092
+  }
+ ],
+ "made_at": "2026-11-07T09:36:47",
+ "voice": "mmx:speech-2.8-hd:Japanese_KindLady",
+ "tts": "minimax"
+}

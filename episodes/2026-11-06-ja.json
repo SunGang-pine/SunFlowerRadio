@@ -1,0 +1,313 @@
+{
+ "format": "monoradio/news-1",
+ "date": "2026-11-06",
+ "lang": "ja",
+ "title": "パープレキシティのAI同僚、エアビー旅行AI、オープンエーアイ上場準備",
+ "opening": [
+  {
+   "say": "おはようございます。サンフラワーレディオです。",
+   "show": "おはようございます。SunFlowerRadioです。"
+  },
+  {
+   "say": "2026年11月6日金曜日。今日は4本のニュースをお届けします。",
+   "show": "2026年11月6日（金） 今日は4本のニュースをお届けします。"
+  }
+ ],
+ "news": [
+  {
+   "label": "パープレキシティAI同僚",
+   "points": [
+    "パープレキシティが仕事向けAIエージェント「チームメイツ」を発表",
+    "24時間稼働し、ワークスペース内で複数の役割を担当",
+    "利用には月額200ドルのマックスプランが必要"
+   ],
+   "details": [
+    "既存のプロジェクト、スキル、メモリーをパープレキシティのツールから引き継ぐ",
+    "パープレキシティ・コンピューターと連携し、端末上でタスクを実行",
+    "エージェントの進捗はアプリのスレッドやスラックで確認できる"
+   ],
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+   "lines": [
+    {
+     "say": "パープレキシティが仕事向けAIエージェント、チームメイツを発表しました。",
+     "show": "パープレキシティが仕事向けAIエージェント「Teammates」を発表"
+    },
+    {
+     "say": "24時間稼働し、ワークスペース内で複数の役割を同時に担当します。",
+     "show": "24時間稼働し、複数の役割を同時に担当"
+    },
+    {
+     "say": "利用には月額200ドルのマックスプランが必要です。",
+     "show": "利用には月額200ドルのMaxプランが必要"
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+    "title": "Perplexity launches its own take on AI agents for work",
+    "site": "The Verge",
+    "description": "Perplexity is taking on OpenAI and Anthropic.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25472503/STK271_PERPLEXITY_C.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  },
+  {
+   "label": "エアビー旅行AIエージェント",
+   "points": [
+    "エアビーがAI旅行エージェントを2027年前半に投入予定",
+    "旅行計画、比較、予約管理、滞在中の支援を担う",
+    "チャットだけでなく地図や写真など専用画面を組み合わせる"
+   ],
+   "details": [
+    "ブライアン・チェスキーCEOは旅行では発見や比較が体験の一部だと説明",
+    "旅行者の80パーセントが旅行調査を楽しむと同氏は述べた",
+    "数百の旅行専用インターフェース部品をリアルタイムで構成する"
+   ],
+   "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+   "lines": [
+    {
+     "say": "エアビーがAI旅行エージェントを2027年前半に投入すると発表しました。",
+     "show": "エアビーがAI旅行エージェントを2027年前半に投入"
+    },
+    {
+     "say": "旅行計画や比較、予約管理、滞在中の支援を担います。",
+     "show": "旅行計画、比較、予約管理、滞在中の支援を担当"
+    },
+    {
+     "say": "チャットだけでなく、地図や写真など専用画面を組み合わせます。",
+     "show": "地図や写真など旅行専用の画面を組み合わせる"
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+    "title": "Airbnb says it's launching an AI travel agent in the first half of 2027 | TechCrunch",
+    "site": "TechCrunch",
+    "description": "Airbnb says its upcoming AI agent will help travelers plan trips, compare options, manage bookings, and get assistance throughout their stay.",
+    "image": "https://techcrunch.com/wp-content/uploads/2025/05/Airbnb-Summer-feat.jpg?resize=1200,675",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "オープンエーアイ上場準備",
+   "points": [
+    "オープンエーアイのグレッグ・ブロックマン社長が2027年の上場準備に自信",
+    "法人向け売上が伸び、年間売上は四半期で70パーセント成長",
+    "法人向けが売上の過半を占めるようになった"
+   ],
+   "details": [
+    "2026年の第1四半期と第2四半期は厳しい状況だったと振り返った",
+    "エージェント型コーディングでは出遅れていたと認めた",
+    "JPモルガン・チェースとの提携を法人案件の例に挙げた"
+   ],
+   "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+   "lines": [
+    {
+     "say": "オープンエーアイのグレッグ・ブロックマン社長が2027年の上場準備に自信を示しました。",
+     "show": "オープンエーアイのブロックマン社長が2027年の上場準備に自信"
+    },
+    {
+     "say": "法人向け売上が伸び、年間売上は四半期で70パーセント成長しました。",
+     "show": "年間売上は四半期で70パーセント成長"
+    },
+    {
+     "say": "法人向けが売上の過半を占めるようになったと述べました。",
+     "show": "法人向けが売上の過半を占める"
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+    "title": "OpenAI president Greg Brockman says company could be IPO ready in 2027 | TechCrunch",
+    "site": "TechCrunch",
+    "description": "Speaking at a Wall Street Journal tech conference on Wednesday, the executive touted how the company had been gaining ground in the enterprise market, where rival Anthropic had already successfully made inroads.",
+    "image": "https://techcrunch.com/wp-content/uploads/2019/10/Greg-Brockman-OpenAIDSC02862.jpg?resize=1200,800",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "オープンエーアイNDA廃止",
+   "points": [
+    "オープンエーアイがデータセンター事業で公務員との秘密保持契約をやめる",
+    "電気代と必要なインフラの全額を負担すると表明",
+    "新たな計算拠点ごとに地域との協定を結ぶ"
+   ],
+   "details": [
+    "秘密保持契約はセキュリティ情報や営業秘密など限定的な保護のみ認める",
+    "中間選挙で有権者がデータセンター拡大に反対を示した直後の発表",
+    "雇用創出の見込みを公開し、採用状況を報告する"
+   ],
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+   "lines": [
+    {
+     "say": "オープンエーアイがデータセンター事業で公務員との秘密保持契約をやめます。",
+     "show": "オープンエーアイが公務員とのNDAを廃止"
+    },
+    {
+     "say": "電気代と必要なインフラの全額を負担すると表明しました。",
+     "show": "電気代とインフラの全額を負担"
+    },
+    {
+     "say": "新たな計算拠点ごとに地域との協定を結びます。",
+     "show": "計算拠点ごとに地域との協定を結ぶ"
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+    "title": "OpenAI is stepping back from NDAs for data center projects",
+    "site": "The Verge",
+    "description": "OpenAI wants to work more closely with local communities.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/STKS528_DATA_CENTERS2_B.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  }
+ ],
+ "closing": [
+  {
+   "say": "今日はAIエージェントとオープンエーアイの動きが目立ちました。",
+   "show": "今日はAIエージェントとオープンエーアイの動きが目立ちました。"
+  },
+  {
+   "say": "サンフラワーレディオでした。また明日。",
+   "show": "SunFlowerRadioでした。また明日。"
+  }
+ ],
+ "highlight": 2,
+ "seconds": 86.55,
+ "lines_timed": [
+  {
+   "start": 0.6,
+   "end": 3.421,
+   "show": "おはようございます。SunFlowerRadioです。",
+   "part": 0
+  },
+  {
+   "start": 3.701,
+   "end": 10.992,
+   "show": "2026年11月6日（金） 今日は4本のニュースをお届けします。",
+   "part": 0
+  },
+  {
+   "start": 11.992,
+   "end": 16.485,
+   "show": "パープレキシティが仕事向けAIエージェント「Teammates」を発表",
+   "part": 1
+  },
+  {
+   "start": 16.765,
+   "end": 21.885,
+   "show": "24時間稼働し、複数の役割を同時に担当",
+   "part": 1
+  },
+  {
+   "start": 22.165,
+   "end": 26.043,
+   "show": "利用には月額200ドルのMaxプランが必要",
+   "part": 1
+  },
+  {
+   "start": 27.043,
+   "end": 33.092,
+   "show": "エアビーがAI旅行エージェントを2027年前半に投入",
+   "part": 2
+  },
+  {
+   "start": 33.372,
+   "end": 38.062,
+   "show": "旅行計画、比較、予約管理、滞在中の支援を担当",
+   "part": 2
+  },
+  {
+   "start": 38.342,
+   "end": 43.033,
+   "show": "地図や写真など旅行専用の画面を組み合わせる",
+   "part": 2
+  },
+  {
+   "start": 44.033,
+   "end": 50.581,
+   "show": "オープンエーアイのブロックマン社長が2027年の上場準備に自信",
+   "part": 3
+  },
+  {
+   "start": 50.861,
+   "end": 57.026,
+   "show": "年間売上は四半期で70パーセント成長",
+   "part": 3
+  },
+  {
+   "start": 57.306,
+   "end": 61.45,
+   "show": "法人向けが売上の過半を占める",
+   "part": 3
+  },
+  {
+   "start": 62.45,
+   "end": 68.035,
+   "show": "オープンエーアイが公務員とのNDAを廃止",
+   "part": 4
+  },
+  {
+   "start": 68.315,
+   "end": 72.727,
+   "show": "電気代とインフラの全額を負担",
+   "part": 4
+  },
+  {
+   "start": 73.007,
+   "end": 77.035,
+   "show": "計算拠点ごとに地域との協定を結ぶ",
+   "part": 4
+  },
+  {
+   "start": 78.035,
+   "end": 82.029,
+   "show": "今日はAIエージェントとオープンエーアイの動きが目立ちました。",
+   "part": 5
+  },
+  {
+   "start": 82.309,
+   "end": 84.55,
+   "show": "SunFlowerRadioでした。また明日。",
+   "part": 5
+  }
+ ],
+ "segments": [
+  {
+   "kind": "opening",
+   "index": null,
+   "start": 0.6,
+   "end": 11.992
+  },
+  {
+   "kind": "news",
+   "index": 0,
+   "start": 11.992,
+   "end": 27.043
+  },
+  {
+   "kind": "news",
+   "index": 1,
+   "start": 27.043,
+   "end": 44.033
+  },
+  {
+   "kind": "news",
+   "index": 2,
+   "start": 44.033,
+   "end": 62.45
+  },
+  {
+   "kind": "news",
+   "index": 3,
+   "start": 62.45,
+   "end": 78.035
+  },
+  {
+   "kind": "closing",
+   "index": null,
+   "start": 78.035,
+   "end": 86.55
+  }
+ ],
+ "made_at": "2026-11-06T23:18:03",
+ "voice": "mmx:speech-2.8-hd:Japanese_KindLady",
+ "tts": "minimax"
+}

@@ -1,0 +1,373 @@
+{
+ "format": "monoradio/news-1",
+ "date": "2026-11-07",
+ "lang": "zh",
+ "title": "OpenAI估值1.25万亿美元，英伟达CEO被指遭监视",
+ "opening": [
+  {
+   "say": "早上好，这里是太阳花电台。",
+   "show": "SunFlowerRadio"
+  },
+  {
+   "say": "今天是2026年11月7日星期六，为你准备5条AI、3D打印和电子制作新闻。",
+   "show": "2026年11月7日 星期六"
+  }
+ ],
+ "news": [
+  {
+   "label": "OpenAI估值1.25万亿美元",
+   "points": [
+    "OpenAI新一轮融资已募得110亿美元",
+    "此轮估值达1.25万亿美元",
+    "今年3月曾以8520亿美元估值融资1220亿美元"
+   ],
+   "details": [
+    "据彭博社报道，此轮融资尚未关闭",
+    "公司仍在争取更多投资，总额可能达200亿美元",
+    "OpenAI最初希望以1.4万亿美元估值融资300亿美元"
+   ],
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+   "lines": [
+    {
+     "say": "OpenAI在新一轮融资中已募得110亿美元。",
+     "show": "OpenAI 新融资 110亿美元"
+    },
+    {
+     "say": "此轮估值达到1.25万亿美元。",
+     "show": "估值 1.25万亿美元"
+    },
+    {
+     "say": "今年3月它曾以8520亿美元估值融资1220亿美元。",
+     "show": "3月融资 1220亿美元"
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation",
+    "title": "OpenAI valued at $1.25 trillion, as rival Anthropic nears its IPO",
+    "site": "The Verge",
+    "description": "CEO Sam Altman said recently that OpenAI is prioritizing safety instead of going ‘guns blazing’ toward an IPO.﻿",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/STK155_OPEN_AI_CVirginia_2_A.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  },
+  {
+   "label": "Anthropic IPO估值预期下调",
+   "points": [
+    "Anthropic上周提交S-1文件准备上市",
+    "潜在买家认为其估值可能低至1.1万亿美元",
+    "一个月前投资者预期约为2万亿美元"
+   ],
+   "details": [
+    "OpenAI此轮融资预计未来几周关闭",
+    "OpenAI曾暗示今年上市但随后推迟",
+    "市场预计OpenAI明年某个时候IPO"
+   ],
+   "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+   "lines": [
+    {
+     "say": "OpenAI的竞争对手Anthropic上周提交S-1文件准备上市。",
+     "show": "Anthropic 提交S-1"
+    },
+    {
+     "say": "彭博社称潜在买家认为其估值可能低至1.1万亿美元。",
+     "show": "估值或低至1.1万亿"
+    },
+    {
+     "say": "大约一个月前，投资者预期约为2万亿美元。",
+     "show": "此前预期 2万亿美元"
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+    "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation | TechCrunch",
+    "site": "TechCrunch",
+    "description": "OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks.",
+    "image": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-green.jpg?w=1024",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "中国被指招募高管监视黄仁勋",
+   "points": [
+    "纽约时报称中国国安部招募了Megaspeed高管Alice Huang",
+    "目标是获取美国AI芯片信息",
+    "可能影响英伟达向中国提供最先进芯片"
+   ],
+   "details": [
+    "Alice Huang与黄仁勋关系密切，两人无亲属关系",
+    "特朗普去年听取了相关汇报但未采取行动",
+    "三个众议院委员会要求黄仁勋出席闭门简报"
+   ],
+   "url": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+   "lines": [
+    {
+     "say": "纽约时报报道，中国国安部招募了Megaspeed高管Alice Huang。",
+     "show": "中国国安部被指招募高管"
+    },
+    {
+     "say": "目的是获取美国AI芯片信息，并可能影响英伟达对华芯片供应。",
+     "show": "目标：美国AI芯片信息"
+    },
+    {
+     "say": "三个众议院委员会已要求黄仁勋出席闭门简报。",
+     "show": "众议院要求黄仁勋简报"
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/tech/1029338/nvidia-ceo-jensen-huang-china-spy",
+    "title": "China reportedly recruited AI exec to spy on Jensen Huang",
+    "site": "The Verge",
+    "description": "Jensen Huang is reportedly “close” with the exec.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/07/STKP210_JENSEN_HUANG_A.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  },
+  {
+   "label": "中期选举后AI行业面临更严监管",
+   "points": [
+    "美国中期选举中民主党取得历史性胜利",
+    "41项数据中心相关公投中40项支持限制开发",
+    "新当选的民主党官员可能支持更多监管"
+   ],
+   "details": [
+    "数据中心即使不在选票上也是主要议题",
+    "TechCrunch的Equity播客讨论了选举对科技业的影响",
+    "讨论还涉及对大科技公司更严格的审查"
+   ],
+   "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+   "lines": [
+    {
+     "say": "美国中期选举中民主党取得历史性胜利。",
+     "show": "民主党中期选举大胜"
+    },
+    {
+     "say": "41项数据中心公投中，40项多数支持限制开发。",
+     "show": "40项公投支持限制"
+    },
+    {
+     "say": "新当选官员可能支持对AI和数据中心更多监管。",
+     "show": "监管压力或加大"
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+    "title": "After the midterms, is the AI industry in for a rough two years? | TechCrunch",
+    "site": "TechCrunch",
+    "description": "Watch as Equity breaks down how election week is already reshaping the AI data center debate, plus Canva’s layoffs, a $115B chip deal, and microdramas.",
+    "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2236543888.jpg?resize=1200,800",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "MousePods用AirPods做鼠标",
+   "points": [
+    "Matteo Gaudioso发布Python工具MousePods",
+    "在Linux上访问AirPods运动传感器作为鼠标输入",
+    "无需苹果主机"
+   ],
+   "details": [
+    "逆向工程发现AirPods 3与其他型号通信方式不同",
+    "Linux默认MTU太小，增大后可获取完整运动数据",
+    "数据可发送给opentrack用于飞行或赛车模拟器"
+   ],
+   "url": "https://hackaday.com/2026/11/06/mousepods-reverse-engineers-head-tracking-data-from-stubborn-airpods/",
+   "lines": [
+    {
+     "say": "Matteo Gaudioso发布了Python工具MousePods。",
+     "show": "MousePods 发布"
+    },
+    {
+     "say": "它在Linux上读取AirPods运动传感器，把耳机变成鼠标。",
+     "show": "AirPods变鼠标"
+    },
+    {
+     "say": "数据还能送给opentrack，用于飞行或赛车模拟器的头部追踪。",
+     "show": "支持opentrack头部追踪"
+    }
+   ],
+   "link": {
+    "url": "https://hackaday.com/2026/11/06/mousepods-reverse-engineers-head-tracking-data-from-stubborn-airpods/",
+    "title": "MousePods Reverse Engineers Head Tracking Data From Stubborn AirPods",
+    "site": "Hackaday",
+    "description": "[Matteo Gaudioso] released MousePods, a Python tool which accesses the motion sensors in Apple AirPods on Linux, turning them into mouse input. No Apple host required. Doing this required reverse-e…",
+    "image": "https://hackaday.com/wp-content/uploads/2026/11/MousePods-anim-optimized.gif",
+    "icon": "https://hackaday.com/wp-content/themes/hackaday-2/img/logo.svg?v=3"
+   }
+  }
+ ],
+ "closing": [
+  {
+   "say": "以上就是今天的5条新闻，感谢收听太阳花电台。",
+   "show": "SunFlowerRadio"
+  },
+  {
+   "say": "明天早上同一时间，太阳花电台再见。",
+   "show": "SunFlowerRadio"
+  }
+ ],
+ "highlight": 2,
+ "seconds": 89.306,
+ "lines_timed": [
+  {
+   "start": 0.6,
+   "end": 3.038,
+   "show": "SunFlowerRadio",
+   "part": 0
+  },
+  {
+   "start": 3.318,
+   "end": 9.901,
+   "show": "2026年11月7日 星期六",
+   "part": 0
+  },
+  {
+   "start": 10.901,
+   "end": 14.732,
+   "show": "OpenAI 新融资 110亿美元",
+   "part": 1
+  },
+  {
+   "start": 15.012,
+   "end": 17.648,
+   "show": "估值 1.25万亿美元",
+   "part": 1
+  },
+  {
+   "start": 17.928,
+   "end": 23.547,
+   "show": "3月融资 1220亿美元",
+   "part": 1
+  },
+  {
+   "start": 24.547,
+   "end": 29.667,
+   "show": "Anthropic 提交S-1",
+   "part": 2
+  },
+  {
+   "start": 29.947,
+   "end": 34.359,
+   "show": "估值或低至1.1万亿",
+   "part": 2
+  },
+  {
+   "start": 34.639,
+   "end": 38.087,
+   "show": "此前预期 2万亿美元",
+   "part": 2
+  },
+  {
+   "start": 39.087,
+   "end": 43.777,
+   "show": "中国国安部被指招募高管",
+   "part": 3
+  },
+  {
+   "start": 44.057,
+   "end": 48.899,
+   "show": "目标：美国AI芯片信息",
+   "part": 3
+  },
+  {
+   "start": 49.179,
+   "end": 52.824,
+   "show": "众议院要求黄仁勋简报",
+   "part": 3
+  },
+  {
+   "start": 53.824,
+   "end": 57.11,
+   "show": "民主党中期选举大胜",
+   "part": 4
+  },
+  {
+   "start": 57.39,
+   "end": 61.453,
+   "show": "40项公投支持限制",
+   "part": 4
+  },
+  {
+   "start": 61.733,
+   "end": 65.495,
+   "show": "监管压力或加大",
+   "part": 4
+  },
+  {
+   "start": 66.495,
+   "end": 69.897,
+   "show": "MousePods 发布",
+   "part": 5
+  },
+  {
+   "start": 70.177,
+   "end": 74.67,
+   "show": "AirPods变鼠标",
+   "part": 5
+  },
+  {
+   "start": 74.95,
+   "end": 79.478,
+   "show": "支持opentrack头部追踪",
+   "part": 5
+  },
+  {
+   "start": 80.478,
+   "end": 84.042,
+   "show": "SunFlowerRadio",
+   "part": 6
+  },
+  {
+   "start": 84.322,
+   "end": 87.306,
+   "show": "SunFlowerRadio",
+   "part": 6
+  }
+ ],
+ "segments": [
+  {
+   "kind": "opening",
+   "index": null,
+   "start": 0.6,
+   "end": 10.901
+  },
+  {
+   "kind": "news",
+   "index": 0,
+   "start": 10.901,
+   "end": 24.547
+  },
+  {
+   "kind": "news",
+   "index": 1,
+   "start": 24.547,
+   "end": 39.087
+  },
+  {
+   "kind": "news",
+   "index": 2,
+   "start": 39.087,
+   "end": 53.824
+  },
+  {
+   "kind": "news",
+   "index": 3,
+   "start": 53.824,
+   "end": 66.495
+  },
+  {
+   "kind": "news",
+   "index": 4,
+   "start": 66.495,
+   "end": 80.478
+  },
+  {
+   "kind": "closing",
+   "index": null,
+   "start": 80.478,
+   "end": 89.306
+  }
+ ],
+ "made_at": "2026-11-07T09:34:01",
+ "voice": "mmx:speech-2.8-hd:Chinese (Mandarin)_Warm_Girl",
+ "tts": "minimax"
+}

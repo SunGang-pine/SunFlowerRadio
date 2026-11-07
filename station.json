@@ -1,0 +1,62 @@
+{
+ "format": "myradio/station-1",
+ "name": "SunFlowerRadio",
+ "description": "AI・3Dプリンター・電子工作の、きのうの気になるニュースを、DeepSeek が書いて、ローカルの声で毎朝 90 秒で。",
+ "tagline": "AI・3D 朝のニュース",
+ "logo": "logo.svg",
+ "url": "https://SunGang-pine.github.io/SunFlowerRadio/",
+ "repo": "https://github.com/SunGang-pine/SunFlowerRadio",
+ "language": "ja",
+ "languages": [
+  "ja",
+  "en",
+  "zh"
+ ],
+ "schedule": {
+  "every": "day",
+  "time": "07:00",
+  "timezone": "Asia/Shanghai"
+ },
+ "episodes": "episodes.json",
+ "character": {
+  "pack": "character/character.json",
+  "thumbnail": "character/base.png",
+  "note": "AIで生成したキャラクターです"
+ },
+ "credits": [
+  "声：MiniMax 温暖女声（中文）/ 温柔女声（日语）/ Soft-Spoken Girl（英语）",
+  "台本：DeepSeek",
+  "キャラクター：AI生成",
+  "ロゴ：SunFlowerRadio"
+ ],
+ "audio": {
+  "dir": "audio",
+  "keep_days": 30
+ },
+ "weather": true,
+ "weather_city": "hangzhou",
+ "i18n": {
+  "en": {
+   "name": "SunFlowerRadio",
+   "tagline": "Morning news on AI and 3D",
+   "description": "The news worth knowing in AI, 3D printing and electronics, written by DeepSeek and voiced locally every morning in 90 seconds.",
+   "credits": [
+    "Voice: MiniMax Warm Girl (Chinese) · Kind Lady (Japanese) · Soft-Spoken Girl (English)",
+    "Script: DeepSeek",
+    "Character: AI-generated",
+    "Logo: SunFlowerRadio"
+   ]
+  },
+  "zh": {
+   "name": "SunFlowerRadio",
+   "tagline": "AI・3D 每日新闻",
+   "description": "AI、3D 打印与电子制作的每日新闻，由 DeepSeek 写稿、本地语音播报，每天 90 秒。",
+   "credits": [
+    "声音：MiniMax 温暖女声（中文）/ 温柔女声（日语）/ Soft-Spoken Girl（英语）",
+    "台本：DeepSeek",
+    "角色：AI 生成",
+    "标志：SunFlowerRadio"
+   ]
+  }
+ }
+}

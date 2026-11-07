@@ -1,0 +1,313 @@
+{
+ "format": "monoradio/news-1",
+ "date": "2026-11-06",
+ "lang": "zh",
+ "title": "Perplexity工作智能体上线，Airbnb旅行AI定档2027",
+ "opening": [
+  {
+   "say": "早上好，欢迎收听太阳花电台。",
+   "show": "早上好，欢迎收听 SunFlowerRadio。"
+  },
+  {
+   "say": "今天是2026年11月6日星期五，为你准备4条AI新闻。",
+   "show": "2026年11月6日 星期五 · 今日4条新闻"
+  }
+ ],
+ "news": [
+  {
+   "label": "Perplexity 推出工作智能体",
+   "points": [
+    "Perplexity发布名为Teammates的AI智能体",
+    "可7×24小时运行并同时承担多个角色",
+    "需订阅每月200美元的Max计划"
+   ],
+   "details": [
+    "Teammates能调用已有项目、技能和记忆",
+    "与Perplexity Computer集成，可在设备上部署智能体",
+    "CEO称未来每个组织可能有数百个智能体"
+   ],
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+   "lines": [
+    {
+     "say": "Perplexity推出工作向AI智能体Teammates。",
+     "show": "Perplexity 推出工作向 AI 智能体 Teammates"
+    },
+    {
+     "say": "它全天候运行，可同时承担多个角色。",
+     "show": "全天候运行，可同时承担多个角色"
+    },
+    {
+     "say": "使用需订阅每月200美元的Max计划。",
+     "show": "需订阅每月200美元 Max 计划"
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+    "title": "Perplexity launches its own take on AI agents for work",
+    "site": "The Verge",
+    "description": "Perplexity is taking on OpenAI and Anthropic.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25472503/STK271_PERPLEXITY_C.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  },
+  {
+   "label": "Airbnb 旅行AI明年推出",
+   "points": [
+    "Airbnb宣布2027年上半年推出AI旅行智能体",
+    "采用旅行专用界面而非纯聊天",
+    "可组合地图照片对比日历行程"
+   ],
+   "details": [
+    "CEO称80%旅行者享受研究行程的过程",
+    "智能体从数百个旅行界面组件库实时组合",
+    "帮助规划行程、比较选项、管理预订"
+   ],
+   "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+   "lines": [
+    {
+     "say": "Airbnb计划2027年上半年推出AI旅行智能体。",
+     "show": "Airbnb 计划 2027 上半年推出 AI 旅行智能体"
+    },
+    {
+     "say": "它不用纯聊天，而是组合地图照片和行程。",
+     "show": "不用纯聊天，组合地图照片和行程"
+    },
+    {
+     "say": "CEO说八成旅行者享受研究行程的过程。",
+     "show": "CEO 称八成旅行者享受研究行程"
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+    "title": "Airbnb says it's launching an AI travel agent in the first half of 2027 | TechCrunch",
+    "site": "TechCrunch",
+    "description": "Airbnb says its upcoming AI agent will help travelers plan trips, compare options, manage bookings, and get assistance throughout their stay.",
+    "image": "https://techcrunch.com/wp-content/uploads/2025/05/Airbnb-Summer-feat.jpg?resize=1200,675",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "OpenAI 称2027年或可IPO",
+   "points": [
+    "总裁Brockman称公司2027年可准备好IPO",
+    "企业业务收入已占多数",
+    "第三季度年化收入环比增长70%"
+   ],
+   "details": [
+    "Brockman称今年一二季度相当艰难",
+    "企业收入此前仅占约30%，现已占多数",
+    "提到与JPMorgan Chase的合作"
+   ],
+   "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+   "lines": [
+    {
+     "say": "OpenAI总裁Brockman说2027年可能准备好IPO。",
+     "show": "OpenAI 总裁 Brockman 称 2027 年或可 IPO"
+    },
+    {
+     "say": "企业业务收入已占公司多数。",
+     "show": "企业业务收入已占多数"
+    },
+    {
+     "say": "第三季度年化收入环比增长70%。",
+     "show": "Q3 年化收入环比增长 70%"
+    }
+   ],
+   "link": {
+    "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+    "title": "OpenAI president Greg Brockman says company could be IPO ready in 2027 | TechCrunch",
+    "site": "TechCrunch",
+    "description": "Speaking at a Wall Street Journal tech conference on Wednesday, the executive touted how the company had been gaining ground in the enterprise market, where rival Anthropic had already successfully made inroads.",
+    "image": "https://techcrunch.com/wp-content/uploads/2019/10/Greg-Brockman-OpenAIDSC02862.jpg?resize=1200,800",
+    "icon": "https://techcrunch.com/wp-content/uploads/2015/02/cropped-cropped-favicon-gradient.png?w=180"
+   }
+  },
+  {
+   "label": "OpenAI 数据中心不用保密协议",
+   "points": [
+    "OpenAI承诺不与公职人员签保密协议",
+    "将支付数据中心全部电力和基础设施成本",
+    "每个计算园区将设本地契约"
+   ],
+   "details": [
+    "仅保留安全信息等窄范围保护",
+    "将公布预计创造的岗位并报告招聘情况",
+    "此前中期选举中选民反对数据中心扩张"
+   ],
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+   "lines": [
+    {
+     "say": "OpenAI承诺数据中心项目不与公职人员签保密协议。",
+     "show": "OpenAI 承诺不与公职人员签 NDA"
+    },
+    {
+     "say": "公司将支付全部电力和基础设施成本。",
+     "show": "支付全部电力和基础设施成本"
+    },
+    {
+     "say": "每个计算园区将设反映本地优先事项的契约。",
+     "show": "每个计算园区设本地契约"
+    }
+   ],
+   "link": {
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+    "title": "OpenAI is stepping back from NDAs for data center projects",
+    "site": "The Verge",
+    "description": "OpenAI wants to work more closely with local communities.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/STKS528_DATA_CENTERS2_B.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
+    "icon": "https://www.theverge.com/static-assets/icons/android-chrome-512x512.png"
+   }
+  }
+ ],
+ "closing": [
+  {
+   "say": "以上就是今天的4条新闻，感谢收听太阳花电台。",
+   "show": "感谢收听 SunFlowerRadio，我们明天见。"
+  },
+  {
+   "say": "明天早上再见。",
+   "show": "明天早上再见。"
+  }
+ ],
+ "highlight": 0,
+ "seconds": 64.27,
+ "lines_timed": [
+  {
+   "start": 0.6,
+   "end": 3.352,
+   "show": "早上好，欢迎收听 SunFlowerRadio。",
+   "part": 0
+  },
+  {
+   "start": 3.632,
+   "end": 8.554,
+   "show": "2026年11月6日 星期五 · 今日4条新闻",
+   "part": 0
+  },
+  {
+   "start": 9.554,
+   "end": 13.432,
+   "show": "Perplexity 推出工作向 AI 智能体 Teammates",
+   "part": 1
+  },
+  {
+   "start": 13.712,
+   "end": 16.614,
+   "show": "全天候运行，可同时承担多个角色",
+   "part": 1
+  },
+  {
+   "start": 16.894,
+   "end": 19.716,
+   "show": "需订阅每月200美元 Max 计划",
+   "part": 1
+  },
+  {
+   "start": 20.716,
+   "end": 25.127,
+   "show": "Airbnb 计划 2027 上半年推出 AI 旅行智能体",
+   "part": 2
+  },
+  {
+   "start": 25.407,
+   "end": 29.169,
+   "show": "不用纯聊天，组合地图照片和行程",
+   "part": 2
+  },
+  {
+   "start": 29.449,
+   "end": 32.897,
+   "show": "CEO 称八成旅行者享受研究行程",
+   "part": 2
+  },
+  {
+   "start": 33.897,
+   "end": 38.077,
+   "show": "OpenAI 总裁 Brockman 称 2027 年或可 IPO",
+   "part": 3
+  },
+  {
+   "start": 38.357,
+   "end": 40.563,
+   "show": "企业业务收入已占多数",
+   "part": 3
+  },
+  {
+   "start": 40.843,
+   "end": 43.977,
+   "show": "Q3 年化收入环比增长 70%",
+   "part": 3
+  },
+  {
+   "start": 44.977,
+   "end": 49.203,
+   "show": "OpenAI 承诺不与公职人员签 NDA",
+   "part": 4
+  },
+  {
+   "start": 49.483,
+   "end": 52.27,
+   "show": "支付全部电力和基础设施成本",
+   "part": 4
+  },
+  {
+   "start": 52.55,
+   "end": 55.998,
+   "show": "每个计算园区设本地契约",
+   "part": 4
+  },
+  {
+   "start": 56.998,
+   "end": 60.597,
+   "show": "感谢收听 SunFlowerRadio，我们明天见。",
+   "part": 5
+  },
+  {
+   "start": 60.877,
+   "end": 62.27,
+   "show": "明天早上再见。",
+   "part": 5
+  }
+ ],
+ "segments": [
+  {
+   "kind": "opening",
+   "index": null,
+   "start": 0.6,
+   "end": 9.554
+  },
+  {
+   "kind": "news",
+   "index": 0,
+   "start": 9.554,
+   "end": 20.716
+  },
+  {
+   "kind": "news",
+   "index": 1,
+   "start": 20.716,
+   "end": 33.897
+  },
+  {
+   "kind": "news",
+   "index": 2,
+   "start": 33.897,
+   "end": 44.977
+  },
+  {
+   "kind": "news",
+   "index": 3,
+   "start": 44.977,
+   "end": 56.998
+  },
+  {
+   "kind": "closing",
+   "index": null,
+   "start": 56.998,
+   "end": 64.27
+  }
+ ],
+ "made_at": "2026-11-06T23:34:38",
+ "voice": "mmx:speech-2.8-hd:Chinese (Mandarin)_Warm_Girl",
+ "tts": "minimax"
+}
